@@ -39,8 +39,13 @@ public class OrdenTrabajoDaoImp implements OrdenTrabajoDao {
 
 	@Override
 	public int create(OrdenTrabajo codigopedido) throws SQLException {
-		// TODO Auto-generated method stub
+		
 		return 0;
+	}
+
+	@Override
+	public List<Map<String, Object>> listar_orden_trabajo() {
+		return this.jdbcTemplate.queryForList("{ call ped_listar_orden_trabajo()}");
 	}
 
 }

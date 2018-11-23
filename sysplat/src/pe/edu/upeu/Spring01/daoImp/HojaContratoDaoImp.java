@@ -46,6 +46,11 @@ public class HojaContratoDaoImp implements HojaContratoDao {
 		return jdbcTemplate.update(sql, hoja.getIdempleado(),hoja.getIdpedido(),hoja.getTotal(),hoja.getAdelanto());
 	}
 
+	@Override
+	public List<Map<String, Object>> listar_hoja_contrato() {
+		return this.jdbcTemplate.queryForList("{ call ped_listar_hoja_contrato()}");
+	}
+
 	
 
 	

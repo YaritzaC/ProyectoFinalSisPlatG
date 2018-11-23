@@ -23,4 +23,8 @@ public class HojaContratoServiceImp implements HojaContratoService{
 	public int crearHojaContrato(HojaContrato hoja) throws SQLException {
 		return hojacontrato.crearHojaContrato(hoja);
 	}
+	@Override
+	public List<Map<String, Object>> listar_hoja_contrato() {
+		return hojacontrato.listar_hoja_contrato();
+	}
 }
