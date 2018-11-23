@@ -61,7 +61,22 @@ public class PedidoController {
 		ma.addObject("listaPe", pedido.readAll());
 		return ma;
 	}
-
+	@GetMapping("/Lista-OT")
+	public ModelAndView listaordenes() {
+		ModelAndView ma = new ModelAndView();
+		ma.setViewName("ped_lista_orden_trabajo");
+		ma.addObject("listaOrdenes", ordentrabajo.listar_orden_trabajo());
+		return ma;
+	}
+	@GetMapping("/Lista-HC")
+	public ModelAndView listahojas() {
+		ModelAndView ma = new ModelAndView();
+		ma.setViewName("ped_lista_hoja_contrato");
+		ma.addObject("listaHoja", hojacontrato.listar_hoja_contrato() );
+		return ma;
+	}
+	
+	
 	@GetMapping("/Nuevo-Pedido")
 	public String pedido_nuevo() {
 		return "ped_nuevo_pedido";

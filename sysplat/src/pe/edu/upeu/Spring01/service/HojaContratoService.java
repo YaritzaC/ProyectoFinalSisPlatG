@@ -9,4 +9,5 @@ import pe.edu.upeu.Spring01.entity.HojaContrato;
 public interface HojaContratoService {
 	public int crearHojaContrato(HojaContrato hoja) throws SQLException;
 	 public List<Map<String,Object>> hojaContrato(int codigopedido);
+	 public List<Map<String, Object>> listar_hoja_contrato();
 }
