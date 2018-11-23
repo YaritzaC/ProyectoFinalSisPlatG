@@ -67,10 +67,6 @@
 	<div class="col-sm-12" style="background-color: white; width: 100%;">
 		<div class="form-group row" style="margin-top: 2%;">
 			<div class="col-lg-3">
-			<input class="form-control" value="${idempleado}" type="text"
-					disabled="disabled" id="id">
-					<input class="form-control" value="${idsede}" type="text"
-					disabled="disabled" id="idse">
 				<label>N° comprobante</label> <input class="form-control"
 					type="text" id="nroCom" disabled="disabled"
 					style="">

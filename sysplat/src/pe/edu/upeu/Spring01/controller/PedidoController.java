@@ -149,7 +149,7 @@ public class PedidoController {
 			Venta venta = new Venta(Integer.parseInt(request.getParameter("idempleado")),
 					Integer.parseInt(request.getParameter("idsede")),
 					Integer.parseInt(request.getParameter("idcliente")),
-					Integer.parseInt(request.getParameter("idhojacontrato")), request.getParameter("tipopago"),
+					Integer.parseInt(request.getParameter("idhoja")), request.getParameter("tipopago"),
 					Double.parseDouble(request.getParameter("total")));
 			out.println(g.toJson(ventapedido.crearVenta(venta)));
 			break;
