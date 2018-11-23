@@ -38,7 +38,7 @@
 	<div class="col-sm-12" style="background-color: white; width: 100%;">
 		<div class="form-group row" style="margin-top: 2%;">
 			<div class="col-lg-3">
-			
+
 				<label>Nro comprobante</label> <input class="form-control"
 					type="text" disabled="disabled" id="nroCom">
 			</div>
@@ -105,7 +105,7 @@
 							<c:forEach items="${listaProd}" var="pro">
 								<option value="${pro.PRO_ID}">${pro.PRO_CODIGO}</option>
 							</c:forEach>
-						</select> 
+						</select>
 						<div class="input-group-append">
 							<button class="btn btn-outline-primary" type="button">
 								<i class="fa fa-search" id="buscarProducto"></i>
@@ -122,7 +122,7 @@
 		<table class="table table-hover" id="tablePro">
 			<thead>
 				<tr>
-				    <th hidden="">Id Codigo</th>
+					<th hidden="">Id Codigo</th>
 					<th>Codigo</th>
 					<th>Nombre</th>
 					<th>Precio</th>
@@ -130,7 +130,7 @@
 					<th>Cantidad</th>
 					<th>Importe</th>
 					<th>Accion</th>
-					
+
 				</tr>
 			</thead>
 			<tbody>
@@ -179,7 +179,7 @@
 		<div class="form-group row" style="margin-top: 2%;">
 			<div class="col-lg-4">
 				<button type="button" class="btn btn-primary">Generar Venta</button>
-				<button type="button" class="btn btn-secondary">Cancelar</button>
+				<span><a href="/sysplat/Lista-Venta" class="btn btn-secondary">Cancelar</a></span>
 			</div>
 			<div class="col-lg-8"></div>
 
@@ -215,7 +215,7 @@
 			ga('create', 'UA-72504830-1', 'auto');
 			ga('send', 'pageview');
 		}
-		
+
 		$(document).ready(function() {
 			$("#alertNotificacion").hide();
 			var id = $("#idEmpleado").val();
@@ -270,11 +270,12 @@
 							var x = JSON.parse(data);
 							alert(data);
 							$("#nombreCliente").val(
-									x.nombre + " " + x.apellido + "" + x.razonsocial);
+									x.nombre + " " + x.apellido + ""
+											+ x.razonsocial);
 							$("#idCliente").val(x.idcliente);
 							$("#cliente").val("");
-							$("#alertNotificacion")
-									.html("Cliente buscado corectamente");
+							$("#alertNotificacion").html(
+									"Cliente buscado corectamente");
 							$("#alertNotificacion").show(200);
 							$("#alertNotificacion").delay(3000).hide(600);
 						});
@@ -317,19 +318,21 @@
 																			+ "</td><td>"
 																			+ x.nombre
 																			+ "</td><td>"
-																			+ x.precio.toFixed(2) 
+																			+ x.precio
+																					.toFixed(2)
 																			+ "</td><td>"
 																			+ x.stock
 																			+ "</td><td><input min='1' max='"
 																			+ x.stock
 																			+ "' type='text' onchange='ActualizarTotal()' onkeyup='Total("
-																			+ x.precio.toFixed(2) 
+																			+ x.precio
+																					.toFixed(2)
 																			+ ",this.value)' class='form-control'></td><td><input disabled='disabled' type='text' id='importe' class='form-control'></td>"
-																			+"<td><a class='btn btn-danger edit' href='#' id='borrar' aria-label='Settings'><i class='fa fa-trash' aria-hidden='true'></i></a></td></tr>");
-													
-													alert("Estoy aca " + x.idproducto);
-													
-													
+																			+ "<td><a class='btn btn-danger edit' href='#' id='borrar' aria-label='Settings'><i class='fa fa-trash' aria-hidden='true'></i></a></td></tr>");
+
+													alert("Estoy aca "
+															+ x.idproducto);
+
 												});
 							} else {
 								alert("VACIO");
@@ -363,37 +366,36 @@
 				totales.push(tot);
 			});
 			var total = eval(totales.join("+"));
-			
+
 			$("#subtotal").val(total.toFixed(2));
-			
-			var tipo=$("#tipoDo").val();
-			if(tipo=="Boleta"){
+
+			var tipo = $("#tipoDo").val();
+			if (tipo == "Boleta") {
 				alert("soy boleta");
 				$("#igv").val("0.00");
 				$("#total").val(total.toFixed(2));
-			}
-			else {
+			} else {
 				alert("soy factura");
-				var igv = (total.toFixed(2)*0.18);
+				var igv = (total.toFixed(2) * 0.18);
 				$("#igv").val(igv.toFixed(2));
-				var tot = total+igv;
+				var tot = total + igv;
 				$("#total").val(tot.toFixed(2));
 			}
 		}
 
-		function EliminarProductoCarrito(){
-		    $('table tr td').click(function(){
-		        var fila = ($(this).parent('tr').index()+1);
-		        alert(fila);
-		        $("#table tbody"+fila).remove();
-		    });
+		function EliminarProductoCarrito() {
+			$('table tr td').click(function() {
+				var fila = ($(this).parent('tr').index() + 1);
+				alert(fila);
+				$("#table tbody" + fila).remove();
+			});
 		}
 
-		$(function () {
-		    $(document).on('click', '#borrar', function (event) {
-		        event.preventDefault();
-		        $(this).closest('tr').remove();
-		    });
+		$(function() {
+			$(document).on('click', '#borrar', function(event) {
+				event.preventDefault();
+				$(this).closest('tr').remove();
+			});
 		});
 	</script>
 </body>

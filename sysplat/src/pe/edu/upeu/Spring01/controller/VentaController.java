@@ -39,18 +39,12 @@ public class VentaController {
 	public String ventaMenu() {
 		return "ven_main_venta";
 	}
-	
-	@GetMapping("/Lista-Venta")
-	public String ventaList() {
-		return "ven_lista_venta";
-	}
 
-	
-	@GetMapping("/Venta")
+	@GetMapping("/Lista-Venta")
 	public ModelAndView ventaLista() {
 		ModelAndView ma = new ModelAndView();
 		ma.setViewName("ven_lista_venta");
-		ma.addObject("listaVen", productoservice.readAll());
+		ma.addObject("listaVen", ventaservice.readAll());
 		return ma;
 	}
 	

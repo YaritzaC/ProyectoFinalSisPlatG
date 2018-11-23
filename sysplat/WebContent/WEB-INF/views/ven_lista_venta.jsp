@@ -38,7 +38,7 @@
 		int i = 0;
 	%>
 	<div class="table-responsive"
-		style="background-color: white; margin-top: 5%;">
+		style="background-color: white; margin-top: 2%;">
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -61,17 +61,17 @@
 					<%i++; %>
 					<tr>
 						<th scope="row"><%=i%></th>
-						<td>${ven}</td>
-						<td>${ven}</td>
-						<td>${ven}</td>
-						<td>${ven}</td>
-						<td>${ven}</td>
-						<td>${ven}</td>
-						<td>${ven}</td>
-						<td>${ven}</td>
-						<td>${ven}</td>
-						<td>${ven}</td>
-						<td>${ven}</td>
+						<td>${ven.EMPL_NOMBRE} ${ven.EMPL_APELLIDO}</td>
+						<td>${ven.CLI_RAZONSOCIAL}</td>
+						<td>${ven.CLI_NOMBRE} ${ven.CLI_APELLIDO}</td>
+						<td>${ven.VNT_FECHA}</td>
+						<td>${ven.VNT_TIPAGO}</td>
+						<td>${ven.VNT_TOTAL}</td>
+						<td>${ven.VNT_IGV}</td>
+						<td>${ven.VNT_SUBTOTAL}</td>
+						<td>${ven.VNT_TIPDOC}</td>
+						<td>${ven.VNT_NUMERO}</td>
+						<td>${ven.VNT_SERIE}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

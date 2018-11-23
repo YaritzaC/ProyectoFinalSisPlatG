@@ -13,5 +13,5 @@ public interface VentaDao {
 	public List<Map<String, Object>> numeroSerie();
 	public int crearVentaPedidoBoleta(Venta venta);
 	public int crearVentaPedidoFactura(Venta venta);
-	
+	public List<Map<String, Object>> readAll();
 }

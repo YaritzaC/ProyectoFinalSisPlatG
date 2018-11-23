@@ -87,5 +87,11 @@ public class VentaDaoImp implements VentaDao {
 				venta.getIdcliente(), venta.getIdhojacontrato(), venta.getTipopago(), venta.getTotal());
 	}
 
+	@Override
+	public List<Map<String, Object>> readAll() {
+		// TODO Auto-generated method stub
+		return this.jdbcTemplate.queryForList("{ call ven_listar_ventas() }");
+	}
+
 
 }

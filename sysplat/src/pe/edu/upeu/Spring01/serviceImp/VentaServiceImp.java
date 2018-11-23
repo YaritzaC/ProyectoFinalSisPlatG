@@ -51,6 +51,12 @@ public class VentaServiceImp implements VentaService {
 		return ven.crearVentaPedidoFactura(venta);
 	}
 
+	@Override
+	public List<Map<String, Object>> readAll() {
+		// TODO Auto-generated method stub
+		return ven.readAll();
+	}
+
 
 
 	
