@@ -32,11 +32,31 @@ public class VentaController {
 	
 	@GetMapping("/Clientes")
 	public String clientenatural() {
-		return "ven_cliente";
+		return "ven_lista_cliente";
 	}
 
+	@GetMapping("/Menu-Venta")
+	public String ventaMenu() {
+		return "ven_main_venta";
+	}
+	
+	@GetMapping("/Lista-Venta")
+	public String ventaList() {
+		return "ven_lista_venta";
+	}
 
+	
 	@GetMapping("/Venta")
+	public ModelAndView ventaLista() {
+		ModelAndView ma = new ModelAndView();
+		ma.setViewName("ven_lista_venta");
+		ma.addObject("listaVen", productoservice.readAll());
+		return ma;
+	}
+	
+	
+	
+	@GetMapping("/Nuevo-Venta")
 	public ModelAndView producto() {
 		ModelAndView ma = new ModelAndView();
 		ma.setViewName("venta");

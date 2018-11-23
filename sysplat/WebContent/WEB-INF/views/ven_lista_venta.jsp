@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <spring:url value="/" var="urlRoot" />
@@ -24,54 +26,55 @@
 	<div class="app-title">
 		<div>
 			<h1>
-				<i class="fa fa-user fa-lg"></i> Lista de Pedidos
+				<i class="fa fa-user fa-lg"></i> Lista de Ventas
 			</h1>
 		</div>
-
 	</div>
 	 <span><a
-		href="/sysplat/Nuevo-Pedido" class="btn btn-primary">Nuevo Pedido
-	</a></span> <%
- 	int i = 0;
- %>
+		href="/sysplat/Nuevo-Venta" class="btn btn-primary">Nueva Venta
+	</a></span> 
+
+	<%
+		int i = 0;
+	%>
 	<div class="table-responsive"
 		style="background-color: white; margin-top: 5%;">
 		<table class="table table-hover">
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Cliente natural</th>
+					<th>Empleado</th>
 					<th>Cliente juridico</th>
-					<th>Nombre Pedido</th>
-					<th>Fecha - Hora</th>
-					<th>Codigo</th>
-					<th>Cantidad</th>
-					<th colspan="3">Accion</th>
+					<th>Cliente natural</th>
+					<th>Fecha</th>
+					<th>Tipo pago</th>
+					<th>Total</th>
+					<th>IGV</th>
+					<th>Subtotal</th>
+					<th>Tipo documento</th>
+					<th>Numero</th>
+					<th>Serie</th>
 				</tr>
 			</thead>
-
 			<tbody>
-				<c:forEach items="${listaPe}" var="pe">
-					<%
-						i++;
-					%>
+				<c:forEach items="${listaVen}" var="ven">
+					<%i++; %>
 					<tr>
 						<th scope="row"><%=i%></th>
-						<td>${pe.CLI_NOMBRE}</td>
-						<td>${pe.CLI_RAZONSOCIAL}</td>
-						<td>${pe.PED_NOMBRE}</td>
-						<td>${pe.PED_FECHA}</td>
-						<td>${pe.PED_CODIGO}</td>
-						<td>${pe.PED_CANTIDAD}</td>
-						<td><a style="color: green;" onclick=""><i class="fa fa-outdent" aria-hidden="true"></i></a></td>
-						<td><a style="color: blue;"><i
-								class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-						<td><a style="color: red;"><i class="fa fa-trash"
-								aria-hidden="true"></i></a></td>
+						<td>${ven}</td>
+						<td>${ven}</td>
+						<td>${ven}</td>
+						<td>${ven}</td>
+						<td>${ven}</td>
+						<td>${ven}</td>
+						<td>${ven}</td>
+						<td>${ven}</td>
+						<td>${ven}</td>
+						<td>${ven}</td>
+						<td>${ven}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
-
 		</table>
 	</div>
 
