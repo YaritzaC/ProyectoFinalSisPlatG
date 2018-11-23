@@ -70,7 +70,7 @@ public class VentaDaoImp implements VentaDao {
 		try {
 			sql="{ call ped_crear_venta_contrato_boleta(?,?,?,?,?,?)}";
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println("Error   " + e);
 		}
 		return jdbcTemplate.update(sql, venta.getIdempleado(), venta.getIdsede(), 
 				venta.getIdcliente(), venta.getIdhojacontrato(), venta.getTipopago(), venta.getTotal());
@@ -82,8 +82,7 @@ public class VentaDaoImp implements VentaDao {
 		try {
 			sql="{ call ped_crear_venta_contrato_factura(?,?,?,?,?,?)}";
 		} catch (Exception e) {
-			// TODO: handle exception
-		}
+			System.out.println("Error   " + e);		}
 		return jdbcTemplate.update(sql, venta.getIdempleado(), venta.getIdsede(), 
 				venta.getIdcliente(), venta.getIdhojacontrato(), venta.getTipopago(), venta.getTotal());
 	}

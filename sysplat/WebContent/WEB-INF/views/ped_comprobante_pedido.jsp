@@ -76,7 +76,7 @@
 					placeholder="" id="nroSer" disabled="disabled" style="">
 			</div>
 			<div class="col-lg-3">
-				<label for="exampleFormControlSelect1">Tipo de documento</label> <select
+				<label>Tipo de documento</label> <select
 					class="form-control" id="tipodoc">
 					<option value="">Seleccione</option>
 					<option value="Boleta">Boleta</option>
@@ -84,7 +84,7 @@
 				</select>
 			</div>
 			<div class="col-lg-3">
-				<label for="exampleFormControlSelect1">Tipo de pago</label> <select
+				<label>Tipo de pago</label> <select
 					class="form-control" id="tipopago">
 					<option value="">Seleccione</option>
 					<option value="Contado">Contado</option>

@@ -40,10 +40,14 @@ public class Test {
 	       // HojaContratoDao dao = (HojaContratoDao)context.getBean("hojaContratoDaoImp");
 		
 		
+		try {
+			VentaDao dao = (VentaDao)context.getBean("ventaDaoImp");
+			Venta h = new Venta(1,1,1000000,500, "Contado", 100);
+			dao.crearVentaPedidoBoleta(h);
+		} catch (Exception e) {
+			System.out.println("Error " + e);
+		}
 		
-		HojaContratoDao dao = (HojaContratoDao)context.getBean("hojaContratoDaoImp");
-		HojaContrato h = new HojaContrato(1,1,1000,500);
-		dao.crearHojaContrato(h);
 	        context.close();
 	}
 }
