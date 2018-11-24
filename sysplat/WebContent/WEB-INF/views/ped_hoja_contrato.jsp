@@ -32,47 +32,46 @@
 		id="alertNotificacion2" role="alert"></div>
 	<div class="alert alert-success alertNotificacion"
 		id="alertNotificacion" role="alert"></div>
-		<label>Codigo del pedido:</label>
-		<div class="form-group has-search">
-			<div class="row">
-				<div class="col-12">
-					<div class="input-group">
-						<input type="text" class="form-control"
-							placeholder="Ingrese el codigo del pedido" aria-label="Username"
-							aria-describedby="basic-addon1" id="codigoPedido">
-						<div class="input-group-append">
-							<button class="btn btn-outline-primary" type="button"
-								id="buscarPedido">
-								<i class="fa fa-search"></i>
-							</button>
-						</div>
+	<label>Codigo del pedido:</label>
+	<div class="form-group has-search">
+		<div class="row">
+			<div class="col-12">
+				<div class="input-group">
+					<input type="text" class="form-control"
+						placeholder="Ingrese el codigo del pedido" aria-label="Username"
+						aria-describedby="basic-addon1" id="codigoPedido">
+					<div class="input-group-append">
+						<button class="btn btn-outline-primary" type="button"
+							id="buscarPedido">
+							<i class="fa fa-search"></i>
+						</button>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 	<div class="col-sm-12" style="background-color: white; width: 100%;">
 		<div class="form-group row" style="margin-top: 2%;">
 			<div class="col-lg-3">
 				<label>Cliente</label> <input id="cliente" class="form-control"
-					type="text" placeholder="" disabled="disabled"
-					style="">
+					type="text" placeholder="" disabled="disabled" style="">
 			</div>
 			<div class="col-lg-3">
-				<label>Codigo Pedido</label> <input id="codigo" class="form-control" type="text"
-					placeholder="" disabled="disabled" style="">
+				<label>Codigo Pedido</label> <input id="codigo" class="form-control"
+					type="text" placeholder="" disabled="disabled" style="">
 			</div>
 			<div class="col-lg-3">
 				<label>Tipo Pago</label> <input class="form-control" type="text"
 					placeholder="Contado" disabled="disabled" style="">
 			</div>
 			<div class="col-lg-3">
-				<label>Fecha Emitida</label> <input id="fecha" class="form-control" type="text"
-					placeholder="" disabled="disabled" style="">
+				<label>Fecha Emitida</label> <input id="fecha" class="form-control"
+					type="text" placeholder="" disabled="disabled" style="">
 			</div>
 		</div>
 	</div>
 	<div class="table-responsive" style="background-color: white;">
-		<table id="tablehoja" class="table table-hover" >
+		<table id="tablehoja" class="table table-hover">
 			<thead>
 				<tr>
 					<th>#</th>
@@ -82,11 +81,11 @@
 				</tr>
 			</thead>
 			<tbody>
-				
+
 			</tbody>
 		</table>
 	</div>
-	
+
 	<div class="col-sm-12" style="background-color: white; width: 100%;">
 		<div class="form-group row" style="margin-top: 2%;">
 			<div class="col-lg-1"></div>
@@ -96,7 +95,7 @@
 					<div class="input-group-append">
 						<span class="input-group-text">$</span>
 					</div>
-					<input type="text"  disabled="disabled" class="form-control"
+					<input type="text" disabled="disabled" class="form-control"
 						aria-label="Amount (to the nearest dollar)" id="importeTotal">
 				</div>
 			</div>
@@ -122,7 +121,8 @@
 						aria-label="Amount (to the nearest dollar)" id="acuenta">
 				</div>
 				<div class="col-lg-1"></div>
-			</div><div class="col-lg-2">
+			</div>
+			<div class="col-lg-2">
 				<label>S/ 50% Importe</label>
 				<div class="input-group">
 					<div class="input-group-append">
@@ -139,7 +139,8 @@
 		<div class="form-group row" style="margin-top: 2%;">
 			<div class="col-lg-4">
 				<button type="button" class="btn btn-primary" id="generarHoja">Generar</button>
-				<button type="button" class="btn btn-secondary">Cancelar</button>
+				<span><a href="/sysplat/Lista-HC" class="btn btn-primary">Cancelar
+				</a></span>
 			</div>
 			<div class="col-lg-8"></div>
 
@@ -175,9 +176,6 @@
 			ga('create', 'UA-72504830-1', 'auto');
 			ga('send', 'pageview');
 		}
-		
-		
-
 	</script>
 </body>
 </html>
