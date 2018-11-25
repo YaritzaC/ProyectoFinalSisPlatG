@@ -37,39 +37,70 @@ public class CompraController {
 	@Autowired
 	private CompraServiceImp cmp;
 
-	@GetMapping("/Compras")
-	public String compras() {
-		return "com_main_main";
-	}
-
 	@PostMapping("/acceso1")
 	public ModelAndView main1(Model model, HttpServletRequest request) {
 
 		return null;
 	}
-
-	@GetMapping("/Crear-Orden-Compra")
-	public String crearordencompra() {
-		return "com_main_listascompras";
+	/*
+	 * Menu Principal
+	 */
+	@GetMapping("/Compras")
+	public String compras() {
+		return "com_main_main";
 	}
+	
+	/*
+	 * Modulo de Compras
+	 */
+	@GetMapping("/Crear-Orden-Compra")
+	public ModelAndView crearordencompra() {
+		ModelAndView ma = new ModelAndView();
+		ma.setViewName("com_listascompras");
+		ma.addObject("listaPro", productoservice.readAll());
+		return ma;
+	}
+	@GetMapping("/Aceptar-Orden-de-Compra")
+	public String registrarordencompra2() {
 
+		return "com_main_listascompras(Aceptar)";
+	}
+	
+
+	/*
+	 * Modulo de Registrar orden de compras
+	 */
 	@GetMapping("/Registrar-Orden-Compra")
 	public String registrarordencompra() {
 		return "com_main_registrarcompra";
 	}
+	@GetMapping("/Registrar-Listas-Compras")
+	public String registrarlistascompras() {
 
-	@GetMapping("/Aceptar-Orden-de-Compra")
-	public String registrarordencompra2() {
-
-		return "com_main_listascompras2";
+		return "com_main_registrarproductoslistas";
 	}
+	
+	/*
+	 * Modulo de Ingresar Productos Comprados 
+	 */
 
+	@GetMapping("/Registrar-Listas")
+	public String registrarlistas() {
+
+		return "com_main_registrarcompra(Productos)";
+	}
+	
+	
 	@GetMapping("/Ingresar-Productos-Comprados")
 	public String ingresarproductos() {
 
-		return "com_main_listascompras2";
+		return "com_main_registrarproducto";
 	}
-
+	
+	/*
+	 *Otros Modulos que son necesarios
+	 */
+	
 	@GetMapping("/Proveedores")
 	public String proveedor() {
 		return "proveedor";
@@ -83,6 +114,9 @@ public class CompraController {
 		return ma;
 	}
 
+	/*
+	 * Espacio para las practicas
+	 */
 	@GetMapping("/listord")
 	public ModelAndView compra() {
 		ModelAndView ma = new ModelAndView();

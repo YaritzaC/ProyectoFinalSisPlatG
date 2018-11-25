@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <spring:url value="/" var="urlRoot" />
@@ -20,13 +22,13 @@
 	<div class="app-title">
 		<div>
 			<h1>
-				<i class="fa fa-dashboard"></i> Compras
+				<i class="fa fa-clipboard" style="font-size: 48px; color: orange;"></i>
+				Crear Orden Compra
 			</h1>
-			<p>Start a beautiful journey here</p>
 		</div>
 		<ul class="app-breadcrumb breadcrumb">
 			<li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-			<li class="breadcrumb-item"><a href="#">Blank Page</a></li>
+			<li class="breadcrumb-item"><a href="#">Home</a></li>
 		</ul>
 	</div>
 	<div class="row">
@@ -35,74 +37,69 @@
 				<div class="tile-body">Crear lista para las compras</div>
 			</div>
 		</div>
-
-	</div>
-
-	<div class="">
-		<div class="content-wrapper">
-			<div class="content-header row"></div>
-			<div class="content-body">
-				<!-- stats -->
-				<div class="row">
-					<div class="col-xl-3 col-lg-6 col-lg-12">
-						<div class="card">
-							<div class="card-body">
-								<div class="card-block">
-									<div class="media">
-										<i class="fa fa-clipboard" style="font-size:48px;color:orange;"></i>
-										<div class="col-xl-1"></div>
-										<div class="media-body text-xs-left">
-											<h3 class="pink">10</h3>
-											<span><a style="color: black"
-												href="/SISPLAT-G/Crear-Orden-Compra">Crear Orden de
-													Compra </a></span>
-										</div>
-										<div class="media-right media-middle">
-											<i class="icon-bag2 pink font-large-2 float-xs-right"></i>
-										</div>
-									</div>
-								</div>
+	
+<!-- Tabla que estoy desarrollando --> 
+		<div style="width: 300px; position: relative; left: 70%;">
+			<li class="app-search"><input style="width: 300px;"
+				class="app-search__input" type="search" placeholder="Search" id="searchpro">
+				<button class="app-search__button">
+					<i class="fa fa-search"></i>
+				</button></li>
+		</div>
+		<div class="table-responsive"
+			style="background-color: white; margin-top: 5%;">
+			<table class="table table-hover" id="tablaCrear">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Nombre</th>
+						<th>Stock</th>
+						<th>Precio Unitario</th>
+						<th>Precio Total</th>
+					</tr> 
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Collar de plata</td>
+						<td><input></td>
+						<td>
+							<div class="row">
+							<div class="col-xl-3 col-lg-6 col-lg-12">
+								<input type="number" id="income" name="income" value="10" style="width: 50px;">
+								<p1> soles</p1>
 							</div>
-						</div>
-					</div>
-
-					<div class="col-xl-3 col-lg-6 col-xs-12">
-						<div class="card">
-							<div class="card-body">
-								<div class="card-block">
-									<div class="media">
-										<i class="fa fa-file" style="font-size:48px;color:orange;"></i>
-										<div class="col-xl-1"></div>
-										<div class="media-body text-xs-left">
-											<h3 class="deep-orange">10</h3>
-											<span><a style="color: black"
-												href="/SISPLAT-G/Registrar-Orden-de-Compra">Registrar
-													Orden de Compra </a></span>
-										</div>
-										<div class="media-right media-middle">
-											<i
-												class="icon-diagram deep-orange font-large-2 float-xs-right"></i>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--/ stats -->
-
-
+						</td>
+						<td>
+							<input value="1000" >
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	<br />
+	<div class="row">
+		<div class="row col-md-12">
+			<div class="row col-md-8"></div>
+			<div class="col-md-4">
+				<span class="btn btn-lg btn-primary"><i class="fa fa-search" aria-hidden="true"></i>Siguiente</span>
+				<span class="btn btn-secondary btn-lg"><a style="color: white;"	href="/SISPLAT-G/Compras">Salir </a></span>
 			</div>
 		</div>
 	</div>
 	</main>
 	<!-- Essential javascripts for application to work-->
+	
 	<script src="${urlrecursos}/js/jquery-3.2.1.min.js"></script>
 	<script src="${urlrecursos}/js/popper.min.js"></script>
 	<script src="${urlrecursos}/js/bootstrap.min.js"></script>
+	<script src="${urlrecursos}/js/compra/ordencompra.js"></script>
 	<script src="${urlrecursos}/js/main.js"></script>
 	<!-- The javascript plugin to display page loading on top-->
 	<script src="${urlrecursos}/js/plugins/pace.min.js"></script>
+	<script type="text/javascript">
+	window.alert("INGRESO DE PRODUCTOS CON ÉXITO");
+	</script>
 	<!-- Page specific javascripts-->
 	<!-- Google analytics script-->
 	<script type="text/javascript">

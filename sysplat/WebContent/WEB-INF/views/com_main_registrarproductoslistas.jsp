@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <spring:url value="/" var="urlRoot" />
@@ -22,80 +20,58 @@
 	<div class="app-title">
 		<div>
 			<h1>
-				<i class="fa fa-dashboard"></i> Compras
+				<i class="fa fa-file" style="font-size: 38px; color: orange;"></i> Registrar Compras
 			</h1>
-			<p>Start a beautiful journey here</p>
 		</div>
 		<ul class="app-breadcrumb breadcrumb">
 			<li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-			<li class="breadcrumb-item"><a href="#">Blank Page</a></li>
+			<li class="breadcrumb-item"><a href="#">Home</a></li>
 		</ul>
 	</div>
 	<div class="row">
 		<div class="col-md-12 row">
 			<div class="tile col-md-6">
-				<div class="tile-body">Crear lista para las compras</div>
+				<div class="tile-body">Registrar compras registradas</div>
 			</div>
-		</div> 
-
+		</div>
 	</div>
-
 	<div>
-		<div style="width: 300px; position:relative; left: 70%; ">
-			<li class="app-search"><input style="width: 300px;" class="app-search__input"
-				type="search" placeholder="Search">
+		<div style="width: 300px; position: relative; left: 70%;">
+			<li class="app-search"><input style="width: 300px;"
+				class="app-search__input" type="search" placeholder="Search">
 				<button class="app-search__button">
 					<i class="fa fa-search"></i>
 				</button></li>
 		</div>
 		<div class="table-responsive"
-		style="background-color: white; margin-top: 5%;">
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>#</th>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Dni</th>
-					<th>Type</th>
-					<th>User Name</th>
-					<th>Password</th>
-					<th colspan="2">Action</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>1</td>
-					<td>John</td>
-					<td>Doe</td>
-					<td>john@example.com</td>
-					<td>John</td>
-					<td>Doe</td>
-					<td>john@example.com</td>
-					<td><a href="#" class="fa fa-check-circle"></a><input type="number" id="income" name="income" value="1" style="width: 50px;" ></td>
-				</tr>
-				<tr>
-					<td>Mary</td>
-					<td>Moe</td>
-					<td>mary@example.com</td>
-					<td>John</td>
-					<td>Doe</td>
-					<td>john@example.com</td>
-					<td>Doe</td>
-					<td>john@example.com</td>
-				</tr>
-				<tr>
-					<td>Julyss</td>
-					<td>Dooley</td>
-					<td>july@example.com</td>
-					<td>John</td>
-					<td>Doe</td>
-					<td>john@example.com</td>
-					<td>Doe</td>
-					<td><input type="number" id="income" name="income" value="10"></td>
-				</tr>
-			</tbody>
-		</table>
+			style="background-color: white; margin-top: 5%;">
+			<table class="table table-hover" id="registrar">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Nombre</th>
+						<th>Fecha</th>
+						<th colspan="2">Acción</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Lista 1</td>
+						<td>5/11/2018</td>
+						<td><a href="#" class="fa fa-eye"></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="row col-md-12">
+			<div class="row col-md-8"></div>
+			<div class="col-md-4">
+				<button type="button" class="btn btn-lg btn-primary" id="siguiente">Salir</button>
+			</div>
 		</div>
 	</div>
 	</main>

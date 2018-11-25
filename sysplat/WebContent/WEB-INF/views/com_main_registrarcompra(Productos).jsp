@@ -23,7 +23,7 @@
 		<div>
 			<h1>
 				<i class="fa fa-clipboard" style="font-size: 48px; color: orange;"></i>
-				Crear Orden Compra
+				Ingresar Productos Comprados
 			</h1>
 		</div>
 		<ul class="app-breadcrumb breadcrumb">
@@ -34,73 +34,54 @@
 	<div class="row">
 		<div class="col-md-12 row">
 			<div class="tile col-md-6">
-				<div class="tile-body">Crear lista para las compras</div>
+				<div class="tile-body">Ingresar Productos Comprados</div>
 			</div>
 		</div>
 
 	</div>
-	<!-- Este es el ejemplo de tomar el nombre y pasarlo a otra tabla -->
+
 	<div>
-		<div class=" center col s12" id="visualizarProducto"
-			style="border: 1px solid #eae8e8; border-radius: 5px; margin: 10px 0px 5px 0px; padding: 10pX 10Px 0px 10px;">
-			<table class="table" id="tablaPrestamo">
-				<thead>
-					<tr>
-						<th scope="col">#</th>
-						<th scope="col">NOMBRE</th>
-						<th scope="col">CODIGO</th>
-						<th scope="col">ESTADO</th>
-						<th scope="col">TIPO</th>
-						<th scope="col">DISPONIBLE</th>
-						<th scope="col">ACCION</th>
-					</tr>
-				</thead>
-				<tbody></tbody>
-			</table>
-		</div>
-
-		<!-- la otra tabla -->
-		<div class="center col s12">
-			<table class="table" id="tablaDetalle">
-				<thead>
-					<tr>
-						<th>EQUIPO</th>
-						<th>ESTADO</th>
-						<th>TIPO</th>
-						<th>ELIMINAR</th>
-					</tr>
-				</thead>
-				<tbody>
-
-				</tbody>
-			</table>
-		</div>
-
-	</div>
-	
-<!-- Tabla que estoy desarrollando -->
-	<div>
-		<div style="width: 300px; position: relative; left: 70%;">
-			<li class="app-search"><input style="width: 300px;"
-				class="app-search__input" type="search" placeholder="Search" id="searchpro">
-				<button class="app-search__button">
-					<i class="fa fa-search"></i>
-				</button></li>
+		<div class="row">
+			<div style="width: 300px; position: relative; left: 2%;">
+				Colocar nombre a lista
+				<li class="app-search"><input style="width: 300px;"
+					class="app-search__input" type="search" placeholder="Nombre"></li>
+			</div>
+			<div style="width: 300px; position: relative; left: 30%;">
+				<li class="app-search"><input style="width: 300px;"
+					class="app-search__input" type="search" placeholder="Search">
+					<button class="app-search__button">
+						<i class="fa fa-search"></i>
+					</button></li>
+			</div>
 		</div>
 		<div class="table-responsive"
-			style="background-color: white; margin-top: 5%;">
-			<table class="table table-hover" id="tablaCrear">
+			style="background-color: white; margin-top: 2%;">
+			<table class="table table-hover">
 				<thead>
 					<tr>
 						<th>#</th>
 						<th>Nombre</th>
-						<th>Stock</th>
-						<th>Precio</th>
+						<th>Descripción</th>
 						<th colspan="2" style="width: 100px;">Accion</th>
 					</tr>
 				</thead>
 				<tbody>
-					
+					<tr>
+						<td>1</td>
+						<td>Collar de plata</td>
+						<td>Collar hecho a base de plata y con materiales sacados de
+							un volcan inactivo donde vivio un gran dragon</td>
+						<td>
+						<div class="row">
+								<div class="col-xl-3 col-lg-6 col-lg-12">
+									<a href="#" class="fa fa-check-circle"
+										style="font-size: 30px; color: grey;"></a>
+								</div>
+								</div>
+								</div>
+					 	</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -110,25 +91,30 @@
 		<div class="row col-md-12">
 			<div class="row col-md-8"></div>
 			<div class="col-md-4">
-				<span class="btn btn-lg btn-primary"><a style="color: white;"
-					href="/SISPLAT-G/Aceptar-Orden-de-Compra">Siguiente </a></span> <span
-					class="btn btn-secondary btn-lg"><a style="color: white;"
-					href="/SISPLAT-G/Compras">Salir </a></span>
+				<span class="btn btn-lg btn-primary"><i class="fa fa-search" aria-hidden="true"></i>Siguiente</span>
+				<span class="btn btn-secondary btn-lg"><a style="color: white;"	href="/SISPLAT-G/Compras">Salir </a></span>
 			</div>
 		</div>
 	</div>
 	</main>
 	<!-- Essential javascripts for application to work-->
-	
 	<script src="${urlrecursos}/js/jquery-3.2.1.min.js"></script>
 	<script src="${urlrecursos}/js/popper.min.js"></script>
 	<script src="${urlrecursos}/js/bootstrap.min.js"></script>
-	<script src="${urlrecursos}/js/compra/ordencompra.js"></script>
 	<script src="${urlrecursos}/js/main.js"></script>
 	<!-- The javascript plugin to display page loading on top-->
 	<script src="${urlrecursos}/js/plugins/pace.min.js"></script>
 	<!-- Page specific javascripts-->
 	<!-- Google analytics script-->
+	<script type="text/javascript">
+	var txt;
+	var r = confirm("Actualización de lista completada con éxito  ¿Desea registrar otra lista?" );
+	if (r == true) {
+	    txt = "You pressed OK!";
+	} else {
+	    txt = "You pressed Cancel!";
+	} 
+	</script>
 	<script type="text/javascript">
 		if (document.location.hostname == 'pratikborsadiya.in') {
 			(function(i, s, o, g, r, a, m) {
