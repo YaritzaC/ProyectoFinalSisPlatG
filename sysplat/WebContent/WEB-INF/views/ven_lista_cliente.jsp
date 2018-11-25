@@ -32,7 +32,7 @@
 	</div>
 	<!-- Button to Open the Modal -->
 	<button type="button" class="btn btn-primary" data-toggle="modal"
-		data-target="#myModal">Open modal</button>
+		data-target="#myModal">Registrar cliente</button>
 
 	<%
 		int i = 0;
@@ -76,7 +76,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3>Informacion Empleado</h3>
+					<h3>Informacion Cliente</h3>
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<!-- Modal body -->
@@ -107,34 +107,30 @@
 								</div>
 							</div>
 							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Type</label>
-								<div class="col-lg-9">
-									<select id="user_time_zone" class="form-control" size="0">
-										<option value="Hawaii">Administrador</option>
-										<option value="Central Time (US &amp; Canada)"
-											selected="selected">Vendedor</option>
-										<option value="Indiana (East)">Jefe de fabricaciï¿½n</option>
-									</select>
-								</div>
-							</div>
-							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Username</label>
+								<label class="col-lg-3 col-form-label form-control-label">Razon social</label>
 								<div class="col-lg-9">
 									<input class="form-control" type="text"
 										placeholder="JoseGuzman123">
 								</div>
 							</div>
 							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Password</label>
+								<label class="col-lg-3 col-form-label form-control-label">Ruc</label>
 								<div class="col-lg-9">
-									<input class="form-control" type="password"
+									<input class="form-control" type="text"
 										placeholder="123456">
 								</div>
 							</div>
 							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Confirm</label>
+								<label class="col-lg-3 col-form-label form-control-label">Celular</label>
 								<div class="col-lg-9">
-									<input class="form-control" type="password"
+									<input class="form-control" type="text"
+										placeholder="123456">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Direccion</label>
+								<div class="col-lg-9">
+									<input class="form-control" type="text"
 										placeholder="123456">
 								</div>
 							</div>
