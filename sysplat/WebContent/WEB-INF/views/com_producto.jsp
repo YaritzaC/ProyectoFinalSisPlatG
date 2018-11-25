@@ -48,8 +48,7 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Id producto</th>
-					<th>Name</th>
+					<th>Nombre</th>
 					<th>Precio</th>
 					<th>Stock</th>
 					<th>Codigo</th>
@@ -57,16 +56,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${listPro}" var="pro">
+				<c:forEach items="${listaPro}" var="pro">
 					<%i++; %>
 					<tr>
 						<th scope="row"><%=i%></th>
-						<td>${pro.idproducto}</td>
-						<td>${pro.nombre}</td>
-						<td>${pro.precio}</td>
-						<td>${pro.stock}</td>
-						<td>${pro.codigo}</td>
-						<td>${pro.estado}</td>
+						<td>${pro.PRO_NOMBRE}</td>
+						<td>${pro.PRO_PRECIO}</td>
+						<td>${pro.PRO_STOCK}</td>
+						<td>${pro.PRO_CODIGO}</td>
+						<td>${pro.PRO_ESTADO}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

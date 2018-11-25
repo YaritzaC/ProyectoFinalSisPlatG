@@ -74,10 +74,13 @@ public class CompraController {
 	public String proveedor() {
 		return "proveedor";
 	}
-
+	
 	@GetMapping("/Productos")
-	public String producto() {
-		return "com_producto";
+	public ModelAndView productos() {
+		ModelAndView ma = new ModelAndView();
+		ma.setViewName("com_producto");
+		ma.addObject("listaPro", productoservice.readAll());
+		return ma;
 	}
 
 	@GetMapping("/listord")
