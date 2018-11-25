@@ -31,7 +31,7 @@
 	<div class="row">
 		<div class="col-md-12 row">
 			<div class="tile col-md-6">
-				<div class="tile-body">Registrar compras registradas</div>
+				<div class="tile-body">Registrar compras</div>
 			</div>
 		</div>
 	</div>
@@ -45,7 +45,7 @@
 		</div>
 		<div class="table-responsive"
 			style="background-color: white; margin-top: 5%;">
-			<table class="table table-hover">
+			<table class="table table-hover" id="registrar">
 				<thead>
 					<tr>
 						<th>#</th>
@@ -70,9 +70,7 @@
 		<div class="row col-md-12">
 			<div class="row col-md-8"></div>
 			<div class="col-md-4">
-				<button type="button" class="btn btn-lg btn-primary">Siguiente</button>
-				<span class="btn btn-secondary btn-lg"><a
-					style="color: white;" href="/SISPLAT-G/Compras">Salir </a></span>
+				<button type="button" class="btn btn-lg btn-primary" id="siguiente">Salir</button>
 			</div>
 		</div>
 	</div>

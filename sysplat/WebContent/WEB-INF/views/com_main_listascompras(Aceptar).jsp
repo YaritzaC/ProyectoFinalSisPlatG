@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <spring:url value="/" var="urlRoot" />
@@ -22,8 +22,7 @@
 	<div class="app-title">
 		<div>
 			<h1>
-				<i class="fa fa-clipboard" style="font-size: 48px; color: orange;"></i>
-				Ingresar Productos Comprados
+				<i class="fa fa-file" style="font-size: 38px; color: orange;"></i> Registrar Compras
 			</h1>
 		</div>
 		<ul class="app-breadcrumb breadcrumb">
@@ -34,18 +33,17 @@
 	<div class="row">
 		<div class="col-md-12 row">
 			<div class="tile col-md-6">
-				<div class="tile-body">Ingresar Productos Comprados</div>
+				<div class="tile-body">Registrar compras registradas</div>
 			</div>
 		</div>
-
 	</div>
 
 	<div>
 		<div class="row">
-		<div style="width: 300px; position: relative; left: 2%;">
-		Colocar nombre  a lista
-				<li class="app-search"><input style="width: 300px;"	class="app-search__input" 
-				type="search" placeholder="Nombre"></li>
+			<div style="width: 300px; position: relative; left: 2%;">
+				Colocar nombre a lista
+				<li class="app-search"><input style="width: 300px;"
+					class="app-search__input" type="search" placeholder="Nombre"></li>
 			</div>
 			<div style="width: 300px; position: relative; left: 30%;">
 				<li class="app-search"><input style="width: 300px;"
@@ -92,10 +90,8 @@
 		<div class="row col-md-12">
 			<div class="row col-md-8"></div>
 			<div class="col-md-4">
-				<span class="btn btn-lg btn-primary"><i class="fa fa-search"
-								aria-hidden="true" onclick="prueba()"></i>Siguiente</span>
-				<span class="btn btn-secondary btn-lg"><a
-					style="color: white;" href="/SISPLAT-G/Compras" >Salir </a></span>
+				<span class="btn btn-lg btn-primary"><i class="fa fa-search" aria-hidden="true"></i>Sigduiente</span>
+				<span class="btn btn-secondary btn-lg"><a style="color: white;"	href="/SISPLAT-G/Compras">Salir </a></span>
 			</div>
 		</div>
 	</div>
@@ -109,6 +105,9 @@
 	<script src="${urlrecursos}/js/plugins/pace.min.js"></script>
 	<!-- Page specific javascripts-->
 	<!-- Google analytics script-->
+	<script type="text/javascript">
+	window.alert("LISTA GENERADA DE PRODUCTOS FALTANTES AÑADIDA CON ÉXITO A LISTA PARA COMPRA");
+	</script>
 	<script type="text/javascript">
 		if (document.location.hostname == 'pratikborsadiya.in') {
 			(function(i, s, o, g, r, a, m) {
