@@ -134,7 +134,9 @@
 		<div class="form-group row" style="margin-top: 2%;">
 			<div class="col-lg-4">
 				<button type="button" class="btn btn-primary">Generar Orden</button>
-				<button type="button" class="btn btn-secondary">Cancelar</button>
+				 <span><a
+		href="/sysplat/Lista-OT" class="btn btn-primary">Cancelar
+	</a></span> 
 			</div>
 			<div class="col-lg-8"></div>
 

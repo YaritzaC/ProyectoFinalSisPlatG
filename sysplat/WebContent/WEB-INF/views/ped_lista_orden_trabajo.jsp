@@ -28,10 +28,9 @@
 			</h1>
 		</div>
 	</div>
-	
-	
-	<button type="button" class="btn btn-primary">Add Orden Trabajo    </button>
-	<a href="/sysplat/Orden-Trabajo"> click </a> 
+	 <span><a
+		href="/sysplat/Orden-Trabajo" class="btn btn-primary">Nueva Orden Trabajo
+	</a></span> 
 <div class="table-responsive"
 		style="background-color: white; margin-top: 5%;">
 		<table class="table table-hover">
@@ -58,26 +57,7 @@
 					<td>john@example.com</td>
 					<td>john@example.com</td>
 				</tr>
-				<tr>
-					<td>Mary</td>
-					<td>Moe</td>
-					<td>mary@example.com</td>
-					<td>John</td>
-					<td>Doe</td>
-					<td>john@example.com</td>
-					<td>Doe</td>
-					<td>john@example.com</td>
-				</tr>
-				<tr>
-					<td>July</td>
-					<td>Dooley</td>
-					<td>july@example.com</td>
-					<td>John</td>
-					<td>Doe</td>
-					<td>john@example.com</td>
-					<td>Doe</td>
-					<td>john@example.com</td>
-				</tr>
+				
 			</tbody>
 		</table>
 	</div>

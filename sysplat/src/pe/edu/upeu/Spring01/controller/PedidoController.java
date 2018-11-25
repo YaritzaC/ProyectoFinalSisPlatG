@@ -65,7 +65,7 @@ public class PedidoController {
 	public ModelAndView listaordenes() {
 		ModelAndView ma = new ModelAndView();
 		ma.setViewName("ped_lista_orden_trabajo");
-		ma.addObject("listaOrdenes", ordentrabajo.listar_orden_trabajo());
+		ma.addObject("listaOrden", ordentrabajo.listar_orden_trabajo());
 		return ma;
 	}
 	@GetMapping("/Lista-HC")
@@ -82,20 +82,11 @@ public class PedidoController {
 		return "ped_nuevo_pedido";
 	}
 
-	@GetMapping("/Lista-HC")
-	public String lista_hoja_contrato() {
-		return "ped_lista_hoja_contrato";
-	}
-
 	@GetMapping("/Hoja-Contrato")
 	public String hoja_contrato() {
 		return "ped_hoja_contrato";
 	}
 
-	@GetMapping("/Lista-OT")
-	public String lista_orden_trabajo() {
-		return "ped_lista_orden_trabajo";
-	}
 
 	@GetMapping("/Orden-Trabajo")
 	public String orden_trabajo() {

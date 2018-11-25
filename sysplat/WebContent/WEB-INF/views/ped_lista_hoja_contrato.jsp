@@ -33,34 +33,41 @@
 			<li class="breadcrumb-item"><a href="#">Blank Page</a></li>
 		</ul>
 	</div>
-	<!-- Button to Open the Modal -->
-	<button type="button" class="btn btn-primary" > Add Hoja Contrato   </button>
-<a href="/sysplat/Hoja-Contrato">Hojaaa</a> 
-
+	<span><a href="/sysplat/Hoja-Contrato" class="btn btn-primary">Nuevo
+			Hoja Contrato </a></span> <%
+ 	int i = 0;
+ %>
 	<div class="table-responsive"
 		style="background-color: white; margin-top: 5%;">
 		<table class="table table-hover">
 			<thead>
 				<tr>
 					<th>#</th>
+					<th>Cliente</th>
+					<th>Empleado</th>
+					<th>Nombre Pedido</th>
 					<th>Fecha</th>
-					<th>Codigo</th>
+					<th>Cantidad</th>
+					<th>Precio</th>
 					<th>Total</th>
-					<th>Adelanto</th>
-					<th>Mitad Total</th>
-					<th colspan="2">Action</th>
 				</tr>
 			</thead>
 			<tbody>
+			<c:forEach items="${listaHoja}" var="lista">
+			<%
+						i++;
+					%>
 				<tr>
-					<td>1</td>
-					<td>John</td>
-					<td>Doe</td>
-					<td>john@example.com</td>
-					<td>John</td>
-					<td>Doe</td>
-					<td>john@example.com</td>
+					<td><%=i%></td>
+					<td>${lista.CLI_NOMBRE}</td>
+					<td>${lista.EMPL_NOMBRE}</td>
+					<td>${lista.PED_NOMBRE}</td>
+					<td>${lista.PED_FECHA}</td>
+					<td>${lista.PED_CANTIDAD}</td>
+					<td>${lista.PED_PRECIO}</td>
+					<td>${lista.HCT_TOTAL}</td>
 				</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>
