@@ -26,14 +26,9 @@
 	<div class="app-title">
 		<div>
 			<h1>
-				<i class="fa fa-user fa-lg"></i> Crear Empleado
+				<i class="fa fa-user fa-lg"></i> Producto
 			</h1>
-			<p>Start a beautiful journey here</p>
 		</div>
-		<ul class="app-breadcrumb breadcrumb">
-			<li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-			<li class="breadcrumb-item"><a href="#">Blank Page</a></li>
-		</ul>
 	</div>
 	<!-- Button to Open the Modal -->
 	<button type="button" class="btn btn-primary" data-toggle="modal"
