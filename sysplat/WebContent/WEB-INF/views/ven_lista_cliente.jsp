@@ -1,10 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <spring:url value="/" var="urlRoot" />
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<title>SysCoco</title>
+<title>SisPlat-G</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,55 +26,131 @@
 	<div class="app-title">
 		<div>
 			<h1>
-				<i class="fa fa-dashboard"></i> Cliente
+				<i class="fa fa-user fa-lg"></i> Cliente
 			</h1>
 		</div>
 	</div>
+	<!-- Button to Open the Modal -->
+	<button type="button" class="btn btn-primary" data-toggle="modal"
+		data-target="#myModal">Open modal</button>
+
 	<%
 		int i = 0;
 	%>
-	<div class="table-responsive" style="background-color: white;">
+	<div class="table-responsive"
+		style="background-color: white; margin-top: 5%;">
 		<table class="table table-hover">
 			<thead>
 				<tr>
 					<th>#</th>
 					<th>Nombre</th>
 					<th>Apellido</th>
-					<th>DNI</th>
-					<th>Razon social</th>
+					<th>Dni</th>
+					<th>Razon Social</th>
 					<th>Ruc</th>
 					<th>Direccion</th>
 					<th>Celular</th>
 					<th>Estado</th>
-					<th colspan="3">Accion</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${listaCli}" var="clie">
-					<%
-						i++;
-					%>
+				<c:forEach items="${listaCliente}" var="cli">
+					<%i++; %>
 					<tr>
 						<th scope="row"><%=i%></th>
-						<td>clie.CLI_NOMBRE</td>
-						<td>clie.CLI_APELLIDO</td>
-						<td>clie.CLI_DNI</td>
-						<td>clie.CLI_RAZONSOCIAL</td>
-						<td>clie.CLI_RUC</td>
-						<td>clie.CLI_DIRECCION</td>
-						<td>clie.CLI_CELULAR</td>
-						<td>clie.CLI_ESTADO</td>
-						<td><a style="color: green;" onclick=""><i
-								class="fa fa-outdent" aria-hidden="true"></i></a></td>
-						<td><a style="color: blue;"><i
-								class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-						<td><a style="color: red;"><i class="fa fa-trash"
-								aria-hidden="true"></i></a></td>
+						<td>${cli.CLI_NOMBRE}</td>
+						<td>${cli.CLI_APELLIDO}</td>
+						<td>${cli.CLI_DNI}</td>
+					    <td>${cli.CLI_RAZONSOCIAL}</td>
+					    <td>${cli.CLI_RUC}</td>
+					    <td>${cli.CLI_DIRECCION}</td>
+					    <td>${cli.CLI_CELULAR}</td>
+					    <td>${cli.CLI_ESTADO}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
+	<!-- The Modal -->
+	<div class="modal" id="myModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3>Informacion Empleado</h3>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<!-- Modal body -->
+				<div class="modal-body">
+					<!-- form user info -->
+					<div class="card-body">
+						<form class="form" role="form" autocomplete="off">
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">First
+									name</label>
+								<div class="col-lg-9">
+									<input class="form-control" type="text"
+										placeholder="Jose Armando">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Last
+									name</label>
+								<div class="col-lg-9">
+									<input class="form-control" type="text"
+										placeholder="Guzman Gonzales">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">DNI</label>
+								<div class="col-lg-9">
+									<input class="form-control" type="text" placeholder="74289801">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Type</label>
+								<div class="col-lg-9">
+									<select id="user_time_zone" class="form-control" size="0">
+										<option value="Hawaii">Administrador</option>
+										<option value="Central Time (US &amp; Canada)"
+											selected="selected">Vendedor</option>
+										<option value="Indiana (East)">Jefe de fabricaciï¿½n</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Username</label>
+								<div class="col-lg-9">
+									<input class="form-control" type="text"
+										placeholder="JoseGuzman123">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Password</label>
+								<div class="col-lg-9">
+									<input class="form-control" type="password"
+										placeholder="123456">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Confirm</label>
+								<div class="col-lg-9">
+									<input class="form-control" type="password"
+										placeholder="123456">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<input type="reset" class="btn btn-secondary" data-dismiss="modal"
+						value="Cancel"> <input id="GuardarEmpleado" type="button"
+						class="btn btn-primary" value="Save Changes">
+				</div>
+			</div>
+		</div>
+	</div>
+
 	</main>
 	<!-- Essential javascripts for application to work-->
 	<script src="${urlrecursos}/js/jquery-3.2.1.min.js"></script>

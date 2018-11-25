@@ -61,7 +61,21 @@ public class VentaDaoImp implements VentaDao {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		return jdbcTemplate.update(sql, venta.getIdempleado(), venta.getIdsede(), venta.getIdcliente(), venta.getTipopago(), venta.getTipodocumento(), venta.getTotal());
+		return jdbcTemplate.update(sql, venta.getIdempleado(), venta.getIdsede(), venta.getIdcliente(), venta.getTipopago(), 
+				venta.getTipodocumento(), venta.getTotal());
+	}
+	
+	@Override
+	public int crearVentaFactura(Venta venta) throws SQLException {
+		// TODO Auto-generated method stub
+		String sql = null;
+		try {
+			sql="{ call ven_crear_venta_factura_no_incluido(?,?,?,?,?,?)}";
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return jdbcTemplate.update(sql, venta.getIdempleado(), venta.getIdsede(), venta.getIdcliente(), venta.getTipopago(), 
+				venta.getTipodocumento(), venta.getSubtotal());
 	}
 
 	@Override
@@ -92,6 +106,8 @@ public class VentaDaoImp implements VentaDao {
 		// TODO Auto-generated method stub
 		return this.jdbcTemplate.queryForList("{ call ven_listar_ventas() }");
 	}
+
+	
 
 
 }

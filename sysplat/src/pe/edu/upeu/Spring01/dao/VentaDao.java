@@ -8,10 +8,16 @@ import pe.edu.upeu.Spring01.entity.Venta;
 
 public interface VentaDao {
 	public int crearVenta(Venta venta)throws SQLException;
+	public int crearVentaFactura(Venta venta)throws SQLException;
+	
 	public List<Map<String, Object>> ventaPedido(int codigohoja);
 	public List<Map<String, Object>> numeroComprobante();
 	public List<Map<String, Object>> numeroSerie();
+	
+	//Pedido
 	public int crearVentaPedidoBoleta(Venta venta);
 	public int crearVentaPedidoFactura(Venta venta);
+	
+	//Listar ventas
 	public List<Map<String, Object>> readAll();
 }

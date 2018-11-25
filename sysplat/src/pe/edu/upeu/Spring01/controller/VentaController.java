@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 
+import pe.edu.upeu.Spring01.entity.Venta;
 import pe.edu.upeu.Spring01.service.ClienteService;
 import pe.edu.upeu.Spring01.service.ProductoService;
 import pe.edu.upeu.Spring01.service.VentaService;
@@ -34,7 +35,7 @@ public class VentaController {
 	public ModelAndView clienteLista() {
 		ModelAndView ma = new ModelAndView();
 		ma.setViewName("ven_lista_cliente");
-		ma.addObject("listaCli", clienteservice.readAll());
+		ma.addObject("listaCliente", clienteservice.readAll());
 		return ma;
 	}
 
@@ -85,6 +86,7 @@ public class VentaController {
 		int op = Integer.parseInt(request.getParameter("opc"));
 		switch (op) {
 		case 1:
+			// Busco por código al producto
 			out.println(g.toJson(productoservice.buscarProducto(request.getParameter("codigo"))));
 			break;
 		}
@@ -98,10 +100,32 @@ public class VentaController {
 		int op = Integer.parseInt(request.getParameter("opc"));
 		switch (op) {
 		case 1:
+			// Cargo el número de comprobante
 			out.println(g.toJson(ventaservice.numeroComprobante()));
 			break;
 		case 2:
+			// Cargo el número de serie
 			out.println(g.toJson(ventaservice.numeroSerie()));
+			break;
+		case 3:
+			// Crear venta boleta
+			Venta v = new Venta (Integer.parseInt(request.getParameter("idempleado")),
+								 Integer.parseInt(request.getParameter("idsede")),
+								 Integer.parseInt(request.getParameter("idcliente")),
+								 request.getParameter("pago"),
+								 Double.parseDouble(request.getParameter("total")),
+								 request.getParameter("documento"));
+			out.println(g.toJson(ventaservice.crearVenta(v)));
+			break;
+		case 4:
+			// Crear venta factura
+			Venta ven = new Venta (Integer.parseInt(request.getParameter("idempleado")),
+					 Integer.parseInt(request.getParameter("idsede")),
+					 Integer.parseInt(request.getParameter("idcliente")),
+					 request.getParameter("pago"),
+					 Double.parseDouble(request.getParameter("subtotal")),
+					 request.getParameter("documento"));
+			out.println(g.toJson(ventaservice.crearVentaFactura(ven)));
 			break;
 		}
 	}

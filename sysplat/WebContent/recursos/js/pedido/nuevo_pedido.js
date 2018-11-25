@@ -54,6 +54,7 @@ $("#guardarPedido").click(
 
 			alert(idem + " ------ " + idse);
 			
+			if (idem != "" && idse != "" && idcli != "" && nom != "" && can != "" && pre != "") {
 				$.post("ped", {
 					"opc" : 1,
 					"idempleado" : idem,
@@ -86,6 +87,19 @@ $("#guardarPedido").click(
 					$("#observacion").val("");
 					$("#nombreCliente").val("");
 				});
+			}
+			else {
+				alert("VACIO");
+				swal({
+					position : 'top-end',
+					type : 'error',
+					title : 'Ups! Pedido fallido!',
+					showConfirmButton : false,
+					timer : 1500
+				})
+			}
+			
+				
 				
 
 		});

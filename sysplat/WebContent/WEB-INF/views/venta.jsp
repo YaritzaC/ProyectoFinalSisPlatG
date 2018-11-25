@@ -107,8 +107,9 @@
 							</c:forEach>
 						</select>
 						<div class="input-group-append">
-							<button class="btn btn-outline-primary" type="button">
-								<i class="fa fa-search" id="buscarProducto"></i>
+							<button class="btn btn-outline-primary" type="button"
+								id="buscarProducto">
+								<i class="fa fa-search"></i>
 							</button>
 						</div>
 					</div>
@@ -178,8 +179,10 @@
 	<div class="col-sm-12" style="background-color: white; width: 100%;">
 		<div class="form-group row" style="margin-top: 2%;">
 			<div class="col-lg-4">
-				<button type="button" class="btn btn-primary">Generar Venta</button>
-				<span><a href="/sysplat/Lista-Venta" class="btn btn-secondary">Cancelar</a></span>
+				<button type="button" class="btn btn-primary" id="generarVenta">Generar
+					Venta</button>
+				<span><a href="/sysplat/Lista-Venta"
+					class="btn btn-secondary">Cancelar</a></span>
 			</div>
 			<div class="col-lg-8"></div>
 
@@ -217,10 +220,13 @@
 		}
 
 		$(document).ready(function() {
+
+			$("#generarVenta").attr('disabled', 'true');
+
 			$("#alertNotificacion").hide();
 			var id = $("#idEmpleado").val();
 			var ids = $("#idSede").val();
-			alert(id + " asasas " + ids + "i'm new pe'");
+
 			$.get("vc", {
 				"opc" : 1
 			}, function(data) {
@@ -256,12 +262,14 @@
 					$("#nroSer").val(serie);
 				}
 			});
-			CalcularIgv()
 		});
 
 		$("#buscarCliente").click(
 				function() {
+
+					// Input donde se coloca el DNI o RUC del cliente
 					var cli = $("#cliente").val();
+
 					if (cli != "") {
 						$.get("hc", {
 							"opc" : 1,
@@ -269,22 +277,27 @@
 						}, function(data) {
 							var x = JSON.parse(data);
 							alert(data);
+
+							//Me carga datos del cliente
 							$("#nombreCliente").val(
 									x.nombre + " " + x.apellido + ""
 											+ x.razonsocial);
 							$("#idCliente").val(x.idcliente);
+
+							// Alert 
 							$("#cliente").val("");
 							$("#alertNotificacion").html(
 									"Cliente buscado corectamente");
 							$("#alertNotificacion").show(200);
 							$("#alertNotificacion").delay(3000).hide(600);
+
 						});
 					} else {
 						alert("VACIO");
 						swal({
 							position : 'top-end',
 							type : 'error',
-							title : 'Ups! Producto no existe!',
+							title : 'Ups! Cliente no existe!',
 							showConfirmButton : false,
 							timer : 1500
 						})
@@ -295,6 +308,9 @@
 		$("#buscarProducto")
 				.click(
 						function() {
+							// Habilitar boton de la venta
+							$("#generarVenta").removeAttr("disabled");
+
 							var pro = $("#codigoPro").val();
 							alert(pro);
 							if (pro != "Ingrese codigo") {
@@ -371,11 +387,9 @@
 
 			var tipo = $("#tipoDo").val();
 			if (tipo == "Boleta") {
-				alert("soy boleta");
 				$("#igv").val("0.00");
 				$("#total").val(total.toFixed(2));
-			} else {
-				alert("soy factura");
+			} else if (tipo == "Factura") {
 				var igv = (total.toFixed(2) * 0.18);
 				$("#igv").val(igv.toFixed(2));
 				var tot = total + igv;
@@ -397,6 +411,134 @@
 				$(this).closest('tr').remove();
 			});
 		});
+
+		$("#generarVenta")
+				.click(
+						function() {
+							var idem = $("#idEmpleado").val();
+							var idse = $("#idSede").val();
+							var idclien = $("#idCliente").val();
+
+							var pag = $("#tipoPa").val();
+							var doc = $("#tipoDo").val();
+
+							var subto = $("#subtotal").val();
+							var to = $("#total").val();
+
+							// Nombre del cliente
+							var clien = $("#nombreCliente").val();
+
+							alert("Soy id empleado " + idem);
+
+							alert("Soy total " + to);
+
+							if (idem != "" && idse != "" && idclien != ""
+									&& pag != "Seleccione"
+									&& doc != "Seleccione" && doc == "Boleta"
+									&& total != 0.00) {
+								$
+										.post(
+												"vc",
+												{
+													"opc" : 3,
+													"idempleado" : idem,
+													"idsede" : idse,
+													"idcliente" : idclien,
+													"pago" : pag,
+													"total" : to,
+													"documento" : doc
+												},
+												function() {
+													alert("Llegue venta");
+													swal({
+														position : 'top-end',
+														type : 'success',
+														title : 'Venta registrada correctamente',
+														showConfirmButton : false,
+														timer : 1500
+													})
+
+													$("#idCliente").val("");
+
+													$("#tipoPa").val(
+															"Seleccione");
+													$("#tipoDo").val(
+															"Seleccione");
+
+													$("#subtotal").val("0.00");
+													$("#igv").val("0.00");
+													$("#total").val("0.00");
+
+													// Nombre del cliente
+													$("#nombreCliente").val();
+
+													//Remover tabla
+													$('#tablePro tbody tr')
+															.remove();
+
+													//Deshabilitar venta
+													$("#generarVenta").attr(
+															'disabled', 'true');
+												});
+
+							} else if (idem != "" && idse != ""
+									&& idclien != "" && pag != "Seleccione"
+									&& doc != "Seleccione" && doc == "Factura"
+									&& subtotal != 0.00) {
+								$.post(
+												"vc",
+												{
+													"opc" : 4,
+													"idempleado" : idem,
+													"idsede" : idse,
+													"idcliente" : idclien,
+													"pago" : pag,
+													"subtotal" : subtotal,
+													"documento" : doc
+												},
+												function() {
+													alert("Llegue venta factura");
+													swal({
+														position : 'top-end',
+														type : 'success',
+														title : 'Venta con factura registrada correctamente',
+														showConfirmButton : false,
+														timer : 1500
+													})
+
+													$("#idCliente").val("");
+
+													$("#tipoPa").val(
+															"Seleccione");
+													$("#tipoDo").val(
+															"Seleccione");
+
+													$("#subtotal").val("0.00");
+													$("#igv").val("0.00");
+													$("#total").val("0.00");
+
+													// Nombre del cliente
+													$("#nombreCliente").val();
+
+													//Remover tabla
+													$('#tablePro tbody tr')
+															.remove();
+
+													//Deshabilitar venta
+													$("#generarVenta").attr(
+															'disabled', 'true');
+												});
+							} else {
+								alert("VACIO");
+								swal({
+									position : 'top-end',
+									type : 'error',
+									title : 'Ups! Venta fallida!',
+									showConfirmButton : false,
+									timer : 1500
+								})
+							}
+						});
 	</script>
 </body>
 </html>

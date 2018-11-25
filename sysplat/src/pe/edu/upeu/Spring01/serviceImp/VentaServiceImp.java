@@ -57,6 +57,12 @@ public class VentaServiceImp implements VentaService {
 		return ven.readAll();
 	}
 
+	@Override
+	public int crearVentaFactura(Venta venta) throws SQLException {
+		// TODO Auto-generated method stub
+		return ven.crearVentaFactura(venta);
+	}
+
 
 
 	
