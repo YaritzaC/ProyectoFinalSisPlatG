@@ -2,6 +2,7 @@ package pe.edu.upeu.Spring01.test;
 
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -40,14 +41,18 @@ public class Test {
 	       // HojaContratoDao dao = (HojaContratoDao)context.getBean("hojaContratoDaoImp");
 		
 		
-		try {
-			VentaDao dao = (VentaDao)context.getBean("ventaDaoImp");
-			Venta h = new Venta(1,1,1000000,500, "Contado", 100);
-			dao.crearVentaPedidoBoleta(h);
-		} catch (Exception e) {
-			System.out.println("Error " + e);
-		}
-		
+		//try {
+		//	VentaDao dao = (VentaDao)context.getBean("ventaDaoImp");
+		//	Venta h = new Venta(1,1,1000000,500, "Contado", 100);
+		//dao.crearVentaPedidoBoleta(h);
+		//} catch (Exception e) {
+		//System.out.println("Error " + e);
+		//}
+		ClienteDao dao = (ClienteDao)context.getBean("clienteDaoImp");
+		List<Map<String, Object>> lista = dao.readAll();
+		for(Map<String,Object> map:lista) {
+        	System.out.println(map.get("CLI_NOMBRE"));
+        }
 	        context.close();
 	}
 }

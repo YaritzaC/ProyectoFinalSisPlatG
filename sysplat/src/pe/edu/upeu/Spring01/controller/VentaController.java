@@ -31,8 +31,11 @@ public class VentaController {
 	private VentaService ventaservice;
 	
 	@GetMapping("/Clientes")
-	public String clientenatural() {
-		return "ven_lista_cliente";
+	public ModelAndView clienteLista() {
+		ModelAndView ma = new ModelAndView();
+		ma.setViewName("ven_lista_cliente");
+		ma.addObject("listaCli", clienteservice.readAll());
+		return ma;
 	}
 
 	@GetMapping("/Menu-Venta")

@@ -2,6 +2,9 @@ package pe.edu.upeu.Spring01.serviceImp;
 
 
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +20,11 @@ public class ClienteServiceImp implements ClienteService {
 	public Cliente buscarCliente(String c) {
 		// TODO Auto-generated method stub
 		return cli.buscarCliente(c);
+	}
+	@Override
+	public List<Map<String, Object>> readAll() {
+		// TODO Auto-generated method stub
+		return cli.readAll();
 	}
 
 }

@@ -10,6 +10,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
 <spring:url value="/recursos" var="urlrecursos"></spring:url>
 <link href="${urlrecursos}/css/template.css" rel="stylesheet">
 </head>
@@ -20,60 +24,52 @@
 	<div class="app-title">
 		<div>
 			<h1>
-				<i class="fa fa-dashboard"></i> Crear Cliente
+				<i class="fa fa-dashboard"></i> Cliente
 			</h1>
-			<p>Start a beautiful journey here</p>
-		</div>
-		<ul class="app-breadcrumb breadcrumb">
-			<li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-			<li class="breadcrumb-item"><a href="#">Blank Page</a></li>
-		</ul>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<div class="tile">
-				<div class="tile-body">Create a beautiful dashboard</div>
-			</div>
 		</div>
 	</div>
-
+	<%
+		int i = 0;
+	%>
 	<div class="table-responsive" style="background-color: white;">
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>Reason Social</th>
+					<th>#</th>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>DNI</th>
+					<th>Razon social</th>
 					<th>Ruc</th>
-					<th>Direction</th>
-					<th>Cell phone</th>
-					<th>State</th>
-					<th colspan="2">Action</th>
+					<th>Direccion</th>
+					<th>Celular</th>
+					<th>Estado</th>
+					<th colspan="3">Accion</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>John</td>
-					<td>Doe</td>
-					<td>john@example.com</td>
-					<td>John</td>
-					<td>Doe</td>
-					<td>john@example.com</td>
-				</tr>
-				<tr>
-					<td>Mary</td>
-					<td>Moe</td>
-					<td>mary@example.com</td>
-					<td>John</td>
-					<td>Doe</td>
-					<td>john@example.com</td>
-				</tr>
-				<tr>
-					<td>July</td>
-					<td>Dooley</td>
-					<td>july@example.com</td>
-					<td>John</td>
-					<td>Doe</td>
-					<td>john@example.com</td>
-				</tr>
+				<c:forEach items="${listaCli}" var="clie">
+					<%
+						i++;
+					%>
+					<tr>
+						<th scope="row"><%=i%></th>
+						<td>clie.CLI_NOMBRE</td>
+						<td>clie.CLI_APELLIDO</td>
+						<td>clie.CLI_DNI</td>
+						<td>clie.CLI_RAZONSOCIAL</td>
+						<td>clie.CLI_RUC</td>
+						<td>clie.CLI_DIRECCION</td>
+						<td>clie.CLI_CELULAR</td>
+						<td>clie.CLI_ESTADO</td>
+						<td><a style="color: green;" onclick=""><i
+								class="fa fa-outdent" aria-hidden="true"></i></a></td>
+						<td><a style="color: blue;"><i
+								class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+						<td><a style="color: red;"><i class="fa fa-trash"
+								aria-hidden="true"></i></a></td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>
