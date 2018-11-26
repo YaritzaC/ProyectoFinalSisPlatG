@@ -54,7 +54,7 @@
 										<div class="media-body text-xs-left">
 											<h3 class="pink">10</h3>
 											<span><a style="color: black"
-												href="/SISPLAT-G/Crear-Orden-Compra">Crear Orden de
+												href="/sysplat/Crear-Orden-Compra">Crear Orden de
 													Compra </a></span>
 										</div>
 										<div class="media-right media-middle">
@@ -76,7 +76,7 @@
 										<div class="media-body text-xs-left">
 											<h3 class="deep-orange">10</h3>
 											<span><a style="color: black"
-												href="/SISPLAT-G/Registrar-Orden-de-Compra">Registrar
+												href="/sysplat/Registrar-Orden-Compra">Registrar
 													Orden de Compra </a></span>
 										</div>
 										<div class="media-right media-middle">
@@ -102,7 +102,7 @@
 										<div class="media-body text-xs-left">
 											<h3 class="deep-orange">10</h3>
 											<span><a style="color: black"
-												href="/SISPLAT-G/Registrar-Orden-de-Compra">Ingresar
+												href="/sysplat/Ingresar-Productos-Comprados">Ingresar
 													Productos Comprados </a></span>
 										</div>
 										<div class="media-right media-middle">

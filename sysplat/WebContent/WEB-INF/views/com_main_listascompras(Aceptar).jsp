@@ -25,19 +25,7 @@
 				<i class="fa fa-file" style="font-size: 38px; color: orange;"></i> Registrar Compras
 			</h1>
 		</div>
-		<ul class="app-breadcrumb breadcrumb">
-			<li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-			<li class="breadcrumb-item"><a href="#">Home</a></li>
-		</ul>
 	</div>
-	<div class="row">
-		<div class="col-md-12 row">
-			<div class="tile col-md-6">
-				<div class="tile-body">Registrar compras registradas</div>
-			</div>
-		</div>
-	</div>
-
 	<div>
 		<div class="row">
 			<div style="width: 300px; position: relative; left: 2%;">
@@ -90,7 +78,7 @@
 		<div class="row col-md-12">
 			<div class="row col-md-8"></div>
 			<div class="col-md-4">
-				<span class="btn btn-lg btn-primary"><i class="fa fa-search" aria-hidden="true"></i>Sigduiente</span>
+				<span class="btn btn-lg btn-primary"><i class="fa fa-search" aria-hidden="true"></i>Siguiente</span>
 				<span class="btn btn-secondary btn-lg"><a style="color: white;"	href="/SISPLAT-G/Compras">Salir </a></span>
 			</div>
 		</div>
