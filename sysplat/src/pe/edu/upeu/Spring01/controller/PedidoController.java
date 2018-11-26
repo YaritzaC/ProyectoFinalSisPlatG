@@ -106,6 +106,11 @@ public class PedidoController {
 		return "ped_hoja_contrato";
 	}
 	
+	@GetMapping("/Venta-Pedido")
+	public String comprobantepedido() {
+		return "ped_comprobante_pedido";
+	}
+	
 
 	private Gson g = new Gson();
 
@@ -127,8 +132,7 @@ public class PedidoController {
 					Integer.parseInt(request.getParameter("idpedido")));
 			out.println(g.toJson(ordentrabajo.crearOrdenTrabajo(orden)));
 		case 4:
-			MateriaOrden materia = new MateriaOrden(Integer.parseInt(request.getParameter("idpedido")),
-					Integer.parseInt(request.getParameter("idmateria")));
+			MateriaOrden materia = new MateriaOrden(Integer.parseInt(request.getParameter("idmateria")));
 			out.println(g.toJson(ordentrabajo.crearMateriaOrden(materia)));
 			break;
 		}
@@ -202,24 +206,5 @@ public class PedidoController {
 		}
 
 	}
-	
-	/*
-	 * @PostMapping("/Orden") public ModelAndView main1(Model model,
-	 * HttpServletRequest request) {
-	 * JOptionPane.showMessageDialog(null,"asasassaas"); HttpSession httpSession =
-	 * request.getSession(); String CodigoPedido =
-	 * request.getParameter("codigopedido"); ModelAndView ma = new ModelAndView();
-	 * try { List<Map<String, Object>> lista =
-	 * ordentrabajo.ordenTrabajo(Integer.parseInt(CodigoPedido)); if
-	 * (!lista.isEmpty()) { ma.setViewName("Orden-Trabajo"); for (Map<String,
-	 * Object> map : lista) { System.out.println(map.get("CLI_NOMBRE") + "/" +
-	 * map.get("PED_ID") +"// "+map.get("PED_FECHA")); }
-	 * httpSession.setAttribute("lista", lista); ma.addObject("lista",
-	 * (List<Map<String, Object>>) httpSession.getAttribute("lista")); } else {
-	 * httpSession.invalidate(); ma.setViewName("redirect:/"); }
-	 * 
-	 * } catch (Exception e) { // TODO: handle exception
-	 * ma.setViewName("redirect:/"); } return ma; }
-	 */
 
 }

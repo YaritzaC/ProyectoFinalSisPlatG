@@ -5,13 +5,10 @@ public class MateriaOrden {
 	private int idmateriaorden;
 	private int idodt;
 	private int idmtp;
-	private double cantidad;
-	private String descripcion;
 	private String estado;
 	
-	public MateriaOrden(int idodt, int idmtp) {
+	public MateriaOrden(int idmtp) {
 		super();
-		this.idodt = idodt;
 		this.idmtp = idmtp;
 	}
 
@@ -19,16 +16,7 @@ public class MateriaOrden {
 		super();
 	}
 
-	public MateriaOrden(int idmateriaorden, int idodt, int idmtp, double cantidad, String descripcion, String estado) {
-		super();
-		this.idmateriaorden = idmateriaorden;
-		this.idodt = idodt;
-		this.idmtp = idmtp;
-		this.cantidad = cantidad;
-		this.descripcion = descripcion;
-		this.estado = estado;
-	}
-
+	
 	public int getIdmateriaorden() {
 		return idmateriaorden;
 	}
@@ -52,23 +40,6 @@ public class MateriaOrden {
 	public void setIdmtp(int idmtp) {
 		this.idmtp = idmtp;
 	}
-
-	public double getCantidad() {
-		return cantidad;
-	}
-
-	public void setCantidad(double cantidad) {
-		this.cantidad = cantidad;
-	}
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-
 	public String getEstado() {
 		return estado;
 	}
