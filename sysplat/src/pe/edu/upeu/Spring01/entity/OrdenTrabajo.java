@@ -3,12 +3,22 @@ package pe.edu.upeu.Spring01.entity;
 public class OrdenTrabajo {
 private int idordentrabajo;
 private int idempleado;
+private int idpedido;
 private String fechainicio;
 private String fechafin;
 private String codigo;
 private String fechaactualizada;
 private String estado;
 
+
+public OrdenTrabajo(int idempleado, int idpedido) {
+	super();
+	this.idempleado = idempleado;
+	this.idpedido = idpedido;
+}
+public OrdenTrabajo() {
+	super();
+}
 public OrdenTrabajo(int idordentrabajo, int idempleado, String fechainicio, String fechafin, String codigo,
 		String fechaactualizada, String estado) {
 	super();
@@ -19,6 +29,16 @@ public OrdenTrabajo(int idordentrabajo, int idempleado, String fechainicio, Stri
 	this.codigo = codigo;
 	this.fechaactualizada = fechaactualizada;
 	this.estado = estado;
+}
+
+
+
+
+public int getIdpedido() {
+	return idpedido;
+}
+public void setIdpedido(int idpedido) {
+	this.idpedido = idpedido;
 }
 public int getIdordentrabajo() {
 	return idordentrabajo;

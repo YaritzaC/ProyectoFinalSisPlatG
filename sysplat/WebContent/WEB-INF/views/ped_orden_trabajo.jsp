@@ -103,7 +103,7 @@
 						</select>
 						<div class="input-group-append">
 							<button class="btn btn-outline-primary" type="button"
-								id="buscarProducto">
+								id="buscarmateria">
 								<i class="fa fa-search"></i>
 							</button>
 						</div>
@@ -111,7 +111,6 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="form-group row" style="margin-top: 2%;">
 			<div class="table-responsive" style="background-color: white;">
 				<table id="tableorden" class="table table-hover">
@@ -128,12 +127,12 @@
 			</div>
 		</div>
 	</div>
-	</div>
 	<div class="col-sm-12" style="background-color: white; width: 100%;">
 		<div class="form-group row" style="margin-top: 2%;">
 			<div class="col-lg-4">
-				<button type="button" class="btn btn-primary">Generar Orden</button>
-				<span><a href="/sysplat/Lista-OT" class="btn btn-primary">Cancelar
+				<button type="button" class="btn btn-primary" id="generar">Generar
+					Orden</button>
+				<span><a href="/sysplat/Lista-OT" class="btn btn-primary"">Cancelar
 				</a></span>
 			</div>
 			<div class="col-lg-8"></div>

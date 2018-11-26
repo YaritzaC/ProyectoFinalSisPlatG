@@ -113,7 +113,4 @@ public class VentaDaoImp implements VentaDao {
 		return  this.jdbcTemplate.queryForList("{ call ped_listar_ventas_pedidos() }");
 	}
 
-	
-
-
 }

@@ -21,6 +21,17 @@ import pe.edu.upeu.Spring01.entity.MateriaPrima;
 @Repository
 public class MateriaPrimaDaoImp implements MateriaPrimaDao {
 
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	public JdbcTemplate getJdbcTemplate() {
+		return jdbcTemplate;
+	}
+
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+
 	@Override
 	public int create(MateriaPrima materiaprima) throws SQLException {
 		// TODO Auto-generated method stub
@@ -49,6 +60,18 @@ public class MateriaPrimaDaoImp implements MateriaPrimaDao {
 	public List<MateriaPrima> readAll() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public MateriaPrima buscarMateriaPrima(String p) {
+		MateriaPrima materia = new MateriaPrima();
+		try {
+			String sql="{ call ped_buscar_materia_prima(?) }";
+			materia= jdbcTemplate.queryForObject(sql, new MateriaPrimaRowMapper(),p);
+		} catch (Exception e) {
+			System.out.println("Error fatal" + e);
+		}
+		return materia;
 	}
 
 }

@@ -23,10 +23,13 @@ import com.google.gson.Gson;
 
 import pe.edu.upeu.Spring01.entity.DetalleVenta;
 import pe.edu.upeu.Spring01.entity.HojaContrato;
+import pe.edu.upeu.Spring01.entity.MateriaOrden;
+import pe.edu.upeu.Spring01.entity.OrdenTrabajo;
 import pe.edu.upeu.Spring01.entity.Pedido;
 import pe.edu.upeu.Spring01.entity.Venta;
 import pe.edu.upeu.Spring01.service.DetalleVentaService;
 import pe.edu.upeu.Spring01.service.HojaContratoService;
+import pe.edu.upeu.Spring01.service.MateriaPrimaService;
 import pe.edu.upeu.Spring01.service.OrdenTrabajoService;
 import pe.edu.upeu.Spring01.service.VentaService;
 import pe.edu.upeu.Spring01.serviceImp.PedidoServiceImp;
@@ -34,6 +37,9 @@ import pe.edu.upeu.Spring01.serviceImp.PedidoServiceImp;
 @Controller
 public class PedidoController {
 
+	@Autowired
+	private MateriaPrimaService materia;
+	
 	@Autowired
 	private OrdenTrabajoService ordentrabajo;
 
@@ -53,7 +59,6 @@ public class PedidoController {
 	public String mainpedido() {
 		return "ped_main_pedido";
 	}
-	
 
 	@GetMapping("/Lista-Pedidos")
 	public ModelAndView producto() {
@@ -87,7 +92,7 @@ public class PedidoController {
 	public ModelAndView comprobante_pedido() {
 		ModelAndView ma = new ModelAndView();
 		ma.setViewName("ped_orden_trabajo");
-		ma.addObject("listamateria", ordentrabajo.listar_orden_trabajo());
+		ma.addObject("listamateria", ordentrabajo.listar_materia_prima());
 		return ma;
 	}
 	
@@ -115,13 +120,16 @@ public class PedidoController {
 			out.println(g.toJson(ordentrabajo.ordenTrabajo(Integer.parseInt(request.getParameter("codigopedido")))));
 			break;
 		case 2:
-			out.println(g.toJson(ordentrabajo.ordenTrabajo(Integer.parseInt(request.getParameter("codigopedido")))));
+			out.println(g.toJson(materia.buscarMateriaPrima(request.getParameter("materia"))));
 			break;
 		case 3:
-			out.println(g.toJson(ordentrabajo.ordenTrabajo(Integer.parseInt(request.getParameter("codigopedido")))));
-			break;
+			OrdenTrabajo orden = new OrdenTrabajo(Integer.parseInt(request.getParameter("idempleado")),
+					Integer.parseInt(request.getParameter("idpedido")));
+			out.println(g.toJson(ordentrabajo.crearOrdenTrabajo(orden)));
 		case 4:
-			out.println(g.toJson(ordentrabajo.ordenTrabajo(Integer.parseInt(request.getParameter("codigopedido")))));
+			MateriaOrden materia = new MateriaOrden(Integer.parseInt(request.getParameter("idpedido")),
+					Integer.parseInt(request.getParameter("idmateria")));
+			out.println(g.toJson(ordentrabajo.crearMateriaOrden(materia)));
 			break;
 		}
 	}

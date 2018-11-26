@@ -47,8 +47,6 @@ public class MateriaOrdenDaoImp implements MateriaOrdenDao {
 	public List<MateriaOrden> readAll() {
 		// TODO Auto-generated method stub
 		return null;
-	} 
-
-
+	}
 
 }

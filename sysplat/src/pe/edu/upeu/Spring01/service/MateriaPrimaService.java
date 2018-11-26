@@ -12,4 +12,5 @@ public interface MateriaPrimaService {
  public int delete(int id);
  public MateriaPrima read(int id);
  public List<MateriaPrima> readAll();
+ public MateriaPrima buscarMateriaPrima(String p);
 }

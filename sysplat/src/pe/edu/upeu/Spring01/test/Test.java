@@ -48,10 +48,10 @@ public class Test {
 		//} catch (Exception e) {
 		//System.out.println("Error " + e);
 		//}
-		ClienteDao dao = (ClienteDao)context.getBean("clienteDaoImp");
-		List<Map<String, Object>> lista = dao.readAll();
+		OrdenTrabajoDao dao = (OrdenTrabajoDao)context.getBean("ordenTrabajoDaoImp");
+		List<Map<String, Object>> lista = dao.listar_materia_prima();
 		for(Map<String,Object> map:lista) {
-        	System.out.println(map.get("CLI_NOMBRE"));
+        	System.out.println(map.get("MTP_ID"));
         }
 	        context.close();
 	}

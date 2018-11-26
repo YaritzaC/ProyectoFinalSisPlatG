@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import pe.edu.upeu.Spring01.dao.OrdenTrabajoDao;
+import pe.edu.upeu.Spring01.entity.MateriaOrden;
 import pe.edu.upeu.Spring01.entity.OrdenTrabajo;
 
 @Repository
@@ -28,7 +29,7 @@ public class OrdenTrabajoDaoImp implements OrdenTrabajoDao {
 	public List<Map<String, Object>> ordenTrabajo(int codigopedido) {
 		String sql=null;
 		try {
-		 sql="SELECT C.CLI_NOMBRE, P.PED_CODIGO, P.PED_NOMBRE, P.PED_FECHA, E.EMPL_ID  FROM \n" + 
+		 sql="SELECT C.CLI_NOMBRE,P.PED_ID, P.PED_CODIGO, P.PED_NOMBRE, P.PED_FECHA, E.EMPL_ID  FROM \n" + 
 					"PEDIDO AS P, EMPLEADO AS E, CLIENTE AS C WHERE P.PED_CODIGO='"+codigopedido+"' "
 							+ "and E.EMPL_ID=P.EMPL_ID AND C.CLI_ID=P.CLI_ID;";
 		} catch (Exception e) {
@@ -51,6 +52,18 @@ public class OrdenTrabajoDaoImp implements OrdenTrabajoDao {
 	@Override
 	public List<Map<String, Object>> listar_materia_prima() {
 		return this.jdbcTemplate.queryForList("{ call ped_listar_materias_primas()}");
+	}
+
+	@Override
+	public int crearOrdenTrabajo(OrdenTrabajo orden) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int crearMateriaOrden(MateriaOrden materia) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

@@ -12,4 +12,6 @@ public interface MateriaPrimaDao {
  public int delete(int id);
  public MateriaPrima read(int id);
  public List<MateriaPrima> readAll();
+ public MateriaPrima buscarMateriaPrima(String p);
+
 }

@@ -7,23 +7,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pe.edu.upeu.Spring01.daoImp.OrdenTrabajoDaoImp;
+import pe.edu.upeu.Spring01.entity.MateriaOrden;
+import pe.edu.upeu.Spring01.entity.OrdenTrabajo;
 import pe.edu.upeu.Spring01.service.OrdenTrabajoService;
 
 @Service
 public class OrdenTrabajoServiceImp implements OrdenTrabajoService{
 	@Autowired
-    private OrdenTrabajoDaoImp orden;
+    private OrdenTrabajoDaoImp ordentrabajao;
 	@Override
 	public List<Map<String, Object>> ordenTrabajo(int codigopedido) {
-		return orden.ordenTrabajo(codigopedido);
+		return ordentrabajao.ordenTrabajo(codigopedido);
 	}
 	@Override
 	public List<Map<String, Object>> listar_orden_trabajo() {
-		return orden.listar_orden_trabajo();
+		return ordentrabajao.listar_orden_trabajo();
 	}
 	@Override
 	public List<Map<String, Object>> listar_materia_prima() {
-       return orden.listar_materia_prima();
+       return ordentrabajao.listar_materia_prima();
+	}
+	@Override
+	public int crearOrdenTrabajo(OrdenTrabajo orden) {
+		return ordentrabajao.crearOrdenTrabajo(orden);
+	}
+	@Override
+	public int crearMateriaOrden(MateriaOrden materia) {
+		return ordentrabajao.crearMateriaOrden(materia) ;
 	}
 
 }

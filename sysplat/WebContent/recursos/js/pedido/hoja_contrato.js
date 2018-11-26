@@ -20,7 +20,7 @@ $("#buscarPedido").click(
 				idpe = x[0].PED_ID;
 				$("#mitadTotal").val(total / 2);
 				$("#codigoPedido").val("");
-				$("#table tbody tr").remove();
+				$("#tablehoja tbody tr").remove();
 				$("#tablehoja").append(
 						"<tr><td>" + 1 + "</td><td>" + x[0].PED_NOMBRE
 								+ "</td><td>" + x[0].PED_CANTIDAD + "</td><td>"
@@ -63,7 +63,6 @@ $("#generarHoja").click(function() {
 			$("#adelanto").val("");
 			$("#acuenta").val("");
 			$("#mitadTotal").val("");
-			
 		});
 	}
 	else {
@@ -71,6 +70,4 @@ $("#generarHoja").click(function() {
 		$("#alertNotificacion2").show(200);
 		$("#alertNotificacion2").delay(3000).hide(600);
 	}
-	
-
 });

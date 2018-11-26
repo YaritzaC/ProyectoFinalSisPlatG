@@ -9,6 +9,12 @@ public class MateriaOrden {
 	private String descripcion;
 	private String estado;
 	
+	public MateriaOrden(int idodt, int idmtp) {
+		super();
+		this.idodt = idodt;
+		this.idmtp = idmtp;
+	}
+
 	public MateriaOrden() {
 		super();
 	}
