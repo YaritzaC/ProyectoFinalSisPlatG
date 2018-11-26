@@ -3,20 +3,9 @@ $(document).ready(function () {
     VerificacionReserva();
     ListarDoc();
 });
-function ListarProd() {
-    $.get("liscom", {"opc": 4}, function (data) {
-        var x = JSON.parse(data);
-        $("#tablaCrear tbody tr").remove();
-        for (var i = 0; i < x.length; i++) {
-            
-            $("#tablaCrear").append("<tr><td>" + (i + 1) + "</td><td>" + x[i].PRO_NOMBRE + "</td><td>" + x[i].PRO_STOCK + "</td><td>" + e + "</td><td>" + x[i].PRO_PRECIO + "</td>\n\
-            <td><div class='col-xl-3 col-lg-6 col-lg-12'><a href='#' id='bt"+x[i].PRO_ID+"'class='fa fa-check-circle' style='font-size: 30px; color: grey;'' onclick='productoSeleccionado("+x[i].PRO_ID+")'></a></div><div class='col-xl-3 col-lg-6 col-lg-12'><input type='number' id='income' name='income' value='1' style='width: 50px;'></div></td></tr>");       
-        }
-    });
-}
-$("#searchpro").keyup(function () {
+$("#buscar").keyup(function () {
     var tableReg = document.getElementById('tablaCrear');
-    var searchText = document.getElementById('searchpro').value.toLowerCase();
+    var searchText = document.getElementById('buscar').value.toLowerCase();
     for (var i = 1; i < tableReg.rows.length; i++) {
         var cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
         var encontrado = false;
@@ -33,22 +22,42 @@ $("#searchpro").keyup(function () {
         }
     }
 });
+
+/*
+ * Para tomar la posición en la tabla
+ */
+$('td').change(function () {
+	var $this = $(this);
+	col = $this.index();
+	
+	// Columna que se toma
+	row = $this.closest('tr').index();
+});
+
+/*
+ * Para tomar el valor del input
+ */
+$(".numero").change(function () {
+
+	var n1 = document.getElementById('numero1').tBodies[0].rows[row].cells[1].innerHTML;
+	var n2 = document.getElementById('numero1').tBodies[0].rows[row].cells[2].innerHTML;
+	var n3 = document.getElementById('numero1').tBodies[0].rows[row].cells[4].innerHTML;
+	var nn =$(this).val();
+	
+	if (nn>0){
+		location.href="crearTemporal/"+ n1 +","+ n2 +","+ n3 +","+ nn;
+	}
+
+});
+
+
+
+
+/*
+ * Pruebasssssssssssssssssssssssss
+ */
 $("#registrarPrestamo").click(function () {
-    var produ = [];
-    var alum = $("#responsable").val();
-    var fe_pre = $("#fecha_pre").val();
-    var fe_dev = $("#fechadev").val();
-    var h_pre = $("#hora_pre").val();
-    var h_dev = $("#hora_dev").val();
-    var aul = $("#aula").val();
-    var prof = $("#prof").val();
-    var docu;
-    if(alum===""){
-        docu= 5;
-    }
-    else{
-        docu= $("#docu").val();
-    }
+	
     var user = $("#idu").val();   
     if(fe_pre==="dd/mm/aaaa" || fe_dev==="dd/mm/aaaa" || aul==="" || prof==="" || user===""){
         Materialize.toast("Completar todos los campos de datos", 1980);
@@ -102,8 +111,12 @@ $("#registrarPrestamo").click(function () {
    } 
 });
 
+/*
+ * 
+ */
+
 function productoSeleccionado(x){
-    $.get("Pc", {"id":x,"opc": 7}, function (data) {
+    $.get("Seleccion", {"id":x,"opc":1}, function (data) {
         var y = JSON.parse(data);
         if(document.getElementById("bt"+y.idP+"").style.color === 'green')
         {

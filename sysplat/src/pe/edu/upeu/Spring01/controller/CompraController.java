@@ -3,6 +3,7 @@ package pe.edu.upeu.Spring01.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -30,6 +32,7 @@ import pe.edu.upeu.Spring01.serviceImp.CompraServiceImp;
 public class CompraController {
 
 	private Gson gson;
+	public static ArrayList<Producto>produ = new ArrayList<>();
 
 	@Autowired
 	private ProductoService productoservice;
@@ -50,8 +53,9 @@ public class CompraController {
 		return "com_main_main";
 	}
 	
-	/*
+	/*--------------------------------------------------------------------------
 	 * Modulo de Compras
+	 * Lista los productos de la base de datos 
 	 */
 	@GetMapping("/Crear-Orden-Compra")
 	public ModelAndView crearordencompra() {
@@ -60,12 +64,36 @@ public class CompraController {
 		ma.addObject("listaPro", productoservice.readAll());
 		return ma;
 	}
-	@GetMapping("/Aceptar-Orden-de-Compra")
-	public String registrarordencompra2() {
-
-		return "com_main_listascompras(Aceptar)";
+	
+	/*
+	 * Crea un array temporal para luego mostrarlo
+	 */
+	@RequestMapping(value="/crearTemporal/{PRO_ID},{PRO_NOMBRE}")
+	public ModelAndView crearTemporal(@PathVariable("ID") int id,@PathVariable("NOMBRE") String nombre) {
+		
+		Producto pro= new Producto();
+		pro.setIdproducto(id);
+		pro.setNombre(nombre);
+		produ.add(pro);
+		return new ModelAndView("redirect:/Crear-Orden-Compra");
 	}
 	
+	/*
+	 * Envia la lista seleccionada en la vista anterior 
+	 */
+	@GetMapping("/Aceptar-Orden-de-Compra")
+	public ModelAndView aceptarCompra() {
+		ModelAndView ma = new ModelAndView();
+		ma.setViewName("com_main_listascompras(Aceptar)");
+		ma.addObject("listaCom",produ);
+		return ma;
+	}
+	
+	
+	
+	/*
+	 * --------------------- Fin modulo Compras ---------------------------------------------------
+	 */
 
 	/*
 	 * Modulo de Registrar orden de compras
@@ -74,11 +102,12 @@ public class CompraController {
 	public String registrarordencompra() {
 		return "com_main_registrarcompra";
 	}
+	
 	@GetMapping("/Registrar-Listas-Compras")
 	public String registrarlistascompras() {
 
 		return "com_main_registrarproductoslistas";
-	}
+	} 
 	
 	/*
 	 * Modulo de Ingresar Productos Comprados 
@@ -133,7 +162,7 @@ public class CompraController {
 		return "redirect:/main/user";
 	}
 
-	@RequestMapping(value = "/liscom")
+	@RequestMapping(value = "/Seleccion")
 	public void cliente(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();

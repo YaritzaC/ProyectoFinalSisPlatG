@@ -22,125 +22,62 @@
 <body class="app sidebar-mini rtl">
 	<!-- Navbar-->
 	<jsp:include page="template/header.jsp"></jsp:include>
-	<main class="app-content"> 
+	<main class="app-content">
 	<div class="app-title">
 		<div>
 			<h1>
-				<i class="fa fa-user fa-lg"></i> Producto
+				<i class="fa fa-clipboard" style="font-size: 48px; color: orange;"></i>
+				Crear Orden Compra
 			</h1>
 		</div>
 	</div>
-	<!-- Button to Open the Modal -->
-	<button type="button" class="btn btn-primary" data-toggle="modal"
-		data-target="#myModal">Open modal</button>
 
 	<%
 		int i = 0;
 	%>
+	<div class="col s12" style="left: 80%; width: 200px;">
+		<input class="app-search__input" type="search" placeholder="Search" id="buscar">
+		<button class="app-search__button"><i class="fa fa-search"></i></button>
+	</div>
 	<div class="table-responsive"
 		style="background-color: white; margin-top: 5%;">
-		<table class="table table-hover">
+		<table class="table table-hover" id="tablaCrear" name="tablaCrear">
 			<thead>
 				<tr>
 					<th>#</th>
 					<th>Nombre</th>
-					<th>Precio</th>
+					<th>Descripción</th>
 					<th>Stock</th>
-					<th>Codigo</th>
-					<th>Estado</th>
+					<th scope="col" colspan="2">Acción</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${listaPro}" var="pro">
-					<%i++; %>
+					<%
+						i++;
+					%>
 					<tr>
 						<th scope="row"><%=i%></th>
 						<td>${pro.PRO_NOMBRE}</td>
-						<td>${pro.PRO_PRECIO}</td>
+						<td>Producto de tienda</td>
 						<td>${pro.PRO_STOCK}</td>
-						<td>${pro.PRO_CODIGO}</td>
-						<td>${pro.PRO_ESTADO}</td>
+						<td><input type="number" style="width: 80px;" class="numero" id="stock"></td>
+						<td><a href="crearTemporal/${pro.PRO_ID},${pro.PRO_NOMBRE}" style="color: black;">
+						<i class="fa fa-check-circle" aria-hidden="true"></i></a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
-	<!-- The Modal -->
-	<div class="modal" id="myModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h3>Informacion Empleado</h3>
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-				</div>
-				<!-- Modal body -->
-				<div class="modal-body">
-					<!-- form user info -->
-					<div class="card-body">
-						<form class="form" role="form" autocomplete="off">
-							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">First
-									name</label>
-								<div class="col-lg-9">
-									<input class="form-control" type="text"
-										placeholder="Jose Armando">
-								</div>
-							</div>
-							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Last
-									name</label>
-								<div class="col-lg-9">
-									<input class="form-control" type="text"
-										placeholder="Guzman Gonzales">
-								</div>
-							</div>
-							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">DNI</label>
-								<div class="col-lg-9">
-									<input class="form-control" type="text" placeholder="74289801">
-								</div>
-							</div>
-							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Type</label>
-								<div class="col-lg-9">
-									<select id="user_time_zone" class="form-control" size="0">
-										<option value="Hawaii">Administrador</option>
-										<option value="Central Time (US &amp; Canada)"
-											selected="selected">Vendedor</option>
-										<option value="Indiana (East)">Jefe de fabricaciï¿½n</option>
-									</select>
-								</div>
-							</div>
-							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Username</label>
-								<div class="col-lg-9">
-									<input class="form-control" type="text"
-										placeholder="JoseGuzman123">
-								</div>
-							</div>
-							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Password</label>
-								<div class="col-lg-9">
-									<input class="form-control" type="password"
-										placeholder="123456">
-								</div>
-							</div>
-							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Confirm</label>
-								<div class="col-lg-9">
-									<input class="form-control" type="password"
-										placeholder="123456">
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-				<!-- Modal footer -->
-				<div class="modal-footer">
-					<input type="reset" class="btn btn-secondary" data-dismiss="modal"
-						value="Cancel"> <input id="GuardarEmpleado" type="button"
-						class="btn btn-primary" value="Save Changes">
-				</div>
+	<br />
+	<div class="row">
+		<div class="row col-md-12">
+			<div class="row col-md-8"></div>
+			<div class="col-md-4">
+				<span class="btn btn-lg btn-primary"><a style="color: white;"
+					href="/sysplat/Aceptar-Orden-de-Compra">Siguiente </a></span> <span
+					class="btn btn-secondary btn-lg"><a style="color: white;"
+					href="/SISPLAT-G/Compras">Salir </a></span>
 			</div>
 		</div>
 	</div>
@@ -151,6 +88,7 @@
 	<script src="${urlrecursos}/js/popper.min.js"></script>
 	<script src="${urlrecursos}/js/bootstrap.min.js"></script>
 	<script src="${urlrecursos}/js/main.js"></script>
+	<script src="${urlrecursos}/js/compra/ordencompra.js"></script>
 	<!-- The javascript plugin to display page loading on top-->
 	<script src="${urlrecursos}/js/plugins/pace.min.js"></script>
 	<!-- Page specific javascripts-->

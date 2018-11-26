@@ -26,18 +26,7 @@
 				Crear Orden Compra
 			</h1>
 		</div>
-		<ul class="app-breadcrumb breadcrumb">
-			<li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-			<li class="breadcrumb-item"><a href="#">Home</a></li>
-		</ul>
-	</div>
-	<div class="row">
-		<div class="col-md-12 row">
-			<div class="tile col-md-6">
-				<div class="tile-body">Crear lista para las compras</div>
-			</div>
 		</div>
-	
 <!-- Tabla que estoy desarrollando --> 
 		<div style="width: 300px; position: relative; left: 70%;">
 			<li class="app-search"><input style="width: 300px;"
