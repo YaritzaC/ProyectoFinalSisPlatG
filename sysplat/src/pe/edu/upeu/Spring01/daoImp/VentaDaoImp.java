@@ -31,7 +31,7 @@ public class VentaDaoImp implements VentaDao {
 			sql="SELECT HC.HCT_ID,C.CLI_ID,C.CLI_NOMBRE, P.PED_ID,HC.HCT_CODIGO, HC.HCT_FECHA, P.PED_NOMBRE, E.EMPL_ID, \n" + 
 					"P.PED_CANTIDAD , P.PED_PRECIO , HC.HCT_TOTAL,HC.HCT_ADELANTO,HC.HCT_MITADTOTAL\n" + 
 					" FROM  PEDIDO AS P, EMPLEADO AS E, CLIENTE AS C, HOJACONTRATO AS HC\n" + 
-					"WHERE P.PED_CODIGO='"+codigohoja+"' and E.EMPL_ID=P.EMPL_ID AND  C.CLI_ID=P.CLI_ID "
+					"WHERE P.PED_CODIGO='"+codigohoja+"' and E.EMPL_ID=P.EMPL_ID AND  C.CLI_ID=P.CLI_ID AND HC.HCT_ESTADO='Activo' "
 							+ "AND P.PED_ID=HC.PED_ID;";
 		} catch (Exception e) {
 			System.out.println("Error" + e);
@@ -105,6 +105,12 @@ public class VentaDaoImp implements VentaDao {
 	public List<Map<String, Object>> readAll() {
 		// TODO Auto-generated method stub
 		return this.jdbcTemplate.queryForList("{ call ven_listar_ventas() }");
+	}
+
+	@Override
+	public List<Map<String, Object>> listar_venta_pedido() {
+		// TODO Auto-generated method stub
+		return  this.jdbcTemplate.queryForList("{ call ped_listar_ventas_pedidos() }");
 	}
 
 	

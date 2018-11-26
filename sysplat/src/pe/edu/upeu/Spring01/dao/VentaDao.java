@@ -20,4 +20,9 @@ public interface VentaDao {
 	
 	//Listar ventas
 	public List<Map<String, Object>> readAll();
+	
+	//Lista Venta Pedido
+	public List<Map<String, Object>> listar_venta_pedido();
+	
+	
 }

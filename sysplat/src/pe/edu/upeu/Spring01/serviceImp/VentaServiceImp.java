@@ -63,8 +63,9 @@ public class VentaServiceImp implements VentaService {
 		return ven.crearVentaFactura(venta);
 	}
 
-
-
-	
+	@Override
+	public List<Map<String, Object>> listar_venta_pedido() {
+		return ven.listar_venta_pedido();
+	}
 
 }

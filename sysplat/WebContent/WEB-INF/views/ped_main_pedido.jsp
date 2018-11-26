@@ -141,7 +141,7 @@
 										<div class="media-body text-xs-left">
 											<h3 class="cyan">18</h3>
 											<span><a style="color: black"
-												href="/sysplat/Venta-Pedido">Venta Pedido </a></span>
+												href="/sysplat/Lista-Comprobante-Pedido">Venta Pedido </a></span>
 										</div>
 										<div class="media-right media-middle">
 											<i

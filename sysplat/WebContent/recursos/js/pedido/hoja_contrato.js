@@ -36,17 +36,41 @@ $("#generarHoja").click(function() {
 	var idem = $("#idEmpleado").val();
 	var impor = $("#importeTotal").val();
 	var ade = $("#adelanto").val();
-
-	alert(idem + " ------ ");
-
-	$.post("hoja", {
-		"opc" : 2,
-		"idempleado" : idem,
-		"idpedido" : idpe,
-		"total" : impor,
-		"adelanto" : ade
-	}, function() {
-		alert("Llegó");
-	});
+	var mitad = $("#mitadTotal").val();
+	var cliente = $("#cliente").val();
+	
+	if(cliente === ""){
+		$("#alertNotificacion2").html("Busque un pedido para poder realizar la hoja de contrato");
+		$("#alertNotificacion2").show(200);
+		$("#alertNotificacion2").delay(3000).hide(600);
+	}
+	if(impor>ade && ade >mitad){
+		$.post("hoja", {
+			"opc" : 2,
+			"idempleado" : idem,
+			"idpedido" : idpe,
+			"total" : impor,
+			"adelanto" : ade
+		}, function() {
+			$("#alertNotificacion").html("Hoja de contrato realizado corectamente");
+			$("#alertNotificacion").show(200);
+			$("#alertNotificacion").delay(3000).hide(600);
+			$("#tablehoja tbody tr").remove();
+			$("#cliente").val("");
+			$("#codigo").val("");
+			$("#fecha").val("");
+			$("#importeTotal").val("");
+			$("#adelanto").val("");
+			$("#acuenta").val("");
+			$("#mitadTotal").val("");
+			
+		});
+	}
+	else {
+		$("#alertNotificacion2").html("Ingrese un monto adecuado ");
+		$("#alertNotificacion2").show(200);
+		$("#alertNotificacion2").delay(3000).hide(600);
+	}
+	
 
 });

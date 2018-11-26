@@ -21,5 +21,9 @@ public class OrdenTrabajoServiceImp implements OrdenTrabajoService{
 	public List<Map<String, Object>> listar_orden_trabajo() {
 		return orden.listar_orden_trabajo();
 	}
+	@Override
+	public List<Map<String, Object>> listar_materia_prima() {
+       return orden.listar_materia_prima();
+	}
 
 }

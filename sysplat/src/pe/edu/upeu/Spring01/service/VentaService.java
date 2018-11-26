@@ -17,11 +17,14 @@ public interface VentaService {
 
 	public List<Map<String, Object>> numeroSerie();
 
-	// Pedido
+	// Proceso Pedido
 	public int crearVentaPedidoBoleta(Venta venta);
 
 	public int crearVentaPedidoFactura(Venta venta);
 
 	// Listar ventas
 	public List<Map<String, Object>> readAll();
+
+	// Lista Venta Pedido
+	public List<Map<String, Object>> listar_venta_pedido();
 }

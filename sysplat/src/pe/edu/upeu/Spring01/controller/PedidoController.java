@@ -53,6 +53,7 @@ public class PedidoController {
 	public String mainpedido() {
 		return "ped_main_pedido";
 	}
+	
 
 	@GetMapping("/Lista-Pedidos")
 	public ModelAndView producto() {
@@ -75,7 +76,20 @@ public class PedidoController {
 		ma.addObject("listaHoja", hojacontrato.listar_hoja_contrato() );
 		return ma;
 	}
-	
+	@GetMapping("/Lista-Comprobante-Pedido")
+	public ModelAndView listaComprobantePedido() {
+		ModelAndView ma = new ModelAndView();
+		ma.setViewName("ped_lista_comprobante_pedido");
+		ma.addObject("listaComprobante", ventapedido.listar_venta_pedido() );
+		return ma;
+	}
+	@GetMapping("/Orden-Trabajo")
+	public ModelAndView comprobante_pedido() {
+		ModelAndView ma = new ModelAndView();
+		ma.setViewName("ped_orden_trabajo");
+		ma.addObject("listamateria", ordentrabajo.listar_orden_trabajo());
+		return ma;
+	}
 	
 	@GetMapping("/Nuevo-Pedido")
 	public String pedido_nuevo() {
@@ -86,17 +100,7 @@ public class PedidoController {
 	public String hoja_contrato() {
 		return "ped_hoja_contrato";
 	}
-
-
-	@GetMapping("/Orden-Trabajo")
-	public String orden_trabajo() {
-		return "ped_orden_trabajo";
-	}
-
-	@GetMapping("/Venta-Pedido")
-	public String comprobante_pedido() {
-		return "ped_comprobante_pedido";
-	}
+	
 
 	private Gson g = new Gson();
 

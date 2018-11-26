@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <spring:url value="/" var="urlRoot" />
@@ -24,17 +26,18 @@
 	<div class="app-title">
 		<div>
 			<h1>
-				<i class="fa fa-user fa-lg"></i> Lista de Hojas de Contrato 
+				<i class="fa fa-user fa-lg"></i> Comprobantes Pedidos
 			</h1>
-			<p>Start a beautiful journey here</p>
 		</div>
 		<ul class="app-breadcrumb breadcrumb">
 			<li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
 			<li class="breadcrumb-item"><a href="#">Blank Page</a></li>
 		</ul>
 	</div>
-	<span><a href="/sysplat/Hoja-Contrato" class="btn btn-primary">Nuevo
-			Hoja Contrato </a></span> <%
+
+<span><a href="/sysplat/Venta-Pedido" class="btn btn-primary">Nuevo
+			Comprobante Pedido </a></span>
+<%
  	int i = 0;
  %>
 	<div class="table-responsive"
@@ -43,38 +46,44 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Cliente</th>
 					<th>Empleado</th>
-					<th>Nombre Pedido</th>
+					<th>Cliente</th>
+					<th>Codigo</th>
 					<th>Fecha</th>
-					<th>Cantidad</th>
-					<th>Precio</th>
+					<th>Tipo Pago</th>
 					<th>Total</th>
+					<th>Igv</th>
+					<th>Subtotal</th>
+					<th>TipoDocumento</th>
+					<th>Numero</th>
+					<th>Serie</th>
 					<th>Estado</th>
-					
 				</tr>
 			</thead>
 			<tbody>
-			<c:forEach items="${listaHoja}" var="lista">
-			<%
-			i++;
+			<c:forEach items="${listaComprobante}" var="lista">
+					<%
+						i++;
 					%>
 				<tr>
 					<td><%=i%></td>
-					<td>${lista.CLI_NOMBRE}</td>
-					<td>${lista.EMPL_NOMBRE}</td>
-					<td>${lista.PED_NOMBRE}</td>
-					<td>${lista.PED_FECHA}</td>
-					<td>${lista.PED_CANTIDAD}</td>
-					<td>${lista.PED_PRECIO}</td>
-					<td>${lista.HCT_TOTAL}</td>
-					<td>${lista.HCT_ESTADO}</td>
+					<td>${lista.EMPL_NOMBRE} ${lista.EMPL_APELLIDO} </td>
+					<td>${lista.CLI_RAZONSOCIAL} ${lista.CLI_NOMBRE} ${lista.CLI_APELLIDO} </td>
+					<td>${lista.HCT_CODIGO}</td>
+					<td>${lista.VNT_FECHA}</td>
+					<td>${lista.VNT_TIPAGO}</td>
+					<td>${lista.VNT_TOTAL}</td>
+					<td>${lista.VNT_IGV}</td>
+					<td>${lista.VNT_SUBTOTAL}</td>
+					<td>${lista.VNT_TIPDOC}</td>
+					<td>${lista.VNT_NUMERO}</td>
+					<td>${lista.VNT_SERIE}</td>
+					<td>${lista.VNT_ESTADO}</td>
 				</tr>
-				</c:forEach>
+			</c:forEach>
 			</tbody>
 		</table>
 	</div>
-
 
 	</main>
 	<!-- Essential javascripts for application to work-->

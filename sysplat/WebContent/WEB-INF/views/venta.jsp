@@ -226,7 +226,6 @@
 			$("#alertNotificacion").hide();
 			var id = $("#idEmpleado").val();
 			var ids = $("#idSede").val();
-
 			$.get("vc", {
 				"opc" : 1
 			}, function(data) {

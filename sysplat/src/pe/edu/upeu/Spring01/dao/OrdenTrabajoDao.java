@@ -9,5 +9,6 @@ import pe.edu.upeu.Spring01.entity.OrdenTrabajo;
 public interface OrdenTrabajoDao {
 	public int create(OrdenTrabajo codigopedido)throws SQLException;
 	 public List<Map<String,Object>> ordenTrabajo(int codigopedido);
-		public List<Map<String, Object>> listar_orden_trabajo();
+     public List<Map<String, Object>> listar_orden_trabajo();
+     public List<Map<String, Object>> listar_materia_prima();
 }

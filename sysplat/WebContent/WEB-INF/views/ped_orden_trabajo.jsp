@@ -14,6 +14,10 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="${urlrecursos}/sweetalert/sweetalert2.min.css">
+<link rel="stylesheet"
+	href="${urlrecursos}/selectpicker/bootstrap-select.min.css">
 <spring:url value="/recursos" var="urlrecursos"></spring:url>
 <link href="${urlrecursos}/css/template.css" rel="stylesheet">
 <style type="text/css">
@@ -85,17 +89,21 @@
 					id="fecha" disabled="disabled" style="">
 			</div>
 		</div>
-
-		<label>Materia Prima:</label>
+		<label>Materia Prima</label>
 		<div class="form-group has-search">
 			<div class="row">
 				<div class="col-12">
 					<div class="input-group">
-						<input type="text" class="form-control"
-							placeholder="Ingrese el nombre de la materia prima"
-							aria-label="Username" aria-describedby="basic-addon1">
+						<select data-size="7" class="form-control" data-live-search="true"
+							class="selectpicker" id="materiaprima">
+							<option value="Ingrese codigo">Ingrese la materia prima</option>
+							<c:forEach items="${listamateria}" var="ma">
+								<option value="${ma.MTP_ID}">${ma.MTP_NOMBRE}</option>
+							</c:forEach>
+						</select>
 						<div class="input-group-append">
-							<button class="btn btn-outline-primary" type="button">
+							<button class="btn btn-outline-primary" type="button"
+								id="buscarProducto">
 								<i class="fa fa-search"></i>
 							</button>
 						</div>
@@ -103,40 +111,30 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="form-group row" style="margin-top: 2%;">
-			<div class="col-lg-3">
-				<label>Nombre</label> <input class="form-control" type="text"
-					placeholder="" disabled="disabled" style="">
-			</div>
-			<div class="form-group row" style="margin-top: 2%;">
-				<div class="col-lg-3">
-					<button class="btn btn-primary">Agregar</button>
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="table-responsive" style="background-color: white;">
-					<table id="tableorden" class="table table-hover">
-						<thead>
-							<tr>
-								<th>#</th>
-								<th>Nombre</th>
-								<th>Editar</th>
-							</tr>
-						</thead>
-						<tbody>
-						</tbody>
-					</table>
-				</div>
+			<div class="table-responsive" style="background-color: white;">
+				<table id="tableorden" class="table table-hover">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Nombre</th>
+							<th>Editar</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
 			</div>
 		</div>
+	</div>
 	</div>
 	<div class="col-sm-12" style="background-color: white; width: 100%;">
 		<div class="form-group row" style="margin-top: 2%;">
 			<div class="col-lg-4">
 				<button type="button" class="btn btn-primary">Generar Orden</button>
-				 <span><a
-		href="/sysplat/Lista-OT" class="btn btn-primary">Cancelar
-	</a></span> 
+				<span><a href="/sysplat/Lista-OT" class="btn btn-primary">Cancelar
+				</a></span>
 			</div>
 			<div class="col-lg-8"></div>
 
@@ -150,6 +148,8 @@
 	<script src="${urlrecursos}/js/popper.min.js"></script>
 	<script src="${urlrecursos}/js/bootstrap.min.js"></script>
 	<script src="${urlrecursos}/js/main.js"></script>
+	<script src="${urlrecursos}/sweetalert/sweetalert2.min.js"></script>
+	<script src="${urlrecursos}/selectpicker/bootstrap-select.min.js"></script>
 	<script src="${urlrecursos}/js/pedido/orden_trabajo.js"></script>
 	<!-- The javascript plugin to display page loading on top-->
 	<script src="${urlrecursos}/js/plugins/pace.min.js"></script>

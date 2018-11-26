@@ -48,4 +48,9 @@ public class OrdenTrabajoDaoImp implements OrdenTrabajoDao {
 		return this.jdbcTemplate.queryForList("{ call ped_listar_orden_trabajo()}");
 	}
 
+	@Override
+	public List<Map<String, Object>> listar_materia_prima() {
+		return this.jdbcTemplate.queryForList("{ call ped_listar_materias_primas()}");
+	}
+
 }
