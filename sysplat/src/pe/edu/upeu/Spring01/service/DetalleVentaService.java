@@ -6,4 +6,5 @@ import pe.edu.upeu.Spring01.entity.DetalleVenta;
 
 public interface DetalleVentaService {
 	public int crearDetallePedido(DetalleVenta detalle) throws SQLException;
+	public int crearDetalleVenta(DetalleVenta detalle) throws SQLException;
 }

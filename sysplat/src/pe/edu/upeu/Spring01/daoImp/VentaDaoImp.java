@@ -75,7 +75,7 @@ public class VentaDaoImp implements VentaDao {
 			// TODO: handle exception
 		}
 		return jdbcTemplate.update(sql, venta.getIdempleado(), venta.getIdsede(), venta.getIdcliente(), venta.getTipopago(), 
-				venta.getTipodocumento(), venta.getSubtotal());
+				venta.getTipodocumento(), venta.getTotal());
 	}
 
 	@Override

@@ -411,9 +411,70 @@
 			});
 		});
 
-		$("#generarVenta")
-				.click(
-						function() {
+		$("#generarVenta").click(
+				function() {
+					var idem = $("#idEmpleado").val();
+					var idse = $("#idSede").val();
+					var idclien = $("#idCliente").val();
+
+					var pag = $("#tipoPa").val();
+					var doc = $("#tipoDo").val();
+
+					var subto = $("#subtotal").val();
+					var to = $("#total").val();
+
+					// Nombre del cliente
+					var clien = $("#nombreCliente").val();
+
+					alert("Soy id empleado " + idem);
+
+					alert("Soy total " + to);
+
+					if (idem != "" && idse != "" && idclien != ""
+							&& pag != "Seleccione" && doc != "Seleccione"
+							&& doc == "Boleta" && total != 0.00) {
+						$.post("vc", {
+							"opc" : 3,
+							"idempleado" : idem,
+							"idsede" : idse,
+							"idcliente" : idclien,
+							"pago" : pag,
+							"total" : to,
+							"documento" : doc
+						}, function() {
+							alert("Llegue venta");
+							swal({
+								position : 'top-end',
+								type : 'success',
+								title : 'Venta registrada correctamente',
+								showConfirmButton : false,
+								timer : 1500
+							})
+
+							$("#idCliente").val("");
+
+							$("#tipoPa").val("Seleccione");
+							$("#tipoDo").val("Seleccione");
+
+							$("#subtotal").val("0.00");
+							$("#igv").val("0.00");
+							$("#total").val("0.00");
+
+							// Nombre del cliente
+							$("#nombreCliente").val();
+
+							//Remover tabla
+							$('#tablePro tbody tr').remove();
+
+							//Deshabilitar venta
+							$("#generarVenta").attr('disabled', 'true');
+						});
+
+					} else {
+						if (idem != "" && idse != "" && idclien != ""
+								&& pag != "Seleccione" && doc != "Seleccione"
+								&& doc == "Factura" && total != 0.00) {
+							alert("Hola soy factura");
 							var idem = $("#idEmpleado").val();
 							var idse = $("#idSede").val();
 							var idclien = $("#idCliente").val();
@@ -431,113 +492,22 @@
 
 							alert("Soy total " + to);
 
-							if (idem != "" && idse != "" && idclien != ""
-									&& pag != "Seleccione"
-									&& doc != "Seleccione" && doc == "Boleta"
-									&& total != 0.00) {
-								$
-										.post(
-												"vc",
-												{
-													"opc" : 3,
-													"idempleado" : idem,
-													"idsede" : idse,
-													"idcliente" : idclien,
-													"pago" : pag,
-													"total" : to,
-													"documento" : doc
-												},
-												function() {
-													alert("Llegue venta");
-													swal({
-														position : 'top-end',
-														type : 'success',
-														title : 'Venta registrada correctamente',
-														showConfirmButton : false,
-														timer : 1500
-													})
+							alert("Soy sub total " + subto);
+							$.post("vc", {
+								"opc" : 4,
+								"idempleado" : idem,
+								"idsede" : idse,
+								"idcliente" : idclien,
+								"pago" : pag,
+								"subtotal" : subto,
+								"documento" : doc
+							}, function() {
+								alert("Hola soy factura realizada");
+							});
 
-													$("#idCliente").val("");
-
-													$("#tipoPa").val(
-															"Seleccione");
-													$("#tipoDo").val(
-															"Seleccione");
-
-													$("#subtotal").val("0.00");
-													$("#igv").val("0.00");
-													$("#total").val("0.00");
-
-													// Nombre del cliente
-													$("#nombreCliente").val();
-
-													//Remover tabla
-													$('#tablePro tbody tr')
-															.remove();
-
-													//Deshabilitar venta
-													$("#generarVenta").attr(
-															'disabled', 'true');
-												});
-
-							} else if (idem != "" && idse != ""
-									&& idclien != "" && pag != "Seleccione"
-									&& doc != "Seleccione" && doc == "Factura"
-									&& subtotal != 0.00) {
-								$.post(
-												"vc",
-												{
-													"opc" : 4,
-													"idempleado" : idem,
-													"idsede" : idse,
-													"idcliente" : idclien,
-													"pago" : pag,
-													"subtotal" : subtotal,
-													"documento" : doc
-												},
-												function() {
-													alert("Llegue venta factura");
-													swal({
-														position : 'top-end',
-														type : 'success',
-														title : 'Venta con factura registrada correctamente',
-														showConfirmButton : false,
-														timer : 1500
-													})
-
-													$("#idCliente").val("");
-
-													$("#tipoPa").val(
-															"Seleccione");
-													$("#tipoDo").val(
-															"Seleccione");
-
-													$("#subtotal").val("0.00");
-													$("#igv").val("0.00");
-													$("#total").val("0.00");
-
-													// Nombre del cliente
-													$("#nombreCliente").val();
-
-													//Remover tabla
-													$('#tablePro tbody tr')
-															.remove();
-
-													//Deshabilitar venta
-													$("#generarVenta").attr(
-															'disabled', 'true');
-												});
-							} else {
-								alert("VACIO");
-								swal({
-									position : 'top-end',
-									type : 'error',
-									title : 'Ups! Venta fallida!',
-									showConfirmButton : false,
-									timer : 1500
-								})
-							}
-						});
+						}
+					}
+				});
 	</script>
 </body>
 </html>

@@ -1,43 +1,21 @@
 package pe.edu.upeu.Spring01.entity;
 
 public class KardexProducto {
-
-	private int idkarpro;
+	private int idkardexproducto;
 	private int idventa;
 	private int idsede;
-	private int idcmp;
-	private String numdoc;
+	private int idcompra;
 	private String fecha;
 	private String movimiento;
-	private int stockActual;
 	private String concepto;
 	private String estado;
-	
-	public KardexProducto() {
-		super();
+
+	public int getIdkardexproducto() {
+		return idkardexproducto;
 	}
 
-	public KardexProducto(int idkarpro, int idventa, int idsede, int idcmp, String numdoc, String fecha,
-			String movimiento, int stockActual, String concepto, String estado) {
-		super();
-		this.idkarpro = idkarpro;
-		this.idventa = idventa;
-		this.idsede = idsede;
-		this.idcmp = idcmp;
-		this.numdoc = numdoc;
-		this.fecha = fecha;
-		this.movimiento = movimiento;
-		this.stockActual = stockActual;
-		this.concepto = concepto;
-		this.estado = estado;
-	}
-
-	public int getIdkarpro() {
-		return idkarpro;
-	}
-
-	public void setIdkarpro(int idkarpro) {
-		this.idkarpro = idkarpro;
+	public void setIdkardexproducto(int idkardexproducto) {
+		this.idkardexproducto = idkardexproducto;
 	}
 
 	public int getIdventa() {
@@ -56,20 +34,12 @@ public class KardexProducto {
 		this.idsede = idsede;
 	}
 
-	public int getIdcmp() {
-		return idcmp;
+	public int getIdcompra() {
+		return idcompra;
 	}
 
-	public void setIdcmp(int idcmp) {
-		this.idcmp = idcmp;
-	}
-
-	public String getNumdoc() {
-		return numdoc;
-	}
-
-	public void setNumdoc(String numdoc) {
-		this.numdoc = numdoc;
+	public void setIdcompra(int idcompra) {
+		this.idcompra = idcompra;
 	}
 
 	public String getFecha() {
@@ -88,14 +58,6 @@ public class KardexProducto {
 		this.movimiento = movimiento;
 	}
 
-	public int getStockActual() {
-		return stockActual;
-	}
-
-	public void setStockActual(int stockActual) {
-		this.stockActual = stockActual;
-	}
-
 	public String getConcepto() {
 		return concepto;
 	}
@@ -110,6 +72,6 @@ public class KardexProducto {
 
 	public void setEstado(String estado) {
 		this.estado = estado;
-	}	
-	
+	}
+
 }

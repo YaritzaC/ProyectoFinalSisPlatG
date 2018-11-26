@@ -48,7 +48,7 @@
 	<bean id="productoDaoImp" class="pe.edu.upeu.Spring01.daoImp.ProductoDaoImp"> 
 		<property name="jdbcTemplate" ref="jdbcTemplate" /> 
 	</bean>
-   <bean id="detalleDaoImp" class="pe.edu.upeu.Spring01.daoImp.DetalleDaoImp"> 
+   <bean id="detalleVentaDaoImp" class="pe.edu.upeu.Spring01.daoImp.DetalleVentaDaoImp"> 
 		<property name="jdbcTemplate" ref="jdbcTemplate" /> 
 	</bean>
 	<bean id="pedidoDaoImp" class="pe.edu.upeu.Spring01.daoImp.PedidoDaoImp"> 

@@ -21,7 +21,7 @@ public class Venta {
 		super();
 	}
 	
-	
+	// Crear venta 
 	public Venta(int idempleado, int idsede, int idcliente, String tipopago, double total, String tipodocumento) {
 		super();
 		this.idempleado = idempleado;
@@ -31,8 +31,6 @@ public class Venta {
 		this.total = total;
 		this.tipodocumento = tipodocumento;
 	}
-	
-	
 
 	public Venta(int idempleado, int idsede, int idcliente, int idhojacontrato, String tipopago, double total) {
 		super();
