@@ -42,17 +42,17 @@ public class Test {
 		
 		
 		//try {
-		//	VentaDao dao = (VentaDao)context.getBean("ventaDaoImp");
-		//	Venta h = new Venta(1,1,1000000,500, "Contado", 100);
-		//dao.crearVentaPedidoBoleta(h);
+		VentaDao dao = (VentaDao)context.getBean("ventaDaoImp");
+		Venta h = new Venta(1, 1, 1, "Tarjeta", 1000, "Factura");
+		dao.crearVentaFactura(h);
 		//} catch (Exception e) {
 		//System.out.println("Error " + e);
 		//}
-		OrdenTrabajoDao dao = (OrdenTrabajoDao)context.getBean("ordenTrabajoDaoImp");
-		List<Map<String, Object>> lista = dao.listar_materia_prima();
-		for(Map<String,Object> map:lista) {
-        	System.out.println(map.get("MTP_ID"));
-        }
+		//OrdenTrabajoDao dao = (OrdenTrabajoDao)context.getBean("ordenTrabajoDaoImp");
+		//List<Map<String, Object>> lista = dao.listar_materia_prima();
+		//for(Map<String,Object> map:lista) {
+        	//System.out.println(map.get("MTP_ID"));
+       // }
 	        context.close();
 	}
 }

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import pe.edu.upeu.Spring01.dao.DetalleVentaDao;
 import pe.edu.upeu.Spring01.entity.DetalleVenta;
 @Service
-public class DetalleDaoImp implements DetalleVentaDao {
+public class DetalleVentaDaoImp implements DetalleVentaDao {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -31,5 +31,11 @@ public class DetalleDaoImp implements DetalleVentaDao {
 			System.out.println("Error" + e);
 		}
 		return jdbcTemplate.update(sql, detalle.getPrecio(),detalle.getCantidad());
+	}
+
+	@Override
+	public int crearDetalleVenta(DetalleVenta detalle) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
