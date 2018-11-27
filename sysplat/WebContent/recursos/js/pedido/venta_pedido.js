@@ -88,8 +88,8 @@ $("#generar").click(function(){
 	}
 	else if(tipodoc=="Boleta"){
 		alert("soy boleta");
-		
-		
+		alert(idempleado + "sasas" + idsede  + " " + idcliente + " "+ idhoja + " " 
+				+ tipopago + "  " + total );
 		$.post("vp", { "opc" : 2, "idempleado" : idempleado,
 			"idsede":idsede,"idcliente":idcliente, "idhoja": idhoja,
 			"tipopago":tipopago, "total":total },
@@ -106,11 +106,12 @@ $("#generar").click(function(){
 			});
 		});	
 	}
-	//else if(tipodoc=="Factura"){
+	else if(tipodoc=="Factura"){
 	
 	//	$.get("vp", { "opc" : 1, "codigohoja" : codigo}, function(data) {	
 	//	});
-	//}
+	alert("soy factura");
+	}
 
 	
 });
