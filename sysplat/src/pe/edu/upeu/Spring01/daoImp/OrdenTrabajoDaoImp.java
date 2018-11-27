@@ -68,7 +68,7 @@ public class OrdenTrabajoDaoImp implements OrdenTrabajoDao {
 	public int crearMateriaOrden(MateriaOrden materia) {
 		String sql = null;
 		try {
-			sql="{ call ped_crear_orden_trabajo(?)}";
+			sql="{ call ped_crear_materia_orden(?)}";
 		} catch (Exception e) {
 			System.out.println("Error   " + e);	
 			}

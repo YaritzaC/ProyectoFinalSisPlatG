@@ -10,6 +10,15 @@ public class KardexProducto {
 	private String concepto;
 	private String estado;
 
+	public KardexProducto() {
+		super();
+	}
+
+	public KardexProducto(int idsede) {
+		super();
+		this.idsede = idsede;
+	}
+
 	public int getIdkardexproducto() {
 		return idkardexproducto;
 	}

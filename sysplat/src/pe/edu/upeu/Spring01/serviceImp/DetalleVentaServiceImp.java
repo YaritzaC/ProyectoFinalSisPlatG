@@ -3,12 +3,12 @@ package pe.edu.upeu.Spring01.serviceImp;
 import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import pe.edu.upeu.Spring01.daoImp.DetalleVentaDaoImp;
 import pe.edu.upeu.Spring01.entity.DetalleVenta;
 import pe.edu.upeu.Spring01.service.DetalleVentaService;
-@Repository
+@Service
 public class DetalleVentaServiceImp implements DetalleVentaService {
 	@Autowired
 	private DetalleVentaDaoImp detalleVenta;

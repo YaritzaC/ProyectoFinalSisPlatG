@@ -1,51 +1,51 @@
 package pe.edu.upeu.Spring01.entity;
 
 public class DetalleKardexProducto {
-	
-	private int iddetkarpro;
-	private int idkarpro;
-	private int idprod;
+
+	private int iddetallekardexproducto;
+	private int idkardexproducto;
+	private int idproducto;
 	private double precio;
+	private int stockantiguo;
 	private int cantidad;
+	private int stockactual;
 	private String estado;
-	
+
 	public DetalleKardexProducto() {
 		super();
 	}
-
-	public DetalleKardexProducto(int iddetkarpro, int idkarpro, int idprod, double precio, int cantidad,
-			String estado) {
+	
+    // Crear detalle kardex producto
+	public DetalleKardexProducto(int idproducto, double precio, int cantidad) {
 		super();
-		this.iddetkarpro = iddetkarpro;
-		this.idkarpro = idkarpro;
-		this.idprod = idprod;
+		this.idproducto = idproducto;
 		this.precio = precio;
 		this.cantidad = cantidad;
-		this.estado = estado;
 	}
 
-	public int getIddetkarpro() {
-		return iddetkarpro;
+
+	public int getIddetallekardexproducto() {
+		return iddetallekardexproducto;
 	}
 
-	public void setIddetkarpro(int iddetkarpro) {
-		this.iddetkarpro = iddetkarpro;
+	public void setIddetallekardexproducto(int iddetallekardexproducto) {
+		this.iddetallekardexproducto = iddetallekardexproducto;
 	}
 
-	public int getIdkarpro() {
-		return idkarpro;
+	public int getIdkardexproducto() {
+		return idkardexproducto;
 	}
 
-	public void setIdkarpro(int idkarpro) {
-		this.idkarpro = idkarpro;
+	public void setIdkardexproducto(int idkardexproducto) {
+		this.idkardexproducto = idkardexproducto;
 	}
 
-	public int getIdprod() {
-		return idprod;
+	public int getIdproducto() {
+		return idproducto;
 	}
 
-	public void setIdprod(int idprod) {
-		this.idprod = idprod;
+	public void setIdproducto(int idproducto) {
+		this.idproducto = idproducto;
 	}
 
 	public double getPrecio() {
@@ -56,12 +56,28 @@ public class DetalleKardexProducto {
 		this.precio = precio;
 	}
 
+	public int getStockantiguo() {
+		return stockantiguo;
+	}
+
+	public void setStockantiguo(int stockantiguo) {
+		this.stockantiguo = stockantiguo;
+	}
+
 	public int getCantidad() {
 		return cantidad;
 	}
 
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
+	}
+
+	public int getStockactual() {
+		return stockactual;
+	}
+
+	public void setStockactual(int stockactual) {
+		this.stockactual = stockactual;
 	}
 
 	public String getEstado() {
@@ -71,5 +87,5 @@ public class DetalleKardexProducto {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
+
 }

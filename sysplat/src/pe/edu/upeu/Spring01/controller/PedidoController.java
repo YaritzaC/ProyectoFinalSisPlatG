@@ -114,6 +114,31 @@ public class PedidoController {
 
 	private Gson g = new Gson();
 
+	@RequestMapping(value = "/ped")
+	public void crearpedido(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		int op = Integer.parseInt(request.getParameter("opc"));
+		switch (op) {
+		case 1:
+			Pedido pe = new Pedido(Integer.parseInt(request.getParameter("idempleado")),
+					                   Integer.parseInt(request.getParameter("idsede")), 
+								       Integer.parseInt(request.getParameter("idcliente")), 
+								       request.getParameter("nombre"),
+								       Integer.parseInt(request.getParameter("cantidad")),
+								       Double.parseDouble(request.getParameter("precio")),
+								       request.getParameter("dimension"),
+								       request.getParameter("especificacion"),
+								       request.getParameter("observacion"));
+			out.println(g.toJson(pedido.crearPedido(pe)));
+			break;
+		}
+
+	}
+
+	
+	
+	
 	@RequestMapping(value = "/ot")
 	public void ordentrabajo(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, SQLException {
@@ -128,12 +153,13 @@ public class PedidoController {
 			out.println(g.toJson(materia.buscarMateriaPrima(request.getParameter("materia"))));
 			break;
 		case 3:
-			OrdenTrabajo orden = new OrdenTrabajo(Integer.parseInt(request.getParameter("idempleado")),
-					Integer.parseInt(request.getParameter("idpedido")));
-			out.println(g.toJson(ordentrabajo.crearOrdenTrabajo(orden)));
+			OrdenTrabajo orden = new OrdenTrabajo(Integer.parseInt(request.getParameter("idemp")),
+					Integer.parseInt(request.getParameter("idped")));
+			ordentrabajo.crearOrdenTrabajo(orden);
+			break;
 		case 4:
 			MateriaOrden materia = new MateriaOrden(Integer.parseInt(request.getParameter("idmateria")));
-			out.println(g.toJson(ordentrabajo.crearMateriaOrden(materia)));
+			ordentrabajo.crearMateriaOrden(materia);
 			break;
 		}
 	}
@@ -173,38 +199,17 @@ public class PedidoController {
 					Integer.parseInt(request.getParameter("idcliente")),
 					Integer.parseInt(request.getParameter("idhoja")), request.getParameter("tipopago"),
 					Double.parseDouble(request.getParameter("total")));
-			out.println(g.toJson(ventapedido.crearVenta(venta)));
+			ventapedido.crearVentaPedidoBoleta(venta);
 			break;
 		case 3:
 			DetalleVenta detalle = new DetalleVenta(Double.parseDouble(request.getParameter("precio")),
 					Integer.parseInt(request.getParameter("cantidad")));
-			out.println(g.toJson(detallepedido.crearDetallePedido(detalle)));
+			detallepedido.crearDetallePedido(detalle);
 			break;
 		}
 
 	}
 	
 
-	@RequestMapping(value = "/ped")
-	public void crearpedido(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
-		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		int op = Integer.parseInt(request.getParameter("opc"));
-		switch (op) {
-		case 1:
-			Pedido pe = new Pedido(Integer.parseInt(request.getParameter("idempleado")),
-					                   Integer.parseInt(request.getParameter("idsede")), 
-								       Integer.parseInt(request.getParameter("idcliente")), 
-								       request.getParameter("nombre"),
-								       Integer.parseInt(request.getParameter("cantidad")),
-								       Double.parseDouble(request.getParameter("precio")),
-								       request.getParameter("dimension"),
-								       request.getParameter("especificacion"),
-								       request.getParameter("observacion"));
-			out.println(g.toJson(pedido.crearPedido(pe)));
-			break;
-		}
-
-	}
-
+	
 }

@@ -9,14 +9,18 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import oracle.net.aso.e;
 import pe.edu.upeu.Spring01.dao.ClienteDao;
+import pe.edu.upeu.Spring01.dao.DetalleVentaDao;
 import pe.edu.upeu.Spring01.dao.EmpleadoDao;
 import pe.edu.upeu.Spring01.dao.HojaContratoDao;
+import pe.edu.upeu.Spring01.dao.MateriaOrdenDao;
 import pe.edu.upeu.Spring01.dao.OrdenTrabajoDao;
 import pe.edu.upeu.Spring01.dao.ProductoDao;
 import pe.edu.upeu.Spring01.dao.VentaDao;
 import pe.edu.upeu.Spring01.entity.Cliente;
+import pe.edu.upeu.Spring01.entity.DetalleVenta;
 import pe.edu.upeu.Spring01.entity.Empleado;
 import pe.edu.upeu.Spring01.entity.HojaContrato;
+import pe.edu.upeu.Spring01.entity.MateriaOrden;
 import pe.edu.upeu.Spring01.entity.OrdenTrabajo;
 import pe.edu.upeu.Spring01.entity.Producto;
 import pe.edu.upeu.Spring01.entity.Venta;
@@ -40,19 +44,9 @@ public class Test {
 	        //}
 	       // HojaContratoDao dao = (HojaContratoDao)context.getBean("hojaContratoDaoImp");
 		
-		
-		//try {
-		VentaDao dao = (VentaDao)context.getBean("ventaDaoImp");
-		Venta h = new Venta(1, 1, 1, "Tarjeta", 1000, "Factura");
-		dao.crearVentaFactura(h);
-		//} catch (Exception e) {
-		//System.out.println("Error " + e);
-		//}
-		//OrdenTrabajoDao dao = (OrdenTrabajoDao)context.getBean("ordenTrabajoDaoImp");
-		//List<Map<String, Object>> lista = dao.listar_materia_prima();
-		//for(Map<String,Object> map:lista) {
-        	//System.out.println(map.get("MTP_ID"));
-       // }
+		DetalleVentaDao dao = (DetalleVentaDao)context.getBean("detalleVentaDaoImp");
+		DetalleVenta d = new DetalleVenta(100,1000);
+		dao.crearDetallePedido(d);
 	        context.close();
 	}
 }

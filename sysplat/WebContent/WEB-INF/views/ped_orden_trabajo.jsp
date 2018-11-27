@@ -14,10 +14,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
-<link rel="stylesheet"
-	href="${urlrecursos}/sweetalert/sweetalert2.min.css">
-<link rel="stylesheet"
-	href="${urlrecursos}/selectpicker/bootstrap-select.min.css">
+
 <spring:url value="/recursos" var="urlrecursos"></spring:url>
 <link href="${urlrecursos}/css/template.css" rel="stylesheet">
 <style type="text/css">
@@ -96,7 +93,6 @@
 					<div class="input-group">
 						<select data-size="7" class="form-control" data-live-search="true"
 							class="selectpicker" id="materiaprima">
-							<option value="Ingrese codigo">Ingrese la materia prima</option>
 							<c:forEach items="${listamateria}" var="ma">
 								<option value="${ma.MTP_ID}">${ma.MTP_NOMBRE}</option>
 							</c:forEach>
@@ -113,7 +109,7 @@
 		</div>
 		<div class="form-group row" style="margin-top: 2%;">
 			<div class="table-responsive" style="background-color: white;">
-				<table id="tableorden" class="table table-hover">
+				<table id="tablita" class="table table-hover">
 					<thead>
 						<tr>
 							<th>#</th>
@@ -170,6 +166,8 @@
 			ga('create', 'UA-72504830-1', 'auto');
 			ga('send', 'pageview');
 		}
+		
+		
 	</script>
 </body>
 </html>

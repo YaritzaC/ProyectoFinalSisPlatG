@@ -9,53 +9,76 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
-		
-		<!-- Ruta de paquetes -->
-	<context:component-scan base-package="pe.edu.upeu.Spring01" />
-	
+
+	<!-- Ruta de paquetes -->
+	<context:component-scan
+		base-package="pe.edu.upeu.Spring01" />
+
 	<!-- dataSource configuration -->
-   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://localhost:3306/sisplata"></property>
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver"></property>
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/sisplata"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value=""></property>
 	</bean>
-	
-<!--  jdbcTemplate uses dataSource -->
-	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+
+	<!-- jdbcTemplate uses dataSource -->
+	<bean id="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
-	
-	 <!--  Configuracion de los DaoIMp -->
-	<bean id="empleadoDaoImp" class="pe.edu.upeu.Spring01.daoImp.EmpleadoDaoImp"> 
-		<property name="jdbcTemplate" ref="jdbcTemplate" /> 
+
+	<!-- Configuracion de los DaoIMp -->
+	<bean id="empleadoDaoImp"
+		class="pe.edu.upeu.Spring01.daoImp.EmpleadoDaoImp">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
 	</bean>
-	<bean id="accesoDaoImp" class="pe.edu.upeu.Spring01.daoImp.AccesoDaoImp"> 
-		<property name="jdbcTemplate" ref="jdbcTemplate" /> 
+	<bean id="accesoDaoImp"
+		class="pe.edu.upeu.Spring01.daoImp.AccesoDaoImp">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
 	</bean>
-	<bean id="clienteDaoImp" class="pe.edu.upeu.Spring01.daoImp.ClienteDaoImp"> 
-		<property name="jdbcTemplate" ref="jdbcTemplate" /> 
+	<bean id="clienteDaoImp"
+		class="pe.edu.upeu.Spring01.daoImp.ClienteDaoImp">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
 	</bean>
-	<bean id="ordenTrabajoDaoImp" class="pe.edu.upeu.Spring01.daoImp.OrdenTrabajoDaoImp"> 
-		<property name="jdbcTemplate" ref="jdbcTemplate" /> 
+	<bean id="ordenTrabajoDaoImp"
+		class="pe.edu.upeu.Spring01.daoImp.OrdenTrabajoDaoImp">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
 	</bean>
-	<bean id="hojaContratoDaoImp" class="pe.edu.upeu.Spring01.daoImp.HojaContratoDaoImp"> 
-		<property name="jdbcTemplate" ref="jdbcTemplate" /> 
+	<bean id="hojaContratoDaoImp"
+		class="pe.edu.upeu.Spring01.daoImp.HojaContratoDaoImp">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
 	</bean>
-	<bean id="ventaDaoImp" class="pe.edu.upeu.Spring01.daoImp.VentaDaoImp"> 
-		<property name="jdbcTemplate" ref="jdbcTemplate" /> 
+	<bean id="ventaDaoImp"
+		class="pe.edu.upeu.Spring01.daoImp.VentaDaoImp">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
 	</bean>
-	<bean id="productoDaoImp" class="pe.edu.upeu.Spring01.daoImp.ProductoDaoImp"> 
-		<property name="jdbcTemplate" ref="jdbcTemplate" /> 
+	<bean id="productoDaoImp"
+		class="pe.edu.upeu.Spring01.daoImp.ProductoDaoImp">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
 	</bean>
-	<bean id="detalleVentaDaoImp" class="pe.edu.upeu.Spring01.daoImp.DetalleVentaDaoImp"> 
-		<property name="jdbcTemplate" ref="jdbcTemplate" /> 
+	<bean id="detalleVentaDaoImp"
+		class="pe.edu.upeu.Spring01.daoImp.DetalleVentaDaoImp">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
 	</bean>
-	<bean id="pedidoDaoImp" class="pe.edu.upeu.Spring01.daoImp.PedidoDaoImp"> 
-		<property name="jdbcTemplate" ref="jdbcTemplate" /> 
+	<bean id="pedidoDaoImp"
+		class="pe.edu.upeu.Spring01.daoImp.PedidoDaoImp">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
 	</bean>
-	<bean id="materiaPrimaDaoImp" class="pe.edu.upeu.Spring01.daoImp.MateriaPrimaDaoImp"> 
-		<property name="jdbcTemplate" ref="jdbcTemplate" /> 
+	<bean id="materiaPrimaDaoImp"
+		class="pe.edu.upeu.Spring01.daoImp.MateriaPrimaDaoImp">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	<bean id="kardexProductoDaoImp"
+		class="pe.edu.upeu.Spring01.daoImp.KardexProductoDaoImp">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	<bean id="detalleKardexProductoDaoImp"
+		class="pe.edu.upeu.Spring01.daoImp.DetalleKardexProductoDaoImp">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
 	</bean>
 
 </beans>
