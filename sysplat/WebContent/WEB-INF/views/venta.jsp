@@ -451,6 +451,13 @@
 								timer : 1500
 							})
 							//location.href = "http://localhost:8080/sysplat/Nuevo-Venta";
+							$.post("kc", {
+								"opc" : 1,
+								"idsede" : idse
+								
+							}, function() {
+								alert ("Llegué kardex de boleta ") ;
+							});
 						});
 
 					} else {
@@ -493,32 +500,78 @@
 									showConfirmButton : false,
 									timer : 1500
 								})
+								$.post("kc", {
+									"opc" : 1,
+									"idsede" : idse
+									
+								}, function() {
+									alert ("Llegué kardex de factura ") ;
+								});
+								
 							});
 
 						}
+						else {
+							if (idem == "" || idse == "" || idclien == ""
+								|| pag == "Seleccione" || doc == "Seleccione"
+									|| total == 0.00 || total == "") {
+								alert("VACIO");
+								swal({
+									position : 'top-end',
+									type : 'error',
+									title : 'Ups! Venta no registrada!',
+									showConfirmButton : false,
+									timer : 1500
+								})
+							}
+						}
 					}
 
-					$('#tablePro tbody tr').each(function() {
-						var idpro = $(this).find("td").eq(0).text();
-						var pre = $(this).find("td").eq(3).html();
-						var can = $(this).find("td").eq(5).find("input").val();
+					if (idem != "" && idse != "" && idclien != ""
+						&& pag != "Seleccione" && doc != "Seleccione" && total != 0.00) {
+						$('#tablePro tbody tr').each(function() {
+							var idpro = $(this).find("td").eq(0).text();
+							var pre = $(this).find("td").eq(3).html();
+							var can = $(this).find("td").eq(5).find("input").val();
 
-						alert("Soy el id del pro " + idpro)
-						alert("Soy el pre " + pre)
+							alert("Soy el id del pro " + idpro)
+							alert("Soy el pre " + pre)
 
-						alert("Soy la can " + can)
+							alert("Soy la can " + can)
 
-						$.post("dc", {
-							"opc" : 1,
-							"idproducto" : idpro,
-							"precio" : pre,
-							"cantidad" : can
-							
-						}, function() {
-							alert ("Llegué detalle ") ;
+							$.post("dc", {
+								"opc" : 1,
+								"idproducto" : idpro,
+								"precio" : pre,
+								"cantidad" : can
+								
+							}, function() {
+								alert ("Llegué detalle venta ") ;
+								
+								$.post("kc", {
+									"opc" : 2,
+									"idproducto" : idpro,
+									"precio" : pre,
+									"cantidad" : can
+									
+								}, function() {
+									alert ("Llegué detalle kardex producto") ;
+								});
+							});
+
 						});
-
-					});
+						
+					}
+					else {
+						alert ("Error");
+					}
+					
+					
+					
+					
+					
+					
+					
 
 				});
 	</script>
