@@ -2,6 +2,7 @@ package pe.edu.upeu.Spring01.daoImp;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -56,11 +57,6 @@ public class MateriaPrimaDaoImp implements MateriaPrimaDao {
 		return null;
 	}
 
-	@Override
-	public List<MateriaPrima> readAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public MateriaPrima buscarMateriaPrima(String p) {
@@ -72,6 +68,12 @@ public class MateriaPrimaDaoImp implements MateriaPrimaDao {
 			System.out.println("Error fatal" + e);
 		}
 		return materia;
+	}
+
+	@Override
+	public List<Map<String, Object>> readAll() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

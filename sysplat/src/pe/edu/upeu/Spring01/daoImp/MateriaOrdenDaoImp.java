@@ -2,6 +2,7 @@ package pe.edu.upeu.Spring01.daoImp;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -29,7 +30,7 @@ public class MateriaOrdenDaoImp implements MateriaOrdenDao {
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-	
+
 	@Override
 	public int create(MateriaOrden materiaorden) throws SQLException {
 		// TODO Auto-generated method stub
@@ -55,9 +56,11 @@ public class MateriaOrdenDaoImp implements MateriaOrdenDao {
 	}
 
 	@Override
-	public List<MateriaOrden> readAll() {
+	public List<Map<String, Object>> readAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
 
 }
