@@ -107,6 +107,7 @@ public class CompraController {
 
 	/*
 	 * Modulo de Registrar orden de compras
+	 * OK ahora ya funciona si funciona
 	 */
 	@GetMapping("/Registrar-Orden-Compra")
 	public ModelAndView registrarordencompra() {
