@@ -52,15 +52,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${listaCompra}" var="hg">
+				<c:forEach items="${listaProductosMenores}" var="meno">
 					<%
 						i++;
 					%>
 					<tr>
 						<th scope="row"><%=i%></th>
-						<td>${hg.PRO_NOMBRE}</td>
+						<td>${meno.PRO_NOMBRE}</td>
 						<td>Producto de tienda</td>
-						<td>${hg.PRO_STOCK}</td>
+						<td>${meno.PRO_STOCK}</td>
 						
 					</tr>
 				</c:forEach>
@@ -86,7 +86,6 @@
 	<script src="${urlrecursos}/js/popper.min.js"></script>
 	<script src="${urlrecursos}/js/bootstrap.min.js"></script>
 	<script src="${urlrecursos}/js/main.js"></script>
-	<script src="${urlrecursos}/js/compra/ordencompra.js"></script>
 	<!-- The javascript plugin to display page loading on top-->
 	<script src="${urlrecursos}/js/plugins/pace.min.js"></script>
 	<!-- Page specific javascripts-->

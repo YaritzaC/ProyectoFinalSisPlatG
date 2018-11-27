@@ -50,7 +50,6 @@
 					<th>Estado</th>
 				</tr>
 			</thead>
-			jj
 			<tbody>
 				<c:forEach items="${listaPro}" var="pro">
 					<%i++; %>

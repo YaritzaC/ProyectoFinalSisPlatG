@@ -41,7 +41,7 @@
 										<div class="media-body text-xs-left">
 											<h3 class="pink">10</h3>
 											<span><a style="color: black"
-												href="/sysplat/Crear-Orden-Compra">Crear Orden de
+												href="/sysplat/Crear-Orden-Compras">Crear Orden de
 													Compra </a></span>
 										</div>
 										<div class="media-right media-middle">
