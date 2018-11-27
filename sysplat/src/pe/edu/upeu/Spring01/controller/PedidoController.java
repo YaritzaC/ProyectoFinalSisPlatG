@@ -128,12 +128,13 @@ public class PedidoController {
 			out.println(g.toJson(materia.buscarMateriaPrima(request.getParameter("materia"))));
 			break;
 		case 3:
-			OrdenTrabajo orden = new OrdenTrabajo(Integer.parseInt(request.getParameter("idempleado")),
-					Integer.parseInt(request.getParameter("idpedido")));
-			out.println(g.toJson(ordentrabajo.crearOrdenTrabajo(orden)));
+			OrdenTrabajo orden = new OrdenTrabajo(Integer.parseInt(request.getParameter("idemp")),
+					Integer.parseInt(request.getParameter("idped")));
+			ordentrabajo.crearOrdenTrabajo(orden);
+			break;
 		case 4:
 			MateriaOrden materia = new MateriaOrden(Integer.parseInt(request.getParameter("idmateria")));
-			out.println(g.toJson(ordentrabajo.crearMateriaOrden(materia)));
+			ordentrabajo.crearMateriaOrden(materia);
 			break;
 		}
 	}

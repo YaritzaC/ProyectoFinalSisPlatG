@@ -24,6 +24,8 @@ public class HomeController {
 
 	HttpSession httpSession;
 
+	
+	
 	@GetMapping("/")
 	public ModelAndView index(HttpServletRequest request) {
 		ModelAndView ma = new ModelAndView();
