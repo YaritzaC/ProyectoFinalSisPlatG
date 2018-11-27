@@ -199,12 +199,12 @@ public class PedidoController {
 					Integer.parseInt(request.getParameter("idcliente")),
 					Integer.parseInt(request.getParameter("idhoja")), request.getParameter("tipopago"),
 					Double.parseDouble(request.getParameter("total")));
-			out.println(g.toJson(ventapedido.crearVenta(venta)));
+			ventapedido.crearVentaPedidoBoleta(venta);
 			break;
 		case 3:
 			DetalleVenta detalle = new DetalleVenta(Double.parseDouble(request.getParameter("precio")),
 					Integer.parseInt(request.getParameter("cantidad")));
-			out.println(g.toJson(detallepedido.crearDetallePedido(detalle)));
+			detallepedido.crearDetallePedido(detalle);
 			break;
 		}
 

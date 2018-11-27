@@ -45,7 +45,7 @@ public class Test {
 	       // HojaContratoDao dao = (HojaContratoDao)context.getBean("hojaContratoDaoImp");
 		
 		DetalleVentaDao dao = (DetalleVentaDao)context.getBean("detalleVentaDaoImp");
-		DetalleVenta d = new DetalleVenta(100,10);
+		DetalleVenta d = new DetalleVenta(100,1000);
 		dao.crearDetallePedido(d);
 	        context.close();
 	}
