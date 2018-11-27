@@ -30,7 +30,6 @@ import pe.edu.upeu.Spring01.service.ProductoService;
 import pe.edu.upeu.Spring01.serviceImp.CompraServiceImp;
 
 @Controller
-@RequestMapping ("/Compras12345")
 public class CompraController {
 
 	private Gson gson;
@@ -61,13 +60,13 @@ public class CompraController {
 	
 	/*--------------------------------------------------------------------------
 	 * Modulo de Compras
-	 * Lista los productos de la base de datos 
+	 * Lista los productos menores de la base de datos     OK NO TOCAR
 	 */
 	@GetMapping("/Crear-Orden-Compras")
 	public ModelAndView crearordencompra() {
 		ModelAndView ma = new ModelAndView();
 		ma.setViewName("com_listascompras");
-		ma.addObject("listaCompra", productoservice.readAllMenor());
+		ma.addObject("listaProductosMenores",productoservice.readAllMenor());
 		return ma;
 	}
 	
@@ -144,13 +143,23 @@ public class CompraController {
 		return "proveedor";
 	}
 	
+	
+	
+	
+	/*
+	 * DE YARITZA    NO TOCAR
+	 */
 	@GetMapping("/Productos")
 	public ModelAndView productos() {
 		ModelAndView ma = new ModelAndView();
 		ma.setViewName("com_producto");
-		ma.addObject("listaProk", productoservice.readAllMenor());
+		ma.addObject("listaPro", productoservice.readAll());      
 		return ma;
 	}
+	
+	/*
+	 * DE YARITZA     NO TOCAR
+	 */
 
 	/*
 	 * Espacio para las practicas
