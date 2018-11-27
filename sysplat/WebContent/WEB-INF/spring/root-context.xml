@@ -63,4 +63,7 @@
 	<bean id="detalleKardexProductoDaoImp" class="pe.edu.upeu.Spring01.daoImp.DetalleKardexProductoDaoImp"> 
 		<property name="jdbcTemplate" ref="jdbcTemplate" /> 
 	</bean>
+	<bean id="detellaOrdenCompraDaoImp" class="pe.edu.upeu.Spring01.daoImp.DetalleOrdenComprasDaoImp"> 
+		<property name="jdbcTemplate" ref="jdbcTemplate" /> 
+	</bean>
 </beans>
