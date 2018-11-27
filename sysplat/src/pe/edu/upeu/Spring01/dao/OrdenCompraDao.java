@@ -5,12 +5,11 @@ import java.util.List;
 import java.util.Map;
 
 import pe.edu.upeu.Spring01.entity.OrdenCompra;
+import pe.edu.upeu.Spring01.entity.Producto;
 
 
 public interface OrdenCompraDao {
- public int create(OrdenCompra ordencompra)throws SQLException;
+public OrdenCompra buscarOrdenCompra(String p);
  public int update(OrdenCompra ordencompra);
- public int delete(int id);
- public OrdenCompra read(int id);
  public List<Map<String, Object>>readAll();
 }

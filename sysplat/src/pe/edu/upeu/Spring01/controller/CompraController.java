@@ -31,6 +31,7 @@ import pe.edu.upeu.Spring01.serviceImp.CompraServiceImp;
 import pe.edu.upeu.Spring01.serviceImp.DetalleOrdenCompraServiceImp;
 
 @Controller
+@RequestMapping ("/Compras12345")
 public class CompraController {
 
 	private Gson gson;
@@ -63,11 +64,11 @@ public class CompraController {
 	 * Modulo de Compras
 	 * Lista los productos de la base de datos 
 	 */
-	@GetMapping("/Crear-Orden-Compra")
+	@GetMapping("/Crear-Orden-Compras")
 	public ModelAndView crearordencompra() {
 		ModelAndView ma = new ModelAndView();
 		ma.setViewName("com_listascompras");
-		ma.addObject("listaPro", productoservice.readAll());
+		ma.addObject("listaCompra", productoservice.readAllMenor());
 		return ma;
 	}
 	
@@ -148,7 +149,7 @@ public class CompraController {
 	public ModelAndView productos() {
 		ModelAndView ma = new ModelAndView();
 		ma.setViewName("com_producto");
-		ma.addObject("listaPro", productoservice.readAll());
+		ma.addObject("listaProk", productoservice.readAllMenor());
 		return ma;
 	}
 

@@ -54,11 +54,5 @@ public class CompraServiceImp implements CompraService {
 		return null;
 	}
 
-	@Override
-	public Compra subAccesos(int idacceso) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 
 }

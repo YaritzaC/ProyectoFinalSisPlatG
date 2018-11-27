@@ -39,4 +39,10 @@ public class ProductoDaoImp implements ProductoDao {
 		return this.jdbcTemplate.queryForList("{call com_listar_productos()}");
 	}
 
+	@Override
+	public List<Map<String, Object>> readAllMenor() {
+		// TODO Auto-generated method stub
+		return this.jdbcTemplate.queryForList("{call com_listar_productos_menores()}");
+	}
+
 }

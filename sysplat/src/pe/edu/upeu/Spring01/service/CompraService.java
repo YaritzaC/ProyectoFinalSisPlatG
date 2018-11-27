@@ -14,5 +14,4 @@ public interface CompraService {
 	 public int delete(int id);
 	 public Compra read(int id);
 	 public List<Map<String,Object>> readAll();
-     public Compra subAccesos (int idacceso);
 }

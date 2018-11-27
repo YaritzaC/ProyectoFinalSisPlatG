@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pe.edu.upeu.Spring01.daoImp.DetalleOrdenCompraDaoImp;
+import pe.edu.upeu.Spring01.daoImp.OrdenCompraDaoImp;
 import pe.edu.upeu.Spring01.daoImp.ProductoDaoImp;
 import pe.edu.upeu.Spring01.entity.Producto;
 import pe.edu.upeu.Spring01.service.DetalleOrdenCompraService;
@@ -15,7 +16,7 @@ import pe.edu.upeu.Spring01.service.ProductoService;
 @Service
 public class DetalleOrdenCompraServiceImp implements DetalleOrdenCompraService{
 	@Autowired
-	private DetalleOrdenCompraDaoImp pro;
+	private OrdenCompraDaoImp pro;
 	
 
 	@Override

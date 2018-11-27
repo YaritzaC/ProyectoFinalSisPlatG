@@ -20,9 +20,9 @@
 		<property name="driverClassName"
 			value="com.mysql.jdbc.Driver"></property>
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/sisplata"></property>
+			value="jdbc:mysql://52.55.92.59:3306/sisplata"></property>
 		<property name="username" value="root"></property>
-		<property name="password" value=""></property>
+		<property name="password" value="1234"></property>
 	</bean>
 
 	<!-- jdbcTemplate uses dataSource -->
@@ -79,9 +79,6 @@
 	<bean id="detalleKardexProductoDaoImp"
 		class="pe.edu.upeu.Spring01.daoImp.DetalleKardexProductoDaoImp">
 		<property name="jdbcTemplate" ref="jdbcTemplate" />
-	</bean>
-	<bean id="detellaOrdenCompraDaoImp" class="pe.edu.upeu.Spring01.daoImp.DetalleOrdenComprasDaoImp"> 
-		<property name="jdbcTemplate" ref="jdbcTemplate" /> 
 	</bean>
 
 </beans>

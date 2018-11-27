@@ -41,7 +41,7 @@
 	</div>
 	<div class="table-responsive"
 		style="background-color: white; margin-top: 5%;">
-		<table class="table table-hover" id="tablaCrear" name="tablaCrear">
+		<table class="table table-hover" id="tablaCrear" >
 			<thead>
 				<tr>
 					<th>#</th>
@@ -52,18 +52,16 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${listaPro}" var="pro">
+				<c:forEach items="${listaCompra}" var="hg">
 					<%
 						i++;
 					%>
 					<tr>
 						<th scope="row"><%=i%></th>
-						<td>${pro.PRO_NOMBRE}</td>
+						<td>${hg.PRO_NOMBRE}</td>
 						<td>Producto de tienda</td>
-						<td>${pro.PRO_STOCK}</td>
-						<td><input type="number" style="width: 80px;" class="numero" id="stock"></td>
-						<td><a href="temporal/${pro.PRO_ID},${pro.PRO_NOMBRE}" style="color: black;">
-						<i class="fa fa-check-circle" aria-hidden="true"></i></a></td>
+						<td>${hg.PRO_STOCK}</td>
+						
 					</tr>
 				</c:forEach>
 			</tbody>

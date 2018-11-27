@@ -23,4 +23,9 @@ public class ProductoServiceImp implements ProductoService {
 		// TODO Auto-generated method stub
 		return pro.readAll();
 	}
+	@Override
+	public List<Map<String, Object>> readAllMenor() {
+		// TODO Auto-generated method stub
+		return pro.readAllMenor();
+	}
 }
