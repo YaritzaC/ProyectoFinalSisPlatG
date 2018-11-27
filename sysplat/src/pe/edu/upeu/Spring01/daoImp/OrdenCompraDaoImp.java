@@ -43,6 +43,12 @@ public class OrdenCompraDaoImp implements OrdenCompraDao {
 		return null;
 	}
 
+	@Override
+	public List<Map<String, Object>> listarproductos(OrdenCompra ordenid) {
+		// TODO Auto-generated method stub
+		return this.jdbcTemplate.queryForList("{ call com_listar_productos_orden(" +ordenid.getCodigo() +");
+	}
+
 
 
 }
