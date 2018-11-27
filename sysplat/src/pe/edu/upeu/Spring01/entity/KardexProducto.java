@@ -14,10 +14,9 @@ public class KardexProducto {
 		super();
 	}
 
-	public KardexProducto(int idsede, String concepto) {
+	public KardexProducto(int idsede) {
 		super();
 		this.idsede = idsede;
-		this.concepto = concepto;
 	}
 
 	public int getIdkardexproducto() {
