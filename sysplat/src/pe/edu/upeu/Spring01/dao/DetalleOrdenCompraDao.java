@@ -2,6 +2,7 @@ package pe.edu.upeu.Spring01.dao;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 
 public interface DetalleOrdenCompraDao {
@@ -13,6 +14,6 @@ public interface DetalleOrdenCompraDao {
 
 	public DetalleOrdenCompraDao read(int id);
 
-	public List<DetalleOrdenCompraDao> readAll();
+	public List<Map<String, Object>> readAll();
 
 }

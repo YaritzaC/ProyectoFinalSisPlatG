@@ -2,6 +2,7 @@ package pe.edu.upeu.Spring01.daoImp;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -16,6 +17,17 @@ import pe.edu.upeu.Spring01.entity.Compra;
 
 @Repository
 public class DetalleOrdenCompraDaoImp implements DetalleOrdenCompraDao {
+	
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	public JdbcTemplate getJdbcTemplate() {
+		return jdbcTemplate;
+	}
+
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
 
 	@Override
 	public int create(DetalleOrdenCompraDao detalleordcom) throws SQLException {
@@ -42,9 +54,9 @@ public class DetalleOrdenCompraDaoImp implements DetalleOrdenCompraDao {
 	}
 
 	@Override
-	public List<DetalleOrdenCompraDao> readAll() {
+	public List<Map<String, Object>> readAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.jdbcTemplate.queryForList("{call com_listar_detalle()}");
 	}
 
 	

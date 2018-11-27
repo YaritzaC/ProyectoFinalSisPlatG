@@ -32,25 +32,36 @@
 					<i class="fa fa-search"></i>
 				</button></li>
 		</div>
+		<%
+		int i = 0;
+	%>
 		<div class="table-responsive"
 			style="background-color: white; margin-top: 5%;">
 			<table class="table table-hover" id="registrar">
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Nombre</th>
+						<th>Codigo</th>
 						<th>Fecha</th>
-						<th colspan="2">Acción</th>
+						<th>Tipo</th>
+						<th>Acción</th>
 					</tr>
 				</thead>
 				<tbody>
+				<c:forEach items="${listaLis}" var="lis">
+					<%
+						i++;
+					%>
 					<tr>
-						<td>1</td>
-						<td>Lista 1</td>
-						<td>5/11/2018</td>
-						<td><a href="#" class="fa fa-eye"></a></td>
+						<th scope="row"><%=i%></th>
+						<td>${lis.ORDCOM_CODIGO}</td>
+						<td>${lis.ORDCOM_FECHA}</td>
+						<td>${lis.ORDCOM_TIPO}</td>
+						<td><a href="temporal/${lis.ORDCOM_CODIGO }_ID}" style="color: black;">
+						<i class="fa fa-check-circle" aria-hidden="true"></i></a></td>
 					</tr>
-				</tbody>
+				</c:forEach>
+			</tbody>
 			</table>
 		</div>
 	</div>

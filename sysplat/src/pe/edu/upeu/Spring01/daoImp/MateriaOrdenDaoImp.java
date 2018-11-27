@@ -19,6 +19,17 @@ import pe.edu.upeu.Spring01.entity.MateriaOrden;
 @Repository
 public class MateriaOrdenDaoImp implements MateriaOrdenDao {
 
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	public JdbcTemplate getJdbcTemplate() {
+		return jdbcTemplate;
+	}
+
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+	
 	@Override
 	public int create(MateriaOrden materiaorden) throws SQLException {
 		// TODO Auto-generated method stub

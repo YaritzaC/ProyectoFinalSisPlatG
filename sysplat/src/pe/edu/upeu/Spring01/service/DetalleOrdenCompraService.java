@@ -2,6 +2,7 @@ package pe.edu.upeu.Spring01.service;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 
 public interface DetalleOrdenCompraService {
@@ -13,6 +14,6 @@ public interface DetalleOrdenCompraService {
 
 	public DetalleOrdenCompraService read(int id);
 
-	public List<DetalleOrdenCompraService> readAll();
+	public List<Map<String, Object>> readAll();
 
 }

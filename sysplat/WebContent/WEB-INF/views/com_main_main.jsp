@@ -23,21 +23,8 @@
 				<i class="fa fa-dashboard"></i> Compras
 			</h1>
 		</div>
-		<ul class="app-breadcrumb breadcrumb">
-			<li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-			<li class="breadcrumb-item"><a href="#">Blank Page</a></li>
-		</ul>
 	</div>
-	<div class="row">
-		<div class="col-md-12 row">
-			<div class="tile col-md-6">
-				<div class="tile-body">Crear lista para las compras</div>
-			</div>
-		</div>
-
-	</div>
-
-	<div class="">
+		<div class="">
 		<div class="content-wrapper">
 			<div class="content-header row"></div>
 			<div class="content-body">

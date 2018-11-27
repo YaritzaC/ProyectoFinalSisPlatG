@@ -23,5 +23,4 @@ public class ProductoServiceImp implements ProductoService {
 		// TODO Auto-generated method stub
 		return pro.readAll();
 	}
-
 }

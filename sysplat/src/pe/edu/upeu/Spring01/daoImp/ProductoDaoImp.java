@@ -36,7 +36,7 @@ public class ProductoDaoImp implements ProductoDao {
 	@Override
 	public List<Map<String, Object>> readAll() {
 		// TODO Auto-generated method stub
-		return this.jdbcTemplate.queryForList("{ call com_listar_productos() }");
+		return this.jdbcTemplate.queryForList("{call com_listar_productos()}");
 	}
 
 }

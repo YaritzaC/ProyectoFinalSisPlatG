@@ -62,7 +62,7 @@
 						<td>Producto de tienda</td>
 						<td>${pro.PRO_STOCK}</td>
 						<td><input type="number" style="width: 80px;" class="numero" id="stock"></td>
-						<td><a href="crearTemporal/${pro.PRO_ID},${pro.PRO_NOMBRE}" style="color: black;">
+						<td><a href="temporal/${pro.PRO_ID},${pro.PRO_NOMBRE}" style="color: black;">
 						<i class="fa fa-check-circle" aria-hidden="true"></i></a></td>
 					</tr>
 				</c:forEach>

@@ -18,6 +18,16 @@ import pe.edu.upeu.Spring01.entity.Producto;
 
 @Repository
 public class CompraDaoImp implements CompraDao {
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	public JdbcTemplate getJdbcTemplate() {
+		return jdbcTemplate;
+	}
+
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
 	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;

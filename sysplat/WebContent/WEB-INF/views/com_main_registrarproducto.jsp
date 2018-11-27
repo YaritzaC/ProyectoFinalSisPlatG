@@ -26,59 +26,66 @@
 				Crear Orden Compra
 			</h1>
 		</div>
-		</div>
-<!-- Tabla que estoy desarrollando --> 
-		<div style="width: 300px; position: relative; left: 70%;">
-			<li class="app-search"><input style="width: 300px;"
-				class="app-search__input" type="search" placeholder="Search" id="searchpro">
-				<button class="app-search__button">
-					<i class="fa fa-search"></i>
-				</button></li>
-		</div>
-		<div class="table-responsive"
-			style="background-color: white; margin-top: 5%;">
-			<table class="table table-hover" id="tablaCrear">
-				<thead>
+	</div>
+	<%
+		int i = 0;
+	%>
+	 <!-- Tabla que estoy desarrollando -->
+	<div style="width: 300px; position: relative; left: 70%;">
+		<li class="app-search"><input style="width: 300px;"
+			class="app-search__input" type="search" placeholder="Search"
+			id="searchpro">
+			<button class="app-search__button">
+				<i class="fa fa-search"></i>
+			</button></li>
+	</div>
+	<div class="table-responsive"
+		style="background-color: white; margin-top: 5%;">
+		<table class="table table-hover" id="tablaCrear" name="tablaCrear">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Nombre</th>
+					<th>Descripción</th>
+					<th>Stock</th>
+					<th scope="col" colspan="2">Acción</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${listasLis}" var="lis">
+					<%
+						i++;
+					%>
 					<tr>
-						<th>#</th>
-						<th>Nombre</th>
-						<th>Stock</th>
-						<th>Precio Unitario</th>
-						<th>Precio Total</th>
-					</tr> 
-				</thead>
-				<tbody>
-					<tr>
-						<td>1</td>
-						<td>Collar de plata</td>
-						<td><input></td>
-						<td>
-							<div class="row">
-							<div class="col-xl-3 col-lg-6 col-lg-12">
-								<input type="number" id="income" name="income" value="10" style="width: 50px;">
-								<p1> soles</p1>
-							</div>
-						</td>
-						<td>
-							<input value="1000" >
-						</td>
+						<th scope="row"><%=i%></th>
+						<td>${pro.PRO_NOMBRE}</td>
+						<td>Producto de tienda</td>
+						<td>${pro.PRO_STOCK}</td>
+						<td><input type="number" style="width: 80px;" class="numero"
+							id="stock"></td>
+						<td><a href="temporal/${pro.PRO_ID},${pro.PRO_NOMBRE}"
+							style="color: black;"> <i class="fa fa-check-circle"
+								aria-hidden="true"></i></a></td>
 					</tr>
-				</tbody>
-			</table>
-		</div>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
 	<br />
 	<div class="row">
 		<div class="row col-md-12">
 			<div class="row col-md-8"></div>
 			<div class="col-md-4">
-				<span class="btn btn-lg btn-primary"><i class="fa fa-search" aria-hidden="true"></i>Siguiente</span>
-				<span class="btn btn-secondary btn-lg"><a style="color: white;"	href="/SISPLAT-G/Compras">Salir </a></span>
+				<span class="btn btn-lg btn-primary"><i class="fa fa-search"
+					aria-hidden="true"></i>Siguiente</span> <span
+					class="btn btn-secondary btn-lg"><a style="color: white;"
+					href="/sysplat/Compras">Salir </a></span>
 			</div>
 		</div>
 	</div>
 	</main>
 	<!-- Essential javascripts for application to work-->
-	
+
 	<script src="${urlrecursos}/js/jquery-3.2.1.min.js"></script>
 	<script src="${urlrecursos}/js/popper.min.js"></script>
 	<script src="${urlrecursos}/js/bootstrap.min.js"></script>
@@ -87,7 +94,7 @@
 	<!-- The javascript plugin to display page loading on top-->
 	<script src="${urlrecursos}/js/plugins/pace.min.js"></script>
 	<script type="text/javascript">
-	window.alert("INGRESO DE PRODUCTOS CON ÉXITO");
+		window.alert("INGRESO DE PRODUCTOS CON ÉXITO");
 	</script>
 	<!-- Page specific javascripts-->
 	<!-- Google analytics script-->

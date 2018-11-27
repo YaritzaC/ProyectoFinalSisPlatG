@@ -25,8 +25,10 @@ import com.google.gson.Gson;
 import pe.edu.upeu.Spring01.entity.Compra;
 import pe.edu.upeu.Spring01.entity.Empleado;
 import pe.edu.upeu.Spring01.entity.Producto;
+import pe.edu.upeu.Spring01.service.DetalleOrdenCompraService;
 import pe.edu.upeu.Spring01.service.ProductoService;
 import pe.edu.upeu.Spring01.serviceImp.CompraServiceImp;
+import pe.edu.upeu.Spring01.serviceImp.DetalleOrdenCompraServiceImp;
 
 @Controller
 public class CompraController {
@@ -39,6 +41,10 @@ public class CompraController {
 
 	@Autowired
 	private CompraServiceImp cmp;
+	
+	@Autowired
+	private DetalleOrdenCompraService det;
+	
 
 	@PostMapping("/acceso1")
 	public ModelAndView main1(Model model, HttpServletRequest request) {
@@ -68,14 +74,14 @@ public class CompraController {
 	/*
 	 * Crea un array temporal para luego mostrarlo
 	 */
-	@RequestMapping(value="/crearTemporal/{PRO_ID},{PRO_NOMBRE}")
-	public ModelAndView crearTemporal(@PathVariable("ID") int id,@PathVariable("NOMBRE") String nombre) {
+	@RequestMapping(value="/temporal/{PRO_ID},{PRO_NOMBRE}")
+	public String crearTemporal(@PathVariable("id") int id,@PathVariable("nombre") String nombre) {
 		
 		Producto pro= new Producto();
 		pro.setIdproducto(id);
 		pro.setNombre(nombre);
 		produ.add(pro);
-		return new ModelAndView("redirect:/Crear-Orden-Compra");
+		return "redirect:/Aceptar-Orden-de-Compra";
 	}
 	
 	/*
@@ -99,8 +105,11 @@ public class CompraController {
 	 * Modulo de Registrar orden de compras
 	 */
 	@GetMapping("/Registrar-Orden-Compra")
-	public String registrarordencompra() {
-		return "com_main_registrarcompra";
+	public ModelAndView registrarordencompra() {
+		ModelAndView ma = new ModelAndView();
+		ma.setViewName("com_main_registrarcompra");
+		ma.addObject("listaLis", det.readAll());
+		return ma;
 	}
 	
 	@GetMapping("/Registrar-Listas-Compras")
@@ -115,15 +124,15 @@ public class CompraController {
 
 	@GetMapping("/Registrar-Listas")
 	public String registrarlistas() {
-
-		return "com_main_registrarcompra(Productos)";
+		
+		return "com_main_registrarproducto";
 	}
 	
 	
 	@GetMapping("/Ingresar-Productos-Comprados")
 	public String ingresarproductos() {
 
-		return "com_main_registrarproducto";
+		return "com_main_registrarcompra(Productos)";
 	}
 	
 	/*
