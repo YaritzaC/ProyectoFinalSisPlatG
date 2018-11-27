@@ -106,7 +106,7 @@
 		</div>
 	</div>
 	<div class="table-responsive" style="background-color: white;">
-		<table class="table table-hover" id="table">
+		<table class="table table-hover" id="tableventa">
 			<thead>
 				<tr>
 					<th>#</th>

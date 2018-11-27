@@ -85,7 +85,7 @@ public class PedidoController {
 	public ModelAndView listaComprobantePedido() {
 		ModelAndView ma = new ModelAndView();
 		ma.setViewName("ped_lista_comprobante_pedido");
-		ma.addObject("listaComprobante", ventapedido.listar_venta_pedido() );
+		ma.addObject("listaComprobante", ventapedido.listar_venta_pedido());
 		return ma;
 	}
 	@GetMapping("/Orden-Trabajo")
@@ -205,6 +205,14 @@ public class PedidoController {
 			DetalleVenta detalle = new DetalleVenta(Double.parseDouble(request.getParameter("precio")),
 					Integer.parseInt(request.getParameter("cantidad")));
 			detallepedido.crearDetallePedido(detalle);
+			break;
+		case 4:
+			Venta ven = new Venta(Integer.parseInt(request.getParameter("idempleado")),
+					Integer.parseInt(request.getParameter("idsede")),
+					Integer.parseInt(request.getParameter("idcliente")),
+					Integer.parseInt(request.getParameter("idhoja")), request.getParameter("tipopago"),
+					Double.parseDouble(request.getParameter("total")));
+			ventapedido.crearVentaPedidoFactura(ven);
 			break;
 		}
 

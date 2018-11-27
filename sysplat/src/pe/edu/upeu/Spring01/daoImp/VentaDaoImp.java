@@ -31,7 +31,7 @@ public class VentaDaoImp implements VentaDao {
 			sql="SELECT HC.HCT_ID,C.CLI_ID,C.CLI_NOMBRE, P.PED_ID,HC.HCT_CODIGO, HC.HCT_FECHA, P.PED_NOMBRE, E.EMPL_ID, \n" + 
 					"P.PED_CANTIDAD , P.PED_PRECIO , HC.HCT_TOTAL,HC.HCT_ADELANTO,HC.HCT_MITADTOTAL\n" + 
 					" FROM  PEDIDO AS P, EMPLEADO AS E, CLIENTE AS C, HOJACONTRATO AS HC\n" + 
-					"WHERE P.PED_CODIGO='"+codigohoja+"' and E.EMPL_ID=P.EMPL_ID AND  C.CLI_ID=P.CLI_ID "
+					"WHERE HC.HCT_CODIGO='"+codigohoja+"' and E.EMPL_ID=P.EMPL_ID AND  C.CLI_ID=P.CLI_ID "
 							+ "AND P.PED_ID=HC.PED_ID;";
 		} catch (Exception e) {
 			System.out.println("Error" + e);
