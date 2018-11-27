@@ -18,6 +18,16 @@ import pe.edu.upeu.Spring01.entity.Compra;
 @Repository
 public class DetalleOrdenCompraDaoImp implements DetalleOrdenCompraDao {
 	
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	public JdbcTemplate getJdbcTemplate() {
+		return jdbcTemplate;
+	}
+
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
 	
 	@Override
 	public int create(DetalleOrdenCompraDao detalleordcom) throws SQLException {
@@ -44,10 +54,10 @@ public class DetalleOrdenCompraDaoImp implements DetalleOrdenCompraDao {
 	}
 
 	@Override
-	public List<Map<String, Object>> readAll() {
+	public List<Map<String, Object>> listarordencompra() {
 		// TODO Auto-generated method stub
 		//return this.jdbcTemplate.queryForList("{call com_listar_detalle()}");
-		return null;
+		return this.jdbcTemplate.queryForList("{call com_listar_detalle()}");
 	}
 
 	

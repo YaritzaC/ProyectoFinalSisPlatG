@@ -77,8 +77,8 @@
 			<div class="row col-md-8"></div>
 			<div class="col-md-4">
 				<span class="btn btn-lg btn-primary"><i class="fa fa-search"
-					aria-hidden="true"></i>Siguiente</span> <span
-					class="btn btn-secondary btn-lg"><a style="color: white;"
+					aria-hidden="true"></i>Siguiente</span> 
+					<span class="btn btn-secondary btn-lg"><a style="color: white;"
 					href="/sysplat/Compras">Salir </a></span>
 			</div>
 		</div>

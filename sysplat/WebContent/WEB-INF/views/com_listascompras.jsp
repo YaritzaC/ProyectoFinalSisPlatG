@@ -61,7 +61,9 @@
 						<td>${meno.PRO_NOMBRE}</td>
 						<td>Producto de tienda</td>
 						<td>${meno.PRO_STOCK}</td>
-						
+						<td><input type="number" style="width: 80px;" class="numero" id="stock"></td>
+						<td><a href="temporal/${meno.PRO_ID},${meno.PRO_NOMBRE}" style="color: black;">
+						<i class="fa fa-check-circle" aria-hidden="true"></i></a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -75,7 +77,7 @@
 				<span class="btn btn-lg btn-primary"><a style="color: white;"
 					href="/sysplat/Aceptar-Orden-de-Compra">Siguiente </a></span> <span
 					class="btn btn-secondary btn-lg"><a style="color: white;"
-					href="/SISPLAT-G/Compras">Salir </a></span>
+					href="/sysplat/Compras">Salir </a></span>
 			</div>
 		</div>
 	</div>

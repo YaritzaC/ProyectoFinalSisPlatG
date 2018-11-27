@@ -48,7 +48,7 @@
 					</tr>
 				</thead>
 				<tbody>
-				<c:forEach items="${listaLis}" var="lis">
+				<c:forEach items="${listasCompras}" var="lis">
 					<%
 						i++;
 					%>
@@ -70,7 +70,8 @@
 		<div class="row col-md-12">
 			<div class="row col-md-8"></div>
 			<div class="col-md-4">
-				<button type="button" class="btn btn-lg btn-primary" id="siguiente">Salir</button>
+			<span class="btn btn-secondary btn-lg"><a style="color: white;"
+					href="/sysplat/Compras">Salir </a></span>
 			</div>
 		</div>
 	</div>

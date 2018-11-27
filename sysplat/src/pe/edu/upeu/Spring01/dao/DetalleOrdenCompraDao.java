@@ -14,6 +14,6 @@ public interface DetalleOrdenCompraDao {
 
 	public DetalleOrdenCompraDao read(int id);
 
-	public List<Map<String, Object>> readAll();
+	public List<Map<String, Object>> listarordencompra();
 
 }

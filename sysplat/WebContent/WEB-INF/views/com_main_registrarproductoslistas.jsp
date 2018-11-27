@@ -59,7 +59,7 @@
 		<div class="row col-md-12">
 			<div class="row col-md-8"></div>
 			<div class="col-md-4">
-				<button type="button" class="btn btn-lg btn-primary" id="siguiente">Salir</button>
+				<button type="button" class="btn btn-lg btn-primary" id="siguiente" href="/sysplat/Compras">Salir</button>
 			</div>
 		</div>
 	</div>

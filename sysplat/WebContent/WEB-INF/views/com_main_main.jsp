@@ -89,7 +89,7 @@
 										<div class="media-body text-xs-left">
 											<h3 class="deep-orange">10</h3>
 											<span><a style="color: black"
-												href="/sysplat/Ingresar-Productos-Comprados">Ingresar
+												href="/sysplat/Registrar-Listas">Ingresar
 													Productos Comprados </a></span>
 										</div>
 										<div class="media-right media-middle">

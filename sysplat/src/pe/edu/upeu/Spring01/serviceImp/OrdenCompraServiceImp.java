@@ -10,43 +10,33 @@ import org.springframework.stereotype.Service;
 import pe.edu.upeu.Spring01.daoImp.DetalleOrdenCompraDaoImp;
 import pe.edu.upeu.Spring01.daoImp.OrdenCompraDaoImp;
 import pe.edu.upeu.Spring01.daoImp.ProductoDaoImp;
+import pe.edu.upeu.Spring01.entity.OrdenCompra;
 import pe.edu.upeu.Spring01.entity.Producto;
 import pe.edu.upeu.Spring01.service.DetalleOrdenCompraService;
+import pe.edu.upeu.Spring01.service.OrdenCompraService;
 import pe.edu.upeu.Spring01.service.ProductoService;
 @Service
-public class DetalleOrdenCompraServiceImp implements DetalleOrdenCompraService{
+public class OrdenCompraServiceImp implements OrdenCompraService{
 	@Autowired
 	private OrdenCompraDaoImp pro;
-	
 
 	@Override
-	public int create(DetalleOrdenCompraService detalleordcom) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int update(DetalleOrdenCompraService detalleordcom) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int delete(int id) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public DetalleOrdenCompraService read(int id) {
+	public OrdenCompra buscarOrdenCompra(String ord) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Map<String, Object>> listarordencompra() {
+	public List<Map<String, Object>> readAll() {
 		// TODO Auto-generated method stub
-		return pro.readAll();
+		return null;
 	}
+
+	@Override
+	public int update(OrdenCompra ordencompra) {
+		// TODO Auto-generated method stub
+		return pro.update(ordencompra);
+	}
+	
 
 }

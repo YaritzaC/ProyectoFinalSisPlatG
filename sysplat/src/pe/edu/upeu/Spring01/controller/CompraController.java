@@ -24,8 +24,11 @@ import com.google.gson.Gson;
 
 import pe.edu.upeu.Spring01.entity.Compra;
 import pe.edu.upeu.Spring01.entity.Empleado;
+import pe.edu.upeu.Spring01.entity.OrdenCompra;
 import pe.edu.upeu.Spring01.entity.Producto;
+import pe.edu.upeu.Spring01.service.CompraService;
 import pe.edu.upeu.Spring01.service.DetalleOrdenCompraService;
+import pe.edu.upeu.Spring01.service.OrdenCompraService;
 import pe.edu.upeu.Spring01.service.ProductoService;
 import pe.edu.upeu.Spring01.serviceImp.CompraServiceImp;
 
@@ -39,10 +42,13 @@ public class CompraController {
 	private ProductoService productoservice;
 
 	@Autowired
-	private CompraServiceImp cmp;
+	private CompraService cmp;
 	
-	//@Autowired
-	//private DetalleOrdenCompraService det;
+	@Autowired
+	private DetalleOrdenCompraService det;
+	
+	@Autowired
+	private OrdenCompraService ordcompra;
 	
 
 	@PostMapping("/acceso1")
@@ -75,7 +81,6 @@ public class CompraController {
 	 */
 	@RequestMapping(value="/temporal/{PRO_ID},{PRO_NOMBRE}")
 	public String crearTemporal(@PathVariable("id") int id,@PathVariable("nombre") String nombre) {
-		
 		Producto pro= new Producto();
 		pro.setIdproducto(id);
 		pro.setNombre(nombre);
@@ -107,15 +112,24 @@ public class CompraController {
 	public ModelAndView registrarordencompra() {
 		ModelAndView ma = new ModelAndView();
 		ma.setViewName("com_main_registrarcompra");
-		//ma.addObject("listaLis", det.readAll());
+		ma.addObject("listasCompras", det.listarordencompra());
 		return ma;
 	}
 	
 	@GetMapping("/Registrar-Listas-Compras")
 	public String registrarlistascompras() {
-
-		return "com_main_registrarproductoslistas";
+		return "com_main_registrarproductos";
 	} 
+	
+	@RequestMapping(value="{ORDCOM_ID}")
+	public String productos(@PathVariable("id") int id) {
+		OrdenCompra ordencompra= new OrdenCompra();
+		ordencompra.setIdordencompra(id);
+		ordcompra.update(ordencompra);
+		return "redirect:/Aceptar-Orden-de-Compra";
+	}
+	
+	
 	
 	/*
 	 * Modulo de Ingresar Productos Comprados 
@@ -123,7 +137,6 @@ public class CompraController {
 
 	@GetMapping("/Registrar-Listas")
 	public String registrarlistas() {
-		
 		return "com_main_registrarproducto";
 	}
 	

@@ -34,7 +34,7 @@ public class OrdenCompraDaoImp implements OrdenCompraDao {
 	@Override
 	public int update(OrdenCompra ordencompra) {
 		// TODO Auto-generated method stub
-		return 0;
+		return jdbcTemplate.update("{ call com_actualizar_orden_compra("+ordencompra.getIdordencompra() +") }");
 	}
 
 	@Override

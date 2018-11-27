@@ -14,6 +14,6 @@ public interface DetalleOrdenCompraService {
 
 	public DetalleOrdenCompraService read(int id);
 
-	public List<Map<String, Object>> readAll();
+	public List<Map<String, Object>> listarordencompra();
 
 }
