@@ -28,7 +28,6 @@ import pe.edu.upeu.Spring01.entity.Producto;
 import pe.edu.upeu.Spring01.service.DetalleOrdenCompraService;
 import pe.edu.upeu.Spring01.service.ProductoService;
 import pe.edu.upeu.Spring01.serviceImp.CompraServiceImp;
-import pe.edu.upeu.Spring01.serviceImp.DetalleOrdenCompraServiceImp;
 
 @Controller
 @RequestMapping ("/Compras12345")
@@ -43,8 +42,8 @@ public class CompraController {
 	@Autowired
 	private CompraServiceImp cmp;
 	
-	@Autowired
-	private DetalleOrdenCompraService det;
+	//@Autowired
+	//private DetalleOrdenCompraService det;
 	
 
 	@PostMapping("/acceso1")
@@ -109,7 +108,7 @@ public class CompraController {
 	public ModelAndView registrarordencompra() {
 		ModelAndView ma = new ModelAndView();
 		ma.setViewName("com_main_registrarcompra");
-		ma.addObject("listaLis", det.readAll());
+		//ma.addObject("listaLis", det.readAll());
 		return ma;
 	}
 	

@@ -257,8 +257,8 @@
 			var codigo = $("#codigoHoja").val();
 			$.get("vp", { "opc" : 1, "codigohoja" : codigo}, function(data) {
 				var x = JSON.parse(data);
-				alert("hola");
-				//idhoja = x[0].HCT_ID;
+				alert("hola" + x);
+				idhoja = x[0].HCT_ID;
 				idcliente = x[0].CLI_ID;
 				alert("idhoja" + idhoja);
 				alert("idempleado" + idcliente);

@@ -28,17 +28,6 @@ public class CompraDaoImp implements CompraDao {
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-	
-	@Autowired
-	private JdbcTemplate jdbcTemplate;
-
-	public JdbcTemplate getJdbcTemplate() {
-		return jdbcTemplate;
-	}
-
-	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
 	@Override
 	public int create(Compra compra) throws SQLException {
 		// TODO Auto-generated method stub
@@ -59,22 +48,14 @@ public class CompraDaoImp implements CompraDao {
 
 	@Override
 	public Compra read(String id) {
-		Compra comp = new Compra();
-		try {
-			String sql = "{ call com_buscar_compras(?) }";
-			comp = jdbcTemplate.queryForObject(sql, new CompraRowMapper(), id);
-		} catch (Exception e) {
-			System.out.println("Error fatal" + e);
-		}
-		return comp;
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public List<Compra> readAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
+	@Override
+	public List<Map<String, Object>> readAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 }
