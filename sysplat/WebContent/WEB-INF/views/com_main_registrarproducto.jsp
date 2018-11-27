@@ -27,10 +27,7 @@
 			</h1>
 		</div>
 	</div>
-	<%
-		int i = 0;
-	%>
-	 <!-- Tabla que estoy desarrollando -->
+	<!-- Tabla que estoy desarrollando -->
 	<div style="width: 300px; position: relative; left: 70%;">
 		<li class="app-search"><input style="width: 300px;"
 			class="app-search__input" type="search" placeholder="Search"
@@ -39,31 +36,32 @@
 				<i class="fa fa-search"></i>
 			</button></li>
 	</div>
+	<%
+		int i = 0;
+	%>
 	<div class="table-responsive"
 		style="background-color: white; margin-top: 5%;">
-		<table class="table table-hover" id="tablaCrear" name="tablaCrear">
+		<table class="table table-hover" id="registrar">
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Nombre</th>
-					<th>Descripción</th>
-					<th>Stock</th>
-					<th scope="col" colspan="2">Acción</th>
+					<th>Codigo</th>
+					<th>Fecha</th>
+					<th>Tipo</th>
+					<th>Acción</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${listasLis}" var="lis">
+				<c:forEach items="${listasRegistras}" var="lis">
 					<%
 						i++;
 					%>
 					<tr>
 						<th scope="row"><%=i%></th>
-						<td>${pro.PRO_NOMBRE}</td>
-						<td>Producto de tienda</td>
-						<td>${pro.PRO_STOCK}</td>
-						<td><input type="number" style="width: 80px;" class="numero"
-							id="stock"></td>
-						<td><a href="temporal/${pro.PRO_ID},${pro.PRO_NOMBRE}"
+						<td>${lis.ORDCOM_CODIGO}</td>
+						<td>${lis.ORDCOM_FECHA}</td>
+						<td>${lis.ORDCOM_TIPO}</td>
+						<td><a href="temporal/${lis.ORDCOM_CODIGO }_ID}"
 							style="color: black;"> <i class="fa fa-check-circle"
 								aria-hidden="true"></i></a></td>
 					</tr>
@@ -77,8 +75,8 @@
 			<div class="row col-md-8"></div>
 			<div class="col-md-4">
 				<span class="btn btn-lg btn-primary"><i class="fa fa-search"
-					aria-hidden="true"></i>Siguiente</span> 
-					<span class="btn btn-secondary btn-lg"><a style="color: white;"
+					aria-hidden="true"></i>Siguiente</span> <span
+					class="btn btn-secondary btn-lg"><a style="color: white;"
 					href="/sysplat/Compras">Salir </a></span>
 			</div>
 		</div>

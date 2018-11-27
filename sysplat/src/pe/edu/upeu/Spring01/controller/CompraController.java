@@ -137,8 +137,11 @@ public class CompraController {
 	 */
 
 	@GetMapping("/Registrar-Listas")
-	public String registrarlistas() {
-		return "com_main_registrarproducto";
+	public ModelAndView registrarlistas() {
+		ModelAndView ma = new ModelAndView();
+		ma.setViewName("com_main_registrarproducto");
+		ma.addObject("listasRegistras", det.listarordencompra());
+		return ma;
 	}
 	
 	
