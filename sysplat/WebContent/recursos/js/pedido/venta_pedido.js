@@ -82,14 +82,14 @@ $("#generar").click(function(){
 		$("#alertNotificacion2").show(200);
 		$("#alertNotificacion2").delay(3000).hide(600);
 	}else if(tipopago==""){
-		
 		$("#alertNotificacion2").html("Seleccione un tipo de pago");
 		$("#alertNotificacion2").show(200);
 		$("#alertNotificacion2").delay(3000).hide(600);
 	}
 	else if(tipodoc=="Boleta"){
 		alert("soy boleta");
-		alert("soy precio" + tipopago);
+		
+		
 		$.post("vp", { "opc" : 2, "idempleado" : idempleado,
 			"idsede":idsede,"idcliente":idcliente, "idhoja": idhoja,
 			"tipopago":tipopago, "total":total },

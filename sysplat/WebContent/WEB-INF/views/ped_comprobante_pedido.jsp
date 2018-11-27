@@ -61,9 +61,7 @@
 				</div>
 			</div>
 		</div>
-	
-	
-	
+
 	<div class="col-sm-12" style="background-color: white; width: 100%;">
 		<div class="form-group row" style="margin-top: 2%;">
 			<div class="col-lg-3">

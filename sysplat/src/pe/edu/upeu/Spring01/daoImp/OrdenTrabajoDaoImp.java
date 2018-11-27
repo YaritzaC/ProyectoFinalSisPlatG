@@ -40,7 +40,6 @@ public class OrdenTrabajoDaoImp implements OrdenTrabajoDao {
 
 	@Override
 	public int create(OrdenTrabajo codigopedido) throws SQLException {
-		
 		return 0;
 	}
 
@@ -50,20 +49,29 @@ public class OrdenTrabajoDaoImp implements OrdenTrabajoDao {
 	}
 
 	@Override
-	public List<Map<String, Object>> listar_materia_prima() {
+	public List<Map<String, Object>> listar_materia_prima() {	
 		return this.jdbcTemplate.queryForList("{ call ped_listar_materias_primas()}");
 	}
 
 	@Override
 	public int crearOrdenTrabajo(OrdenTrabajo orden) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = null;
+		try {
+			sql="{ call ped_crear_orden_trabajo(?,?)}";
+		} catch (Exception e) {
+			System.out.println("Error " + e);	
+			}
+		return jdbcTemplate.update(sql, orden.getIdempleado(), orden.getIdpedido() );
 	}
 
 	@Override
 	public int crearMateriaOrden(MateriaOrden materia) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = null;
+		try {
+			sql="{ call ped_crear_materia_orden(?)}";
+		} catch (Exception e) {
+			System.out.println("Error   " + e);	
+			}
+		return jdbcTemplate.update(sql, materia.getIdmtp() );
 	}
-
 }
