@@ -15,8 +15,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 
+import pe.edu.upeu.Spring01.entity.DetalleVenta;
 import pe.edu.upeu.Spring01.entity.Venta;
 import pe.edu.upeu.Spring01.service.ClienteService;
+import pe.edu.upeu.Spring01.service.DetalleVentaService;
 import pe.edu.upeu.Spring01.service.ProductoService;
 import pe.edu.upeu.Spring01.service.VentaService;
 @Controller
@@ -30,6 +32,9 @@ public class VentaController {
 	
 	@Autowired
 	private VentaService ventaservice;
+	
+	@Autowired
+	private DetalleVentaService detalleservice;
 	
 	@GetMapping("/Clientes")
 	public ModelAndView clienteLista() {
@@ -126,6 +131,25 @@ public class VentaController {
 					 Double.parseDouble(request.getParameter("subtotal")),
 					 request.getParameter("documento"));
 			out.println(g.toJson(ventaservice.crearVentaFactura(ven)));
+			break;
+		}
+	}
+	
+	
+	@RequestMapping(value = "/dc")
+	public void detalle(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, SQLException {
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		int op = Integer.parseInt(request.getParameter("opc"));
+		switch (op) {
+		case 1:
+			// Crear detalle venta
+			DetalleVenta de = new DetalleVenta (Integer.parseInt(request.getParameter("idproducto")),
+												Double.parseDouble(request.getParameter("precio")),
+												Integer.parseInt(request.getParameter("cantidad"))
+					                           );
+			out.println(g.toJson(detalleservice.crearDetalleVenta(de)));
 			break;
 		}
 	}

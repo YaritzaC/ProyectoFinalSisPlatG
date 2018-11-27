@@ -123,7 +123,7 @@
 		<table class="table table-hover" id="tablePro">
 			<thead>
 				<tr>
-					<th hidden="">Id Codigo</th>
+					<th>Id Codigo</th>
 					<th>Codigo</th>
 					<th>Nombre</th>
 					<th>Precio</th>
@@ -326,7 +326,7 @@
 													alert(data);
 													$("#tablePro")
 															.append(
-																	"<tr><td hidden='true'>"
+																	"<tr><td>"
 																			+ x.idproducto
 																			+ "</td><td>"
 																			+ x.codigo
@@ -450,24 +450,7 @@
 								showConfirmButton : false,
 								timer : 1500
 							})
-
-							$("#idCliente").val("");
-
-							$("#tipoPa").val("Seleccione");
-							$("#tipoDo").val("Seleccione");
-
-							$("#subtotal").val("0.00");
-							$("#igv").val("0.00");
-							$("#total").val("0.00");
-
-							// Nombre del cliente
-							$("#nombreCliente").val();
-
-							//Remover tabla
-							$('#tablePro tbody tr').remove();
-
-							//Deshabilitar venta
-							$("#generarVenta").attr('disabled', 'true');
+							//location.href = "http://localhost:8080/sysplat/Nuevo-Venta";
 						});
 
 					} else {
@@ -503,10 +486,40 @@
 								"documento" : doc
 							}, function() {
 								alert("Hola soy factura realizada");
+								swal({
+									position : 'top-end',
+									type : 'success',
+									title : 'Venta registrada correctamente',
+									showConfirmButton : false,
+									timer : 1500
+								})
 							});
 
 						}
 					}
+
+					$('#tablePro tbody tr').each(function() {
+						var idpro = $(this).find("td").eq(0).text();
+						var pre = $(this).find("td").eq(3).html();
+						var can = $(this).find("td").eq(5).find("input").val();
+
+						alert("Soy el id del pro " + idpro)
+						alert("Soy el pre " + pre)
+
+						alert("Soy la can " + can)
+
+						$.post("dc", {
+							"opc" : 1,
+							"idproducto" : idpro,
+							"precio" : pre,
+							"cantidad" : can
+							
+						}, function() {
+							alert ("Llegué detalle ") ;
+						});
+
+					});
+
 				});
 	</script>
 </body>

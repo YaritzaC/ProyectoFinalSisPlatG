@@ -57,5 +57,8 @@
 	<bean id="materiaPrimaDaoImp" class="pe.edu.upeu.Spring01.daoImp.MateriaPrimaDaoImp"> 
 		<property name="jdbcTemplate" ref="jdbcTemplate" /> 
 	</bean>
+	<bean id="kardexProductoDaoImp" class="pe.edu.upeu.Spring01.daoImp.KardexProductoDaoImp"> 
+		<property name="jdbcTemplate" ref="jdbcTemplate" /> 
+	</bean>
 
 </beans>

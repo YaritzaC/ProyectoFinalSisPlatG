@@ -4,11 +4,11 @@ import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import pe.edu.upeu.Spring01.dao.DetalleVentaDao;
 import pe.edu.upeu.Spring01.entity.DetalleVenta;
-@Service
+@Repository
 public class DetalleVentaDaoImp implements DetalleVentaDao {
 
 	@Autowired
@@ -26,7 +26,7 @@ public class DetalleVentaDaoImp implements DetalleVentaDao {
 	public int crearDetallePedido(DetalleVenta detalle) throws SQLException {
 		String sql = null;
 		try {
-			sql="{ call ven_crear_detalle_venta_pedido(?,?)}";
+			sql="{ call ped_crear_detalle_venta_pedido(?,?)}";
 		} catch (Exception e) {
 			System.out.println("Error" + e);
 		}
@@ -36,6 +36,12 @@ public class DetalleVentaDaoImp implements DetalleVentaDao {
 	@Override
 	public int crearDetalleVenta(DetalleVenta detalle) throws SQLException {
 		// TODO Auto-generated method stub
-		return 0;
+		String sql = null;
+		try {
+			sql="{ call ven_crear_detalle_venta(?,?,?)}";
+		} catch (Exception e) {
+			System.out.println("Error" + e);
+		}
+		return jdbcTemplate.update(sql, detalle.getProductoid(), detalle.getPrecio(), detalle.getCantidad());
 	}
 }
