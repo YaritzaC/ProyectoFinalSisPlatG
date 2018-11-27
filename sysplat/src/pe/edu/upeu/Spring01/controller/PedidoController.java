@@ -114,6 +114,31 @@ public class PedidoController {
 
 	private Gson g = new Gson();
 
+	@RequestMapping(value = "/ped")
+	public void crearpedido(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		int op = Integer.parseInt(request.getParameter("opc"));
+		switch (op) {
+		case 1:
+			Pedido pe = new Pedido(Integer.parseInt(request.getParameter("idempleado")),
+					                   Integer.parseInt(request.getParameter("idsede")), 
+								       Integer.parseInt(request.getParameter("idcliente")), 
+								       request.getParameter("nombre"),
+								       Integer.parseInt(request.getParameter("cantidad")),
+								       Double.parseDouble(request.getParameter("precio")),
+								       request.getParameter("dimension"),
+								       request.getParameter("especificacion"),
+								       request.getParameter("observacion"));
+			out.println(g.toJson(pedido.crearPedido(pe)));
+			break;
+		}
+
+	}
+
+	
+	
+	
 	@RequestMapping(value = "/ot")
 	public void ordentrabajo(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, SQLException {
@@ -186,26 +211,5 @@ public class PedidoController {
 	}
 	
 
-	@RequestMapping(value = "/ped")
-	public void crearpedido(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
-		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		int op = Integer.parseInt(request.getParameter("opc"));
-		switch (op) {
-		case 1:
-			Pedido pe = new Pedido(Integer.parseInt(request.getParameter("idempleado")),
-					                   Integer.parseInt(request.getParameter("idsede")), 
-								       Integer.parseInt(request.getParameter("idcliente")), 
-								       request.getParameter("nombre"),
-								       Integer.parseInt(request.getParameter("cantidad")),
-								       Double.parseDouble(request.getParameter("precio")),
-								       request.getParameter("dimension"),
-								       request.getParameter("especificacion"),
-								       request.getParameter("observacion"));
-			out.println(g.toJson(pedido.crearPedido(pe)));
-			break;
-		}
-
-	}
-
+	
 }
