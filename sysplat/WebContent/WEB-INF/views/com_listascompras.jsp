@@ -62,7 +62,7 @@
 						<td>Producto de tienda</td>
 						<td>${meno.PRO_STOCK}</td>
 						<td><input type="number" style="width: 80px;" class="numero" id="stock"></td>
-						<td><a href="temporal/${meno.PRO_ID},${meno.PRO_NOMBRE}" style="color: black;">
+						<td><a href="/Aceptar-Orden-de-Compra" style="color: black;">
 						<i class="fa fa-check-circle" aria-hidden="true"></i></a></td>
 					</tr>
 				</c:forEach>

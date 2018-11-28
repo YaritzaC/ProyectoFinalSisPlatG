@@ -74,14 +74,14 @@ public class CompraController {
 	public ModelAndView crearordencompra() {
 		ModelAndView ma = new ModelAndView();
 		ma.setViewName("com_listascompras");
-		ma.addObject("listaProductosMenores123",productoservice.readAllMenor());
+		ma.addObject("listaProductosMenores",productoservice.readAllMenor());
 		return ma;
 	}
 	
 	/*
 	 * Crea un array temporal para luego mostrarlo
 	 */
-	/*@RequestMapping(value="/temporal/{PRO_ID},{PRO_NOMBRE}")
+	@RequestMapping(value="/temporal/{PRO_ID},{PRO_NOMBRE}")
 	public String crearTemporal(@PathVariable("id") int id,@PathVariable("nombre") String nombre) {
 		Producto pro= new Producto();
 		pro.setIdproducto(id);
