@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
@@ -61,6 +62,7 @@ public class CompraController {
 	 */
 	@GetMapping("/Compras")
 	public String compras() {
+		System.out.println("ola");
 		return "com_main_main";
 	}
 	
@@ -72,14 +74,14 @@ public class CompraController {
 	public ModelAndView crearordencompra() {
 		ModelAndView ma = new ModelAndView();
 		ma.setViewName("com_listascompras");
-		ma.addObject("listaProductosMenores",productoservice.readAllMenor());
+		ma.addObject("listaProductosMenores123",productoservice.readAllMenor());
 		return ma;
 	}
 	
 	/*
 	 * Crea un array temporal para luego mostrarlo
 	 */
-	@RequestMapping(value="/temporal/{PRO_ID},{PRO_NOMBRE}")
+	/*@RequestMapping(value="/temporal/{PRO_ID},{PRO_NOMBRE}")
 	public String crearTemporal(@PathVariable("id") int id,@PathVariable("nombre") String nombre) {
 		Producto pro= new Producto();
 		pro.setIdproducto(id);
@@ -117,12 +119,45 @@ public class CompraController {
 		return ma;
 	}
 	
+	/*
+	 * 
+	 */
 	@GetMapping("/Registrar-Listas-Compras")
 	public String registrarlistascompras() {
+		System.out.println("sad");
 		return "com_main_registrarproductos";
 	} 
 	
-	@RequestMapping(value="{ORDCOM_ID}")
+	@GetMapping("/listarproducto")
+	public String MandaProductos(Model model ) {
+		return "redirect:/listasproducto";
+	} 
+	
+	@GetMapping("/listasproducto")
+	public ModelAndView RecibeProducto( ) {
+		ModelAndView mdl = new ModelAndView ();
+		mdl.setViewName("com_main_registrarproducto");
+		//en el parentesis mando el nombre de la lista del foreach y llama a la funcion
+		return mdl;
+	}
+	@GetMapping("/pruebaa")
+	public String MandaProductoss(Model model ) {
+		return "com_main_registrarproducto";
+	} 
+	
+	/*
+	 * 
+	 */
+	
+	@GetMapping("")
+	public String registrarlistassdfsdras(Model model,@PathVariable("id") int id ) {
+		model.addAttribute("productos", id);
+		return "com_main_registrarproductos";
+	} 
+	
+	
+	
+	@RequestMapping(value="{ORDCOM_CODIGO}")
 	public String productos(@PathVariable("id") int id) {
 		OrdenCompra ordencompra= new OrdenCompra();
 		ordencompra.setIdordencompra(id);

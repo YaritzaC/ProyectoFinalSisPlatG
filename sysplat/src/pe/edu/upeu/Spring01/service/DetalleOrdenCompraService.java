@@ -7,13 +7,10 @@ import java.util.Map;
 
 public interface DetalleOrdenCompraService {
 	public int create(DetalleOrdenCompraService detalleordcom) throws SQLException;
-
 	public int update(DetalleOrdenCompraService detalleordcom);
-
 	public int delete(int id);
-
 	public DetalleOrdenCompraService read(int id);
-
 	public List<Map<String, Object>> listarordencompra();
+	public List<Map<String, Object>> listarproductos(int ID);
 
 }

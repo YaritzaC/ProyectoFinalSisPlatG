@@ -49,4 +49,10 @@ public class DetalleOrdenCompraServiceImp implements DetalleOrdenCompraService{
 		return pro.readAll();
 	}
 
+	@Override
+	public List<Map<String, Object>> listarproductos(int ID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

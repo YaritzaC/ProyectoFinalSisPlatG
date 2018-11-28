@@ -52,20 +52,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${listasRegistras}" var="lis">
-					<%
-						i++;
-					%>
-					<tr>
-						<th scope="row"><%=i%></th>
-						<td>${lis.ORDCOM_CODIGO}</td>
-						<td>${lis.ORDCOM_FECHA}</td>
-						<td>${lis.ORDCOM_TIPO}</td>
-						<td><a href="temporal/${lis.ORDCOM_CODIGO }_ID}"
-							style="color: black;"> <i class="fa fa-check-circle"
-								aria-hidden="true"></i></a></td>
-					</tr>
-				</c:forEach>
+				
 			</tbody>
 		</table>
 	</div>

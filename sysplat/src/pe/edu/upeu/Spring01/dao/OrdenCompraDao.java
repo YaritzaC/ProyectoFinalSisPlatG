@@ -12,5 +12,5 @@ public interface OrdenCompraDao {
 public OrdenCompra buscarOrdenCompra(String p);
  public int update(OrdenCompra ordencompra);
  public List<Map<String, Object>>readAll();
- public List<Map<String, Object>>listarproductos(OrdenCompra ordenid);
+ public List<Map<String, Object>> listarproductos(OrdenCompra ordenid);
 }
