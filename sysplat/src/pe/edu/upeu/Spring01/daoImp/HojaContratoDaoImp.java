@@ -28,7 +28,7 @@ public class HojaContratoDaoImp implements HojaContratoDao {
 		String sql = null;
 		try {
 			sql = "SELECT C.CLI_NOMBRE,P.PED_ID, P.PED_CODIGO, P.PED_NOMBRE, P.PED_FECHA, E.EMPL_ID , P.PED_CANTIDAD,P.PED_PRECIO FROM  PEDIDO AS P, EMPLEADO AS E, CLIENTE AS C \n" + 
-             		"WHERE P.PED_CODIGO='"+codigopedido+ "'and E.EMPL_ID=P.EMPL_ID AND  C.CLI_ID=P.CLI_ID;";
+             		"WHERE P.PED_CODIGO='"+codigopedido+ "'and E.EMPL_ID=P.EMPL_ID AND P.PED_ESTADO='Activo' C.CLI_ID=P.CLI_ID;";
 		} catch (Exception e) {
 		System.out.println("Error" + e);
 		}
