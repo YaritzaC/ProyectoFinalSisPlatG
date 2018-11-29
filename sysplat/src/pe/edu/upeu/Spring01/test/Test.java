@@ -28,25 +28,14 @@ import pe.edu.upeu.Spring01.entity.Venta;
 public class Test {
 
 	public static void main(String[] args) throws SQLException {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("root-context.xml");
-		System.out.println(context); 
-		//ClienteDao dao = (ClienteDao)context.getBean("clienteDaoImp");
-		 //Cliente cl = dao.buscarNatural("11111111");
-		// System.out.println("Cliente " +cl.getIdcliente() + " "+ cl.getRazonsocial()+ " "+ cl.getNombre());
-		//ProductoDao dao = (ProductoDao)context.getBean("productoDaoImp");
-		//Producto pro = dao .buscarProducto("1");
-		//System.out.println("Producto " + pro.getNombre());
-		//VentaDao dao = (VentaDao)context.getBean("ventaDaoImp");
-		 
-		 //List<Map<String, Object>> lista = dao.numeroSerie();
-	        //for(Map<String,Object> map:lista) {
-	        	//System.out.println(map.get("VNT_SERIE"));
-	        //}
-	       // HojaContratoDao dao = (HojaContratoDao)context.getBean("hojaContratoDaoImp");
-		
-		DetalleVentaDao dao = (DetalleVentaDao)context.getBean("detalleVentaDaoImp");
-		DetalleVenta d = new DetalleVenta(100,1000);
-		dao.crearDetallePedido(d);
-	        context.close();
+		 conexion();
 	}
+	
+	  static void conexion() {
+	        if (conexion.getConexion() != null) {
+	            System.out.println("Conexion Correcta Pero eso no quiere decir dejas de ser un fracasado :v ");
+	        } else {
+	            System.out.println("Conexion Incorrecta Iguales eres un fracaso :v");
+	        }
+	    }
 }

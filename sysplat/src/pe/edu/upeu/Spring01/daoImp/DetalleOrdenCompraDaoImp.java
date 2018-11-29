@@ -32,8 +32,14 @@ public class DetalleOrdenCompraDaoImp implements DetalleOrdenCompraDao {
 	
 	@Override
 	public int create(DetalleOrdenCompra detalleordcom) throws SQLException {
-		// TODO Auto-generated method stub
-		return jdbcTemplate.update("{call com_agregar_detalle_compra(?,?,?,?)}",detalleordcom.getIdproducto(),detalleordcom.getCantidad(),detalleordcom.getIdMTP(),detalleordcom.getPrecio());
+		// Ingresa los datos a la tabla ordenCompra
+		String sql = null;
+		try {
+			sql="{ call com_agregar_detalle_compra(?,?,?,?)}";
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return jdbcTemplate.update(sql, detalleordcom.getIdproducto(),detalleordcom.getCantidad(),detalleordcom.getIdMTP(),detalleordcom.getPrecio());
 	}
 
 	@Override
@@ -50,7 +56,7 @@ public class DetalleOrdenCompraDaoImp implements DetalleOrdenCompraDao {
 
 	@Override
 	public DetalleOrdenCompraDao read(int compras) {
-		// TODO Auto-generated method stub
+		// Lista los productos por el id que se le manda
 		String sql = "{ com_listar_productos_orden(?) }";
 		DetalleOrdenCompra doc = jdbcTemplate.queryForObject(sql, new DetalleOrdenCompraRowMapper(), compras);
 		return (DetalleOrdenCompraDao) doc;		
@@ -58,8 +64,7 @@ public class DetalleOrdenCompraDaoImp implements DetalleOrdenCompraDao {
 
 	@Override
 	public List<Map<String, Object>> listarordencompra() {
-		// TODO Auto-generated method stub
-		//return this.jdbcTemplate.queryForList("{call com_listar_detalle()}");
+		// Lista las ordenes de compra
 		return this.jdbcTemplate.queryForList("{call com_listar_detalle()}");
 	}
 

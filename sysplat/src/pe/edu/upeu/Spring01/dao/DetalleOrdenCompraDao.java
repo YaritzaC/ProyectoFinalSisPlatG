@@ -9,13 +9,10 @@ import pe.edu.upeu.Spring01.entity.DetalleOrdenCompra;
 
 public interface DetalleOrdenCompraDao {
 	public int create(DetalleOrdenCompra detalleordcom) throws SQLException;
-
 	public int update(DetalleOrdenCompra detalleordcom);
-
 	public int delete(int id);
-
 	public DetalleOrdenCompraDao read(int compras);
-
+	public List<Map<String, Object>> buscarProducto(int compras);
 	public List<Map<String, Object>> listarordencompra();
 
 }

@@ -6,6 +6,7 @@ $(document).ready(function() {
 	$("#idproducto").click(function() {
 		buscar();
 	});
+	ListarProd();
 });
 
 var mandata ;
@@ -58,3 +59,5 @@ $("#buscarCliente").click(
 			}
 
 		});
+
+// Parte que actualiza el stock

@@ -57,14 +57,35 @@
 					<tr>
 						<th scope="row"><%=i%></th>
 						<td id="${meno.PRO_ID}">${meno.PRO_NOMBRE}</td>
-						<td>Producto de tienda</td>
-						<td>${meno.PRO_STOCK}</td>
+						<td id="Producto de tienda">Producto de tienda</td>
+						<td id="${meno.PRO_STOCK}">${meno.PRO_STOCK}</td>
 						<td><input type="number" style="width: 80px;" class="numero" id="stock"></td>
-						<td><a href="/sysplat/crear" style="color: black;">
-						<!--  <td><a href="/sysplat/Aceptar-Orden-de-Compra" style="color: black;">-->
+						<td><a class="buscar" name="${meno.PRO_ID}" id="idproducto" style="color: black;">
 						<i class="fa fa-check-circle" aria-hidden="true"></i></a></td>
 					</tr>
 				</c:forEach>
+			</tbody>
+		</table>
+	</div>
+	<div class="table-responsive"
+		style="background-color: white; margin-top: 5%;">
+		<table class="table table-hover" id="tablaCrearDetalle" >
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Nombre</th>
+					<th>Descripción</th>
+					<th>Stock</th>
+					<th scope="col" colspan="2">Acción</th>
+				</tr>
+			</thead>
+			<tbody>
+			<!--  	<c:forEach items="${listaProductosMenores}" var="meno">-->
+					<% i++; %>
+					<tr>
+						
+					</tr>
+				<!--</c:forEach> -->
 			</tbody>
 		</table>
 	</div>
@@ -84,7 +105,7 @@ Me puede servir
 
 href="/sysplat/Aceptar-Orden-de-Compra"
 
-
+id="seleccionar'+ ${meno.PRO_ID}+'" onclick="productoSeleccionado('+${meno.PRO_ID}+')"
 
  -->
 	</main>
@@ -99,7 +120,7 @@ href="/sysplat/Aceptar-Orden-de-Compra"
 	<!-- Page specific javascripts-->
 	<!-- Google analytics script-->
 	<script type="text/javascript">
-		if (document.location.hostname == 'pratikborsadiya.in') {
+	if (document.location.hostname == 'pratikborsadiya.in') {
 			(function(i, s, o, g, r, a, m) {
 				i['GoogleAnalyticsObject'] = r;
 				i[r] = i[r] || function() {

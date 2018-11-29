@@ -36,7 +36,7 @@ public class OrdenCompraServiceImp implements OrdenCompraService{
 	@Override
 	public int update(OrdenCompra ordencompra) {
 		// TODO Auto-generated method stub
-		return ordencompra.update(ordencompra);
+		return (Integer) null	;
 	}
 
 	@Override

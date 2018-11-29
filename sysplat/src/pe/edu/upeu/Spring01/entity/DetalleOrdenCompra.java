@@ -17,6 +17,16 @@ public class DetalleOrdenCompra {
 		super();
 	}
 	
+	
+	public DetalleOrdenCompra(int idproducto, int idMTP, double precio, int cantidad) {
+		super();
+		this.idproducto = idproducto;
+		this.idMTP = idMTP;
+		this.precio = precio;
+		this.cantidad = cantidad;
+	}
+
+
 	public DetalleOrdenCompra(int iddtoc, int idcompra, int idordencompra, int idproducto, String nombreProducto,
 			int idMTP, String detalle, double precio, int cantidad, String estado) {
 		super();
@@ -107,8 +117,8 @@ public class DetalleOrdenCompra {
 		return cantidad;
 	}
 
-	public void setCantidad(int cantidad) {
-		this.cantidad = cantidad;
+	public void setCantidad(double d) {
+		this.cantidad = (int) d;
 	}
 
 	public String getEstado() {
@@ -118,7 +128,6 @@ public class DetalleOrdenCompra {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
-	
 
+	
 }

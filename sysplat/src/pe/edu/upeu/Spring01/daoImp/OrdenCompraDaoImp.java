@@ -61,9 +61,4 @@ public class OrdenCompraDaoImp implements OrdenCompraDao {
 		}
 		return jdbcTemplate.update(sql, crearorden.getIdproveedor(),crearorden.getIdempleado(),crearorden.getTipo());
 	
-	}
-	}
-
-
-
-}
+	}}

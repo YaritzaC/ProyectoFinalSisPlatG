@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import pe.edu.upeu.Spring01.daoImp.DetalleOrdenCompraDaoImp;
 import pe.edu.upeu.Spring01.daoImp.OrdenCompraDaoImp;
 import pe.edu.upeu.Spring01.daoImp.ProductoDaoImp;
+import pe.edu.upeu.Spring01.entity.DetalleOrdenCompra;
 import pe.edu.upeu.Spring01.entity.Producto;
 import pe.edu.upeu.Spring01.service.DetalleOrdenCompraService;
 import pe.edu.upeu.Spring01.service.ProductoService;
@@ -18,15 +19,17 @@ public class DetalleOrdenCompraServiceImp implements DetalleOrdenCompraService{
 	@Autowired
 	private OrdenCompraDaoImp pro;
 	
+	@Autowired
+	private DetalleOrdenCompraDaoImp docdaoImp;
 
 	@Override
-	public int create(DetalleOrdenCompraService detalleordcom) throws SQLException {
+	public int create(DetalleOrdenCompra detalleordcom) throws SQLException {
 		// TODO Auto-generated method stub
-		return 0;
+		return docdaoImp.create(detalleordcom);
 	}
 
 	@Override
-	public int update(DetalleOrdenCompraService detalleordcom) {
+	public int update(DetalleOrdenCompra detalleordcom) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -38,7 +41,7 @@ public class DetalleOrdenCompraServiceImp implements DetalleOrdenCompraService{
 	}
 
 	@Override
-	public DetalleOrdenCompraService read(int id) {
+	public DetalleOrdenCompra read(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
