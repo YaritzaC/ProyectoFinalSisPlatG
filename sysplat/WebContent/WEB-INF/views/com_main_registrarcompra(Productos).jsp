@@ -34,44 +34,43 @@
 				<li class="app-search"><input style="width: 300px;"
 					class="app-search__input" type="search" placeholder="Nombre"></li>
 			</div>
-			<div style="width: 300px; position: relative; left: 30%;">
-				<li class="app-search"><input style="width: 300px;"
-					class="app-search__input" type="search" placeholder="Search">
-					<button class="app-search__button">
-						<i class="fa fa-search"></i>
-					</button></li>
-			</div>
-		</div>
-		<div class="table-responsive"
-			style="background-color: white; margin-top: 2%;">
-			<table class="table table-hover">
-				<thead>
+		<%
+		int i = 0;
+	%>
+	<div class="col s12" style="left: 80%; width: 200px;">
+		<input class="app-search__input" type="search" placeholder="Search" id="buscar">
+		<button class="app-search__button"><i class="fa fa-search"></i></button>
+	</div>
+	<div class="table-responsive"
+		style="background-color: white; margin-top: 5%;">
+		<table class="table table-hover" id="tablaCrear" >
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Nombre</th>
+					<th>Descripción</th>
+					<th>Stock</th>
+					<th>Estado</th>
+					<th scope="col" colspan="2">AcciÃ³n</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${lisProList}" var="meno">
+					<% i++; %>
 					<tr>
-						<th>#</th>
-						<th>Nombre</th>
-						<th>Descripción</th>
-						<th colspan="2" style="width: 100px;">Accion</th>
+						<th scope="row"><%=i%></th>
+						<td>${meno.producto}</td>
+						<td>Producto de tienda</td>
+						<td>${meno.DTOC_CANTIDAD}</td>
+						<td>${meno.DTOC_ESTADO}</td>
+						<td><input type="number" style="width: 80px;" class="numero" id="stock"></td>
+						<td><a href="/sysplat/crear" style="color: black;">
+						<!--  <td><a href="/sysplat/Aceptar-Orden-de-Compra" style="color: black;">-->
+						<i class="fa fa-check-circle" aria-hidden="true"></i></a></td>
 					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>1</td>
-						<td>Collar de plata</td>
-						<td>Collar hecho a base de plata y con materiales sacados de
-							un volcan inactivo donde vivio un gran dragon</td>
-						<td>
-						<div class="row">
-								<div class="col-xl-3 col-lg-6 col-lg-12">
-									<a href="#" class="fa fa-check-circle"
-										style="font-size: 30px; color: grey;"></a>
-								</div>
-								</div>
-								</div>
-					 	</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+				</c:forEach>
+			</tbody>
+		</table>
 	</div>
 	<br />
 	<div class="row">

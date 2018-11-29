@@ -49,9 +49,11 @@ public class DetalleOrdenCompraDaoImp implements DetalleOrdenCompraDao {
 	}
 
 	@Override
-	public DetalleOrdenCompraDao read(int id) {
+	public DetalleOrdenCompraDao read(int compras) {
 		// TODO Auto-generated method stub
-		return null;
+		String sql = "{ com_listar_productos_orden(?) }";
+		DetalleOrdenCompra doc = jdbcTemplate.queryForObject(sql, new DetalleOrdenCompraRowMapper(), compras);
+		return (DetalleOrdenCompraDao) doc;		
 	}
 
 	@Override

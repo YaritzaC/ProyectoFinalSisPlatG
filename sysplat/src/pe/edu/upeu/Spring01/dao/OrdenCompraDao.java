@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import pe.edu.upeu.Spring01.entity.OrdenCompra;
+import pe.edu.upeu.Spring01.entity.Pedido;
 import pe.edu.upeu.Spring01.entity.Producto;
 
 
@@ -12,5 +13,6 @@ public interface OrdenCompraDao {
 public OrdenCompra buscarOrdenCompra(String p);
  public int update(OrdenCompra ordencompra);
  public List<Map<String, Object>>readAll();
- public List<Map<String, Object>> listarproductos(int ordenid);
+ public List<Map<String, Object>> listarproductos(int idCompra);
+ public int crearOrdenCompra(OrdenCompra crearorden);
 }

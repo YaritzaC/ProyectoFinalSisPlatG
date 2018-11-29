@@ -46,9 +46,9 @@
 				<tr>
 					<th>#</th>
 					<th>Nombre</th>
-					<th>DescripciÃ³n</th>
+					<th>Descripción</th>
 					<th>Stock</th>
-					<th scope="col" colspan="2">AcciÃ³n</th>
+					<th scope="col" colspan="2">Acción</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -56,7 +56,7 @@
 					<% i++; %>
 					<tr>
 						<th scope="row"><%=i%></th>
-						<td>${meno.PRO_NOMBRE}</td>
+						<td id="${meno.PRO_ID}">${meno.PRO_NOMBRE}</td>
 						<td>Producto de tienda</td>
 						<td>${meno.PRO_STOCK}</td>
 						<td><input type="number" style="width: 80px;" class="numero" id="stock"></td>
@@ -73,20 +73,27 @@
 		<div class="row col-md-12">
 			<div class="row col-md-8"></div>
 			<div class="col-md-4">
-				<span class="btn btn-lg btn-primary"><a style="color: white;"
-					href="/sysplat/Aceptar-Orden-de-Compra">Siguiente </a></span> <span
+				<span class="btn btn-lg btn-primary"><a style="color: white;" id="guardarOrdenCompra">Siguiente </a></span> <span
 					class="btn btn-secondary btn-lg"><a style="color: white;"
 					href="/sysplat/Compras">Salir </a></span>
 			</div>
 		</div>
 	</div>
+<!-- 
+Me puede servir 
 
+href="/sysplat/Aceptar-Orden-de-Compra"
+
+
+
+ -->
 	</main>
 	<!-- Essential javascripts for application to work-->
 	<script src="${urlrecursos}/js/jquery-3.2.1.min.js"></script>
 	<script src="${urlrecursos}/js/popper.min.js"></script>
 	<script src="${urlrecursos}/js/bootstrap.min.js"></script>
 	<script src="${urlrecursos}/js/main.js"></script>
+	<script src="${urlrecursos}/js/compra/ordencompra.js"></script>
 	<!-- The javascript plugin to display page loading on top-->
 	<script src="${urlrecursos}/js/plugins/pace.min.js"></script>
 	<!-- Page specific javascripts-->

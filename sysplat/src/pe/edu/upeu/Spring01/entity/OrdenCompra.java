@@ -13,6 +13,13 @@ public class OrdenCompra {
 	public OrdenCompra() {
 		super();
 	}
+	
+	public OrdenCompra(int idproveedor, int idempleado, String tipo) {
+		super();
+		this.idproveedor = idproveedor;
+		this.idempleado = idempleado;
+		this.tipo = tipo;
+	}
 
 	public OrdenCompra(int idordencompra, int idproveedor, int idempleado, String codigo, String tipo, String fecha,
 			String estado) {

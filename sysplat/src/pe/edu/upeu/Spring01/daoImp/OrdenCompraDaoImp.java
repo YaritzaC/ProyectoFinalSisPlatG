@@ -46,9 +46,22 @@ public class OrdenCompraDaoImp implements OrdenCompraDao {
 	@Override
 	public List<Map<String, Object>> listarproductos(int  ordenid) {
 		// TODO Auto-generated method stub
-		String sql1="SELECT c.PRO_NOMBRE as producto, DTOC_CANTIDAD, DTOC_ESTADO \r\n" + 
-				"FROM producto as c, detalleordencompra as p WHERE'"+ ordenid+"'=ORDCOM_ID AND c.PRO_ID=p.ORDCOM_ID;";
-		return jdbcTemplate.queryForList(sql1);
+		String sql1="{ com_listar_productos_orden(?)}";
+		return jdbcTemplate.queryForList(sql1,ordenid);
+	}
+
+	@Override
+	public int crearOrdenCompra(OrdenCompra crearorden) {
+		// TODO Auto-generated method stub
+		String sql = null;
+		try {
+			sql="{ com_agregar_orden_compra(?,?,?)}";
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return jdbcTemplate.update(sql, crearorden.getIdproveedor(),crearorden.getIdempleado(),crearorden.getTipo());
+	
+	}
 	}
 
 

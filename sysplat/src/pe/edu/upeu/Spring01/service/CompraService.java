@@ -12,6 +12,6 @@ public interface CompraService {
 	public int create(Compra c)throws SQLException;
 	 public int update(Compra c);
 	 public int delete(int id);
-	 public Compra read(int id);
+	 public Compra read(int compra);
 	 public List<Map<String,Object>> readAll();
 }

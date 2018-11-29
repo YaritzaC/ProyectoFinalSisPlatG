@@ -18,11 +18,11 @@ import pe.edu.upeu.Spring01.service.ProductoService;
 @Service
 public class OrdenCompraServiceImp implements OrdenCompraService{
 	@Autowired
-	private OrdenCompraDaoImp pro;
+	private OrdenCompraDaoImp ordencompra;
 	
 
 	@Override
-	public OrdenCompra buscarOrdenCompra(String ord) {
+	public OrdenCompra buscarOrdenCompra(int ord) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -36,13 +36,19 @@ public class OrdenCompraServiceImp implements OrdenCompraService{
 	@Override
 	public int update(OrdenCompra ordencompra) {
 		// TODO Auto-generated method stub
-		return pro.update(ordencompra);
+		return ordencompra.update(ordencompra);
 	}
 
 	@Override
-	public List<Map<String, Object>> traerproductos(int orden) {
+	public List<Map<String, Object>> traerproductos(int idCompra) {
 		// TODO Auto-generated method stub
-		return pro.listarproductos(orden);
+		return ordencompra.listarproductos(idCompra);
+	}
+
+	@Override
+	public int crearOrdenCompra(OrdenCompra crearorden) {
+		// TODO Auto-generated method stub
+		return ordencompra.crearOrdenCompra(crearorden);
 	}
 	
 

@@ -23,6 +23,104 @@ $("#buscar").keyup(function () {
     }
 });
 
+$("#guardarOrdenCompra").click(
+		function() {
+			//Datos para enviar a com_agregar_orden_compra()
+			var idem = $("#idEmpleado").val();
+			var tipo = "Compra"
+			var prove = "1";
+			
+			// Datos para enviar a com_agregar_detalle_compra()
+			/*
+			 * var stock = $("#stock").val();
+			 * producto, stock , materia , precio 
+			 */
+			/*var idpro = $("#")
+			var idse = $("#idSede").val();
+			var idcli = $("#idCliente").val();
+			var nom = $("#nombre").val();
+			var can = $("#cantidad").val();
+			var pre = $("#precio").val();
+			var dim = $("#dimension").val();
+			var esp = $("#especificacion").val();
+			var obs = $("#observacion").val();
+*/
+			alert(idem);
+			
+			if (idem != "" && tipo != "" && prove != "") {
+				alert("Control 1")
+				$.post("ordcom", {
+					"opc" : 1,
+					"idproveedor":prove,
+					"idempleado" : idem,
+					"tipo" : tipo
+				}, function() {
+					alert("Llegó");
+					swal({
+						  position: 'top-end',
+						  type: 'success',
+						  title: 'Orden registrado correctamente',
+						  showConfirmButton: false,
+						  timer: 1500
+						})
+				});
+			}
+			else {
+				alert("VACIO");
+				swal({
+					position : 'top-end',
+					type : 'error',
+					title : 'Ups! Orden fallido!',
+					showConfirmButton : false,
+					timer : 1500
+				})
+			}
+			
+				
+				
+
+		});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
  * Para tomar la posición en la tabla
  */

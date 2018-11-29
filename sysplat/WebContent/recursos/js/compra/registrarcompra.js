@@ -3,11 +3,8 @@ $(document).ready(function() {
 		agregar();
 	});
 
-	$('#idproducto').click(function() {
+	$("#idproducto").click(function() {
 		buscar();
-	});
-	$('#manda').click(function() {
-		prueba();
 	});
 });
 
@@ -16,37 +13,48 @@ $(function(){
     
     $(".buscar").click(function(e) {
         e.preventDefault();
-        mandata = $(this).attr("id");
-        alert(mandata);
+        mandata = $(this).attr("name");
+        alert(data);
     });
 });
 
-function prueba(){
-	alert("asdasd");
-	alert(mandata);
-}
-
 function buscar() {
-		$.get("hc", {"opc" : 1,	"nombre" : mandata}, function(data) {
+	alert("Llego al buscar");
+		$.post("compra", {"opc" : 1, "idcompra" : mandata},
+			function(data) {
 			var x = JSON.parse(data);
-			alert(data);
-			$("#nombreCliente").val(
-					x.nombre + " " + x.apellido + "" + x.razonsocial);
-			$("#idCliente").val(x.idcliente);
-			$("#cliente").val("");
-			$("#alertNotificacion").html("Cliente buscado corectamente");
-			$("#alertNotificacion").show(200);
-			$("#alertNotificacion").delay(3000).hide(600);
+			alert("hola"+data);
 		});
-	} else {
-		alert("VACIO");
-		swal({
-			position : 'top-end',
-			type : 'error',
-			title : 'Ups! Producto no existe!',
-			showConfirmButton : false,
-			timer : 1500
-		})
-	}
-
 }
+
+$("#buscarCliente").click(
+		function() {
+			var cli = $("#cliente").val();
+			if (cli != "") {
+				$.get("hc", {
+					"opc" : 1,
+					"nombre" : cli
+				}, function(data) {
+					var x = JSON.parse(data);
+					alert(data);
+					$("#nombreCliente").val(
+							x.nombre + " " + x.apellido + "" + x.razonsocial);
+					$("#idCliente").val(x.idcliente);
+					$("#cliente").val("");
+					$("#alertNotificacion")
+							.html("Cliente buscado corectamente");
+					$("#alertNotificacion").show(200);
+					$("#alertNotificacion").delay(3000).hide(600);
+				});
+			} else {
+				alert("VACIO");
+				swal({
+					position : 'top-end',
+					type : 'error',
+					title : 'Ups! Producto no existe!',
+					showConfirmButton : false,
+					timer : 1500
+				})
+			}
+
+		});

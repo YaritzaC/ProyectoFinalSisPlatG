@@ -59,10 +59,10 @@
 					%>
 					<tr>
 						<th scope="row"><%=i%></th>
-						<td class="buscar" id="${lis.ORDCOM_CODIGO}">${lis.ORDCOM_CODIGO}</td>
-						<td  class="buscar" id="${lis.ORDCOM_CODIGO}">${lis.ORDCOM_FECHA}</td>
-						<td  class="buscar" id="${lis.ORDCOM_CODIGO}">${lis.ORDCOM_TIPO}</td>
-						<td><a class="buscar" id="${lis.ORDCOM_CODIGO}"style="color: black;">
+						<td class="buscar" name="${lis.ORDCOM_CODIGO}">${lis.ORDCOM_CODIGO}</td>
+						<td  class="buscar" name="${lis.ORDCOM_CODIGO}">${lis.ORDCOM_FECHA}</td>
+						<td  class="buscar" name="${lis.ORDCOM_CODIGO}">${lis.ORDCOM_TIPO}</td>
+						<td><a class="buscar" name="${lis.ORDCOM_CODIGO}" id="idproducto" style="color: black;">
 						<i class="fa fa-check-circle" aria-hidden="true"></i></a></td>
 					</tr>
 				</c:forEach>
@@ -75,9 +75,6 @@
 			<div class="row col-md-8"></div>
 			<div class="col-md-4"><span	class="btn btn-secondary btn-lg">
 			<a style="color: white;" href="/sysplat/Compras">Salir </a></span>
-			<span	class="btn btn-secondary btn-lg">
-			<a style="color: white;" class="prueba" id="manda">Sasdasdalir </a></span>
-			</div>
 		</div>
 	</div>
 	</main>

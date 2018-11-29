@@ -25,17 +25,19 @@ import com.google.gson.Gson;
 
 import pe.edu.upeu.Spring01.entity.Empleado;
 import pe.edu.upeu.Spring01.entity.OrdenCompra;
+import pe.edu.upeu.Spring01.entity.Pedido;
 import pe.edu.upeu.Spring01.entity.Producto;
 import pe.edu.upeu.Spring01.service.CompraService;
 import pe.edu.upeu.Spring01.service.DetalleOrdenCompraService;
 import pe.edu.upeu.Spring01.service.OrdenCompraService;
 import pe.edu.upeu.Spring01.service.ProductoService;
 import pe.edu.upeu.Spring01.serviceImp.EmpleadoServiceImp;
+import pe.edu.upeu.Spring01.serviceImp.OrdenCompraServiceImp;
 
 @Controller
 public class CompraController {
 	
-	private Gson gson;
+	private Gson gson = new Gson();
 	
 	public static ArrayList<Producto> produ = new ArrayList<>();
 
@@ -50,6 +52,9 @@ public class CompraController {
 
 	@Autowired
 	private OrdenCompraService ordcompra;
+	
+	@Autowired
+	private OrdenCompraServiceImp ordcompraIm;
 
 	/*
 	 * Mandar al menu principal
@@ -77,7 +82,7 @@ public class CompraController {
 	}
 	
 	/*
-	 * Parte numero 1.2
+	 * Parte numero 1.2.1
 	 */
 	
 	@GetMapping("/Aceptar-Orden-de-Compra")
@@ -86,6 +91,27 @@ public class CompraController {
 		ma.setViewName("com_main_listascompras(Aceptar)");
 		ma.addObject("listaCom", produ);
 		return ma;
+	}
+	
+	/*
+	 * Parte numero 1.2.2
+	 */
+	
+	@RequestMapping(value = "/ordcom")
+	public void crearpedido(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		int op = Integer.parseInt(request.getParameter("opc"));
+		switch (op) {
+		case 1:
+			System.out.println("Paso por el control 1");
+			OrdenCompra ORDCOM = new OrdenCompra ( Integer.parseInt(request.getParameter("idproveedor")),
+										Integer.parseInt(request.getParameter("idempleado")),
+					                   request.getParameter("tipo"));
+			out.println(gson.toJson(ordcompraIm.crearOrdenCompra(ORDCOM)));
+			break;
+		}
+
 	}
 	
 	/*
@@ -134,25 +160,26 @@ public class CompraController {
 	 * Parte numero 3.2
 	 */
 	
-	@RequestMapping("/Ingresar-Productos-Comprados/{lis.ORDCOM_CODIGO}") 
-	public String ingresarproductos2(@RequestParam("id") int id)
+	/*@RequestMapping("/Ingresar-Productos-Comprados") 
+	public ModelAndView ingresarproductos(@RequestParam("id") int id)
 	{ 
-		OrdenCompra ordencompra= new
-		OrdenCompra(); ordencompra.setIdordencompra(id);
-		return "redirect:/sysplat/SeEnviaLaLista"; 
-		}
+		ModelAndView model = new ModelAndView();
+		model.setViewName("com_main_registrarproducto");
+		model.addObject("lisProList", ordcompra.traerproductos(id));
+		return model; 
+		}*/
 	
 	/*
 	 * Parte que me listara de acuerdo al id de la lista
 	 */
-	@RequestMapping(value = "/hc")
-	public void cliente(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
+	@RequestMapping(value = "/compra")
+	public void cliente(ModelAndView model,HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		int op = Integer.parseInt(request.getParameter("opc"));
 		switch (op) {
 		case 1:
-			out.println(gson.toJson(ordcompra.traerproductos(request.getParameter("nombre"))));
+			out.println(gson.toJson(cmp.read(Integer.parseInt(request.getParameter("idcompra")))));
 			break;
 		}
 	}
