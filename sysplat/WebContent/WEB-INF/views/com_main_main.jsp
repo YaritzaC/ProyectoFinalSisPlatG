@@ -12,6 +12,42 @@
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <spring:url value="/recursos" var="urlrecursos"></spring:url>
 <link href="${urlrecursos}/css/template.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<spring:url value="/recursos" var="urlrecursos"></spring:url>
+<link href="${urlrecursos}/css/template.css" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="60x60"
+	href="${urlrecursos}/images/ico/apple-icon-60.png">
+<link rel="apple-touch-icon" sizes="76x76"
+	href="${urlrecursos}/images/ico/apple-icon-76.png">
+<link rel="apple-touch-icon" sizes="120x120"
+	href="${urlrecursos}/images/ico/apple-icon-120.png">
+<link rel="apple-touch-icon" sizes="152x152"
+	href="${urlrecursos}/images/ico/apple-icon-152.png">
+<link rel="shortcut icon" type="image/x-icon"
+	href="${urlrecursos}/images/ico/favicon.ico">
+<link rel="shortcut icon" type="image/png"
+	href="${urlrecursos}/images/ico/favicon-32.png">
+
+<link rel="stylesheet" type="text/css" href="${urlrecursos}/css/bootstrap.css">
+<!-- font icons-->
+<link rel="stylesheet" type="text/css" href="${urlrecursos}/fonts/icomoon.css">
+<link rel="stylesheet" type="text/css" href="${urlrecursos}/fonts/flag-icon-css/css/flag-icon.min.css">
+<link rel="stylesheet" type="text/css" href="${urlrecursos}/vendors/css/extensions/pace.css">
+<!-- END VENDOR CSS-->
+<!-- BEGIN ROBUST CSS-->
+<link rel="stylesheet" type="text/css" href="${urlrecursos}/css/bootstrap-extended.css">
+<link rel="stylesheet" type="text/css" href="${urlrecursos}/css/app.css">
+<link rel="stylesheet" type="text/css" href="${urlrecursos}/css/colors.css">
+<!-- END ROBUST CSS-->
+<!-- BEGIN Page Level CSS-->
+<link rel="stylesheet" type="text/css" href="${urlrecursos}/js/core/menu/menu-types/vertical-menu.css">
+<link rel="stylesheet" type="text/css" href="${urlrecursos}/js/core/menu/menu-types/vertical-overlay-menu.css">
+<link rel="stylesheet" type="text/css" href="${urlrecursos}/js/core/colors/palette-gradient.css">
+<!-- END Page Level CSS-->
+<!-- BEGIN Custom CSS-->
+<link rel="stylesheet" type="text/css" href="${urlrecursos}/assets/css/style.css">
+<!-- END Custom CSS-->
 </head>
 <body class="app sidebar-mini rtl">
 	<!-- Navbar-->
@@ -24,87 +60,62 @@
 			</h1>
 		</div>
 	</div>
-		<div class="">
-		<div class="content-wrapper">
-			<div class="content-header row"></div>
-			<div class="content-body">
-				<!-- stats -->
-				<div class="row">
-					<div class="col-xl-3 col-lg-6 col-lg-12">
-						<div class="card">
-							<div class="card-body">
-								<div class="card-block">
-									<div class="media">
-										<i class="fa fa-clipboard"
-											style="font-size: 48px; color: orange;"></i>
-										<div class="col-xl-1"></div>
-										<div class="media-body text-xs-left">
-											<h3 class="pink">10</h3>
-											<span><a style="color: black"
-												href="/sysplat/Crear-Orden-Compras">Crear Orden de
-													Compra </a></span>
-										</div>
-										<div class="media-right media-middle">
-											<i class="icon-bag2 pink font-large-2 float-xs-right"></i>
-										</div>
-									</div>
-								</div>
+	<div class="row">
+		<div class="col-xl-3 col-lg-6 col-xs-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-block">
+						<div class="media">
+							<div class="media-body text-xs-left">
+								<!--  <h3 class="cyan">18</h3> -->
+								<span><a style="color: black"
+									href="/sysplat/Crear-Orden-Compras">Crear Orden de Compra</a></span>
 							</div>
-						</div>
-					</div>
-
-					<div class="col-xl-3 col-lg-6 col-xs-12">
-						<div class="card">
-							<div class="card-body">
-								<div class="card-block">
-									<div class="media">
-										<i class="fa fa-file" style="font-size: 48px; color: orange;"></i>
-										<div class="col-xl-1"></div>
-										<div class="media-body text-xs-left">
-											<h3 class="deep-orange">10</h3>
-											<span><a style="color: black"
-												href="/sysplat/Registrar-Orden-Compra">Registrar
-													Orden de Compra </a></span>
-										</div>
-										<div class="media-right media-middle">
-											<i
-												class="icon-diagram deep-orange font-large-2 float-xs-right"></i>
-										</div>
-									</div>
-								</div>
+							<div class="media-right media-middle">
+								<i
+									class="icon-ios-help-outline cyan font-large-2 float-xs-right"></i>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-1 col-lg-2 col-xs-4" style="width: 20px"></div>
-				<div class="row">
-					<div class="col-xl-1 col-lg-2 col-xs-4"></div> 
-					<div class="col-xl-3 col-lg-6 col-xs-12">
-						<div class="card">
-							<div class="card-body">
-								<div class="card-block">
-									<div class="media">
-										<i class="fa fa-file" style="font-size: 48px; color: orange;"></i>
-										<div class="col-xl-1"></div>
-										<div class="media-body text-xs-left">
-											<h3 class="deep-orange">10</h3>
-											<span><a style="color: black"
-												href="/sysplat/Registrar-Listas">Ingresar
-													Productos Comprados </a></span>
-										</div>
-										<div class="media-right media-middle">
-											<i
-												class="icon-diagram deep-orange font-large-2 float-xs-right"></i>
-										</div>
-									</div>
-								</div>
+			</div>
+		</div>
+		<div class="col-xl-3 col-lg-6 col-xs-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-block">
+						<div class="media">
+							<div class="media-body text-xs-left">
+								<!--  <h3 class="cyan">18</h3> -->
+								<span><a style="color: black"
+									href="/sysplat/Registrar-Orden-Compra">Registrar Orden de
+										Compra </a></span>
+							</div>
+							<div class="media-right media-middle">
+								<i class="icon-bag2 pink font-large-2 float-xs-right"></i>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!--/ stats -->
-
-
+			</div>
+		</div>
+		<div class="col-xl-3 col-lg-6 col-xs-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="card-block">
+						<div class="media">
+							<div class="media-body text-xs-left">
+								<!--  <h3 class="cyan">18</h3> -->
+								<span><a style="color: black"
+									href="/sysplat/Registrar-Listas">Ingresar Productos
+										Comprados </a></span>
+							</div>
+							<div class="media-right media-middle">
+								<i class="icon-diagram deep-orange font-large-2 float-xs-right"></i>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

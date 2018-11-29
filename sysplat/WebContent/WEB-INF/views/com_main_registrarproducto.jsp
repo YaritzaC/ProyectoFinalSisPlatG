@@ -38,21 +38,34 @@
 	</div>
 	<%
 		int i = 0;
+		
 	%>
 	<div class="table-responsive"
 		style="background-color: white; margin-top: 5%;">
 		<table class="table table-hover" id="registrar">
 			<thead>
 				<tr>
-					<th>#</th>
-					<th>Codigo</th>
-					<th>Fecha</th>
-					<th>Tipo</th>
-					<th>Acción</th>
-				</tr>
+						<th>#</th>
+						<th>Codigo</th>
+						<th>Fecha</th>
+						<th>Tipo</th>
+						<th>Acción</th>
+					</tr>
 			</thead>
 			<tbody>
-				
+				<c:forEach items="${listasRegistras}" var="lis">
+					<%
+						i++;
+					%>
+					<tr>
+						<th scope="row"><%=i%></th>
+						<td class="buscar" id="${lis.ORDCOM_CODIGO}">${lis.ORDCOM_CODIGO}</td>
+						<td  class="buscar" id="${lis.ORDCOM_CODIGO}">${lis.ORDCOM_FECHA}</td>
+						<td  class="buscar" id="${lis.ORDCOM_CODIGO}">${lis.ORDCOM_TIPO}</td>
+						<td><a class="buscar" id="${lis.ORDCOM_CODIGO}"style="color: black;">
+						<i class="fa fa-check-circle" aria-hidden="true"></i></a></td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>
@@ -60,11 +73,10 @@
 	<div class="row">
 		<div class="row col-md-12">
 			<div class="row col-md-8"></div>
-			<div class="col-md-4">
-				<span class="btn btn-lg btn-primary"><i class="fa fa-search"
-					aria-hidden="true"></i>Siguiente</span> <span
-					class="btn btn-secondary btn-lg"><a style="color: white;"
-					href="/sysplat/Compras">Salir </a></span>
+			<div class="col-md-4"><span	class="btn btn-secondary btn-lg">
+			<a style="color: white;" href="/sysplat/Compras">Salir </a></span>
+			<span	class="btn btn-secondary btn-lg">
+			<a style="color: white;" class="prueba" id="manda">Sasdasdalir </a></span>
 			</div>
 		</div>
 	</div>
@@ -76,11 +88,10 @@
 	<script src="${urlrecursos}/js/bootstrap.min.js"></script>
 	<script src="${urlrecursos}/js/compra/ordencompra.js"></script>
 	<script src="${urlrecursos}/js/main.js"></script>
+	<script src="${urlrecursos}/js/compra/registrarcompra.js"></script>
 	<!-- The javascript plugin to display page loading on top-->
 	<script src="${urlrecursos}/js/plugins/pace.min.js"></script>
-	<script type="text/javascript">
-		window.alert("INGRESO DE PRODUCTOS CON ÉXITO");
-	</script>
+	
 	<!-- Page specific javascripts-->
 	<!-- Google analytics script-->
 	<script type="text/javascript">
@@ -99,6 +110,25 @@
 			ga('create', 'UA-72504830-1', 'auto');
 			ga('send', 'pageview');
 		}
+		$("#searchpro").keyup(function () {
+		    var tableReg = document.getElementById('registrar');
+		    var searchText = document.getElementById('buscar').value.toLowerCase();
+		    for (var i = 1; i < tableReg.rows.length; i++) {
+		        var cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+		        var encontrado = false;
+		        for (var j = 0; j < cellsOfRow.length && !encontrado; j++) {
+		            var compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+		            if (searchText.length === 0 || (compareWith.indexOf(searchText) > -1)) {
+		                encontrado = true;
+		            }
+		        }
+		        if (encontrado) {
+		            tableReg.rows[i].style.display = '';
+		        } else {
+		            tableReg.rows[i].style.display = 'none';
+		        }
+		    }
+		});
 	</script>
 </body>
 </html>

@@ -46,23 +46,22 @@
 				<tr>
 					<th>#</th>
 					<th>Nombre</th>
-					<th>Descripción</th>
+					<th>DescripciÃ³n</th>
 					<th>Stock</th>
-					<th scope="col" colspan="2">Acción</th>
+					<th scope="col" colspan="2">AcciÃ³n</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${listaProductosMenores}" var="meno">
-					<%
-						i++;
-					%>
+					<% i++; %>
 					<tr>
 						<th scope="row"><%=i%></th>
 						<td>${meno.PRO_NOMBRE}</td>
 						<td>Producto de tienda</td>
 						<td>${meno.PRO_STOCK}</td>
 						<td><input type="number" style="width: 80px;" class="numero" id="stock"></td>
-						<td><a href="/Aceptar-Orden-de-Compra" style="color: black;">
+						<td><a href="/sysplat/crear" style="color: black;">
+						<!--  <td><a href="/sysplat/Aceptar-Orden-de-Compra" style="color: black;">-->
 						<i class="fa fa-check-circle" aria-hidden="true"></i></a></td>
 					</tr>
 				</c:forEach>
@@ -108,6 +107,25 @@
 			ga('create', 'UA-72504830-1', 'auto');
 			ga('send', 'pageview');
 		}
+		$("#buscar").keyup(function () {
+		    var tableReg = document.getElementById('tablaCrear');
+		    var searchText = document.getElementById('buscar').value.toLowerCase();
+		    for (var i = 1; i < tableReg.rows.length; i++) {
+		        var cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+		        var encontrado = false;
+		        for (var j = 0; j < cellsOfRow.length && !encontrado; j++) {
+		            var compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+		            if (searchText.length === 0 || (compareWith.indexOf(searchText) > -1)) {
+		                encontrado = true;
+		            }
+		        }
+		        if (encontrado) {
+		            tableReg.rows[i].style.display = '';
+		        } else {
+		            tableReg.rows[i].style.display = 'none';
+		        }
+		    }
+		});
 	</script>
 </body>
 </html>

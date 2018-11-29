@@ -1,10 +1,14 @@
 package pe.edu.upeu.Spring01.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
@@ -32,6 +36,7 @@ import pe.edu.upeu.Spring01.serviceImp.EmpleadoServiceImp;
 public class CompraController {
 	
 	private Gson gson;
+	
 	public static ArrayList<Producto> produ = new ArrayList<>();
 
 	@Autowired
@@ -51,7 +56,7 @@ public class CompraController {
 	 */
 	@GetMapping("/Compras")
 	public String compras() {
-		System.out.println("ola");
+		System.out.println("Compras"); 
 		return "com_main_main";
 	}
 	
@@ -118,6 +123,7 @@ public class CompraController {
 	
 	@GetMapping("/Registrar-Listas")
 	public ModelAndView registrarlistas() {
+		System.out.println("com_main_registrarproducto");
 		ModelAndView ma = new ModelAndView();
 		ma.setViewName("com_main_registrarproducto");
 		ma.addObject("listasRegistras", det.listarordencompra());
@@ -133,9 +139,23 @@ public class CompraController {
 	{ 
 		OrdenCompra ordencompra= new
 		OrdenCompra(); ordencompra.setIdordencompra(id);
-		ordcompra.traerproductos(id);
 		return "redirect:/sysplat/SeEnviaLaLista"; 
 		}
+	
+	/*
+	 * Parte que me listara de acuerdo al id de la lista
+	 */
+	@RequestMapping(value = "/hc")
+	public void cliente(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		int op = Integer.parseInt(request.getParameter("opc"));
+		switch (op) {
+		case 1:
+			out.println(gson.toJson(ordcompra.traerproductos(request.getParameter("nombre"))));
+			break;
+		}
+	}
 	
 	/*
 	 * Modulo de Productos 

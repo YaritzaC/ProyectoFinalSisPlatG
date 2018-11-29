@@ -14,6 +14,7 @@ import pe.edu.upeu.Spring01.dao.CompraDao;
 import pe.edu.upeu.Spring01.dao.DetalleOrdenCompraDao;
 import pe.edu.upeu.Spring01.entity.Cliente;
 import pe.edu.upeu.Spring01.entity.Compra;
+import pe.edu.upeu.Spring01.entity.DetalleOrdenCompra;
 
 @Repository
 public class DetalleOrdenCompraDaoImp implements DetalleOrdenCompraDao {
@@ -30,13 +31,13 @@ public class DetalleOrdenCompraDaoImp implements DetalleOrdenCompraDao {
 	}
 	
 	@Override
-	public int create(DetalleOrdenCompraDao detalleordcom) throws SQLException {
+	public int create(DetalleOrdenCompra detalleordcom) throws SQLException {
 		// TODO Auto-generated method stub
-		return 0;
+		return jdbcTemplate.update("{call com_agregar_detalle_compra(?,?,?,?)}",detalleordcom.getIdproducto(),detalleordcom.getCantidad(),detalleordcom.getIdMTP(),detalleordcom.getPrecio());
 	}
 
 	@Override
-	public int update(DetalleOrdenCompraDao detalleordcom) {
+	public int update(DetalleOrdenCompra detalleordcom) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

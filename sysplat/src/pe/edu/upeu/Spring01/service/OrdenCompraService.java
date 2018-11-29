@@ -14,6 +14,6 @@ public interface OrdenCompraService {
 	public int update(OrdenCompra ordencompra);
 	public OrdenCompra buscarOrdenCompra(String ord);
 	public List<Map<String, Object>> readAll();
-	public List<Map<String, Object>> traerproductos(OrdenCompra orden);
+	public List<Map<String, Object>> traerproductos(int orden);
 
 }

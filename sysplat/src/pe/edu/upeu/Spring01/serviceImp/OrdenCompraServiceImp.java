@@ -40,7 +40,7 @@ public class OrdenCompraServiceImp implements OrdenCompraService{
 	}
 
 	@Override
-	public List<Map<String, Object>> traerproductos(OrdenCompra orden) {
+	public List<Map<String, Object>> traerproductos(int orden) {
 		// TODO Auto-generated method stub
 		return pro.listarproductos(orden);
 	}
