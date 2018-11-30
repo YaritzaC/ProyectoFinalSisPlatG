@@ -95,7 +95,7 @@ public class CompraController {
 	@RequestMapping("/Crear-Orden-Compras")
 		public ModelAndView registrar() {
 			ModelAndView ma = new ModelAndView();
-			ma.setViewName("com_main_listascompras(Aceptar)");
+			ma.setViewName("com_main_listas_compras");
 			ma.addObject("listasCompras", productoservice.readAllMenor());
 			return ma;
 		}
@@ -103,21 +103,6 @@ public class CompraController {
 	/*	
 	 * Parte numero 1.2.1
 	 */
-	
-	/*@RequestMapping(value = "/OrdenCompra")
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		response.setContentType("text/html;charset=UTF-8");
-		try (PrintWriter out = response.getWriter()) {
-			int op = Integer.parseInt(request.getParameter("opc"));
-			HttpSession sesion = request.getSession();
-			switch (op) {
-			case 2:
-				out.println(gson.toJson(productoservice.readAllMenor()));
-				break;
-			}
-		}
-	}
 
 	@GetMapping("/Aceptar-Orden-de-Compra")
 	public ModelAndView aceptarComprapro() {
