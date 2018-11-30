@@ -19,7 +19,6 @@ public class DetalleOrdenCompraRowMapper implements RowMapper<DetalleOrdenCompra
 		doc.setIdproducto(rs.getInt("PRO_ID"));
 		doc.setIdMTP(rs.getInt("MTP_ID"));
 		doc.setDetalle(rs.getString("DTOC_DETALLE"));
-		doc.setCantidad(Integer.parseInt(rs.getDouble("DTOC_CANTIDAD")));
 		doc.setPrecio(rs.getDouble("DTOC_PRECIO"));
 		doc.setEstado(rs.getString("CMP_ESTADO")); 
 		return doc;

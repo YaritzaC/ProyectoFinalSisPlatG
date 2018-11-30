@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.gson.Gson;
 
 import pe.edu.upeu.Spring01.dao.CompraDao;
+import pe.edu.upeu.Spring01.dao.DetalleOrdenCompraDao;
 import pe.edu.upeu.Spring01.dao.OrdenCompraDao;
 import pe.edu.upeu.Spring01.entity.DetalleOrdenCompra;
 import pe.edu.upeu.Spring01.entity.Empleado;
@@ -45,6 +46,8 @@ public class CompraController {
 	private Gson gson = new Gson();
 
 	public static ArrayList<Producto> produ = new ArrayList<>();
+	
+	public  int cantidadesco;
 
 	@Autowired
 	private ProductoService productoservice;
@@ -61,6 +64,9 @@ public class CompraController {
 	@Autowired
 	private DetalleOrdenCompraServiceImp docImp;
 
+	@Autowired
+	private DetalleOrdenCompraDao docDao;
+	
 	@Autowired
 	private OrdenCompraService ordcompra;
 
@@ -85,68 +91,19 @@ public class CompraController {
 	 * 
 	 * Parte numero 1.1
 	 */
+	
+	@RequestMapping("/Crear-Orden-Compras")
+		public ModelAndView registrar() {
+			ModelAndView ma = new ModelAndView();
+			ma.setViewName("com_main_listascompras(Aceptar)");
+			ma.addObject("listasCompras", productoservice.readAllMenor());
+			return ma;
+		}
 
-	@GetMapping("/Crear-Orden-Compras")
-	public ModelAndView crearordencompra() {
-		ModelAndView ma = new ModelAndView();
-		ma.setViewName("com_listascompras");
-		ma.addObject("listaProductosMenores", productoservice.readAllMenor());
-		return ma;
-	}
-
-	/*
+	/*	
 	 * Parte numero 1.2.1
 	 */
-	/* protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-		        throws ServletException, IOException {
-		        response.setContentType("text/html;charset=UTF-8");
-		        try (PrintWriter out = response.getWriter()) {
-		            int op = Integer.parseInt(request.getParameter("opc"));
-		            HttpSession sesion = request.getSession();
-		             switch(op){
-		                 case 1:
-		                     int idv;
-		                        idv = pr.create(new Prestamo(request.getParameter("fec_pre"),
-		                                                 request.getParameter("alu"),
-		                                                 request.getParameter("fe_devo"),
-		                                                 request.getParameter("horaPre"),
-		                                                 request.getParameter("horadev"),
-		                                                 request.getParameter("aula"),
-		                                                 Integer.parseInt(request.getParameter("prof")),
-		                                                 Integer.parseInt(request.getParameter("docu")),
-		                                                 Integer.parseInt(request.getParameter("user"))));
-		                       if(idv>0){
-		                           out.println(idv);                       
-		                       }else{
-		                           out.println(0);
-		                        }
-		                                          
-		                                                 
-		                 break;
-		                 case 2:
-		                     out.println(g.toJson(pr.readAll()));
-		                 break;
-		                 case 3:
-		                     out.println(g.toJson(pr.read(Integer.parseInt(request.getParameter("id")))));
-		                 break;
-		                 case 4:
-		                     out.println(g.toJson(re.listarProductosReserva()));
-		                 break;
-		                 case 6:
-		                     out.println(g.toJson(pr.readDocument()));
-		                 break;
-		                 case 7:
-		                     out.println(g.toJson(pr.detalle(Integer.parseInt(request.getParameter("id")))));
-		                 break;
-		                 case 10:
-		                     out.println(g.toJson(pr.Reserva(Integer.parseInt(request.getParameter("idr")))));
-		                 break;
-		                 case 11:
-		                     out.println(g.toJson(pr.DetReserva(Integer.parseInt(request.getParameter("idd")))));
-		                 break;
-		             }
-		        }
-		    }*/
+	
 	/*@RequestMapping(value = "/OrdenCompra")
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -174,7 +131,7 @@ public class CompraController {
 	 * Parte numero 1.2.2
 	 */
 
-	@RequestMapping(value = "/ordcom")
+	@RequestMapping(value = "/ordenCom")
 	public void crearpedido(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
@@ -196,11 +153,13 @@ public class CompraController {
 			out.println(gson.toJson(docImp.create(DOC)));
 			break;
 		case 3:
+            out.println(gson.toJson(docDao.detalle(Integer.parseInt(request.getParameter("id")))));
+        break;
+		case 4:
 			System.out.println("Crear Listar productos");
 			out.println(gson.toJson(productoservice.readAllMenor()));
 			break;
 			
-		
 		}
 
 	}
@@ -239,8 +198,9 @@ public class CompraController {
 	@GetMapping("/Registrar-Listas")
 	public ModelAndView registrarlistas() {
 		System.out.println("com_main_registrarproducto");
+		System.out.println("Creo que si se actualiza");
 		ModelAndView ma = new ModelAndView();
-		ma.setViewName("com_main_registrarproducto");
+		ma.setViewName("com_main_listas_compras");
 		ma.addObject("listasRegistras", doc.listarordencompra());
 		return ma;
 	}

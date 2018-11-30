@@ -12,8 +12,10 @@ import pe.edu.upeu.Spring01.entity.Proveedor;
 
 public interface OrdenCompraService {
 
+	public int create();
 	public int update(OrdenCompra ordencompra);
 	public OrdenCompra buscarOrdenCompra(int ord);
+	public OrdenCompra read(int key);
 	public List<Map<String, Object>> readAll();
 	public List<Map<String, Object>> traerproductos(int idCompra);
 	public int crearOrdenCompra(OrdenCompra crearorden);

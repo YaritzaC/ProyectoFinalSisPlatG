@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 
 public class conexion {
 
-	 private static final String URL = "jdbc:mysql://52.55.92.59:3306/sisplata";
+	 private static final String URL = "jdbc:mysql://52.55.92.59:3306/sisplata?noAccessToProcedureBodies=true";
 	    private static final String DRIVER = "com.mysql.jdbc.Driver";
 	    private static final String USER = "root";
 	    private static final String PASS = "1234";

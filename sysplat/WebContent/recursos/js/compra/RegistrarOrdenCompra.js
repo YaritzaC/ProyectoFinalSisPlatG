@@ -5,23 +5,13 @@ $(document).ready(function () {
 });
 
 var mandata ;
-$(function(){
-    $(".buscar").click(function(e) {
+$(function(){ $(".buscar").click(function(e) {
         e.preventDefault();
-        mandata = $(this).attr("name");
-        alert(data);
-    });
+        mandata = $(this).attr("name"); 
+        alert(mandata);
+        alert("no lo se1");
 });
-function ListarProd() {
-    $.get("ordcom", {"opc":3}, function (data) {
-        var x = JSON.parse(data);
-        $("#tablaCrear tbody tr").remove();
-        for (var i = 0; i < x.length; i++) {
-            $("#tablaPrestamo").append("<tr><td>" + (i + 1) + "</td><td>" + x[i].Nombre + "</td><td>" +"Producto de Tienda" + "</td><td>" + e + "</td><td style='text-align:center'>" + x[i].stock + "</td>\n\
-                <td><a href='#' id='bt"+x[i].idProducto+"' class='material-icons' style='background:none;border:none; color:lightblue' onclick='productoSeleccionado("+x[i].idProducto+")'>check_circle</a></td></tr>");       
-        }
-    });
-}
+});
 
 $("#buscar").keyup(function () {
     var tableReg = document.getElementById('tablaCrear');
@@ -56,21 +46,12 @@ $("#guardarOrdenCompra").click(
 			 * var stock = $("#stock").val();
 			 * producto, stock , materia , precio 
 			 */
-			/*var idpro = $("#")
-			var idse = $("#idSede").val();
-			var idcli = $("#idCliente").val();
-			var nom = $("#nombre").val();
-			var can = $("#cantidad").val();
-			var pre = $("#precio").val();
-			var dim = $("#dimension").val();
-			var esp = $("#especificacion").val();
-			var obs = $("#observacion").val();
-*/
+			
 			alert(idem);
 			
 			if (idem != "" && tipo != "" && prove != "") {
 				alert("Control 1")
-				$.post("ordcom", {
+				$.post("ordenCom", {
 					"opc" : 1,
 					"idproveedor":prove,
 					"idempleado" : idem,
@@ -114,7 +95,7 @@ function GuardarDetalle() {
 	
 	if (cant != "" && idpro != "" && idmat != "" && idpreci !="") {
 		alert("Control x1")
-		$.post("ordcom", {
+		$.post("ordenCom", {
 			"opc" : 2,
 			"idproducto":idpro,
 			"idmateria" : idmat,
@@ -128,120 +109,6 @@ function GuardarDetalle() {
 		alert("VACIO");
 	}
 };
-
-/*
- * Crear el array
- */
-
-function productoSeleccionado(x){
-	alert ("a llegado")
-    $.get("array", {"id":x,"opc": 1}, function (data) {
-        var y = JSON.parse(data);
-        if(document.getElementById("seleccionar"+y.PRO_ID+"").style.color === 'green')
-        {
-           Materialize.toast("El producto ya esta en la lista!", 1980);  
-        }
-        else{
-            if (y.est === 0) {
-                var e = y.est = "Mal estado";
-
-            }
-            if (y.est === 1) {
-                var e = y.est = "Buen estado";
-
-            }
-            if (y.est === 2) {
-                var e = y.est = "Estado intermedio";
-
-            }
-        $("#tablaCrearDetalle").append("<tr><td hidden>"+y.idP+"</td><td>" + y.nom + "</td><td>" + e + "</td><td>" + y.nomDes + "</td><td>" + y.stock + "</td>\n\
-        <td><button class='material-icons prefix' style='background:none;border:none; color:#D84A52' onclick='eliminarEquipo(this.parentNode.parentNode.rowIndex,"+y.idP+")'>highlight_off</button></td></tr>");
-        document.getElementById("seleccionar"+y.idP+"").style.color = 'green';
-        }
-     });
-}
-
-$(function() {
-	   function moveRow(row, targetTable, newLinkText){
-	       $(row)
-	           .appendTo(targetTable)
-	           .find("a")
-	               .text(newLinkText);
-	   }
-
-	   $("#tablaCrear a").live("click", function(){
-	       moveRow($(this).parents("tr"), $("#tablaCrearDetalle"), " Agregar");
-	   });
-
-	   $("#tablaCrearDetalle a").live("click", function(){
-	       moveRow($(this).parents("tr"), $("#tablaCrear"), " Eliminar");
-
-	   });
-	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
- * Para tomar la posición en la tabla
- */
-$('td').change(function () {
-	var $this = $(this);
-	col = $this.index();
-	
-	// Columna que se toma
-	row = $this.closest('tr').index();
-});
-
-/*
- * Para tomar el valor del input
- */
-$(".numero").change(function () {
-
-	var n1 = document.getElementById('numero1').tBodies[0].rows[row].cells[1].innerHTML;
-	var n2 = document.getElementById('numero1').tBodies[0].rows[row].cells[2].innerHTML;
-	var n3 = document.getElementById('numero1').tBodies[0].rows[row].cells[4].innerHTML;
-	var nn =$(this).val();
-	
-	if (nn>0){
-		location.href="crearTemporal/"+ n1 +","+ n2 +","+ n3 +","+ nn;
-	}
-
-});
-
-
 
 
 /*
@@ -306,32 +173,6 @@ $("#registrarPrestamo").click(function () {
  * 
  */
 
-function productoSeleccionado(x){
-    $.get("Seleccion", {"id":x,"opc":1}, function (data) {
-        var y = JSON.parse(data);
-        if(document.getElementById("bt"+y.idP+"").style.color === 'green')
-        {
-           Materialize.toast("El equipo ya esta en la lista!", 1980);  
-        }
-        else{
-            if (y.est === 0) {
-                var e = y.est = "Mal estado";
-
-            }
-            if (y.est === 1) {
-                var e = y.est = "Buen estado";
-
-            }
-            if (y.est === 2) {
-                var e = y.est = "Estado intermedio";
-
-            }
-        $("#tablaDetalle").append("<tr><td hidden>"+y.idP+"</td><td>" + y.nom + "</td><td>" + e + "</td><td>" + y.nomTip + "</td>\n\
-        <td><button class='material-icons prefix' style='background:none;border:none; color:#D84A52' onclick='eliminarEquipo(this.parentNode.parentNode.rowIndex,"+y.idP+")'>highlight_off</button></td></tr>");
-        document.getElementById("bt"+y.idP+"").style.color = 'green';
-        }
-     });
-}
 
 $("#dnipro").keyup(function () {
     var dni = $("#dnipro").val();

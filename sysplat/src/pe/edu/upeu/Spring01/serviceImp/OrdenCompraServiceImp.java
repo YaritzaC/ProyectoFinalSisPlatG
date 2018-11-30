@@ -50,6 +50,18 @@ public class OrdenCompraServiceImp implements OrdenCompraService{
 		// TODO Auto-generated method stub
 		return ordencompra.crearOrdenCompra(crearorden);
 	}
+
+	@Override
+	public int create() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public OrdenCompra read(int key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 }

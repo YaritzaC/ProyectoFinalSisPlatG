@@ -58,23 +58,23 @@ public class ProductoDaoImp implements ProductoDao {
 	@Override
 	public List<Map<String, Object>> readAllMenor() {
 		// TODO Auto-generated method stub
-		        List<Map<String, Object>> datos = new ArrayList<>();
-		        try {
-		            cx = (Connection) conexion.getConexion();
-		            cst = cx.prepareCall("{call com_listar_productos_menores()}");
-		            rs = cst.executeQuery();
-		            while (rs.next()) {
-		                Map<String, Object> map = new HashMap<>();
-		                map.put("idProducto", rs.getInt("PRO_ID"));
-		                map.put("Nombre", rs.getInt("PRO_NOMBRE"));
-		                map.put("stock", rs.getInt("PRO_STOCK"));
-		                datos.add(map);
-		            }
-		        } catch (SQLException e) {
-		            System.out.println("Error: " + e);
-		        }
-		        return datos;
-		    }
-		//String sql="{call com_listar_productos_menores()}";
-		//return this.jdbcTemplate.queryForList(sql); 
+		 List<Map<String, Object>> datos = new ArrayList<>();
+	        try {
+	            cx = conexion.getConexion();
+	            cst = cx.prepareCall("{call com_listar_productos_menores()}");
+	            rs = cst.executeQuery();
+	            while (rs.next()) {
+	                Map<String, Object> map = new HashMap<>();
+	                map.put("idPro", rs.getInt("PRO_ID"));
+	                map.put("nomProd", rs.getString("PRO_NOMBRE"));
+	                map.put("stock", rs.getInt("PRO_STOCK"));
+	                datos.add(map);
+	            }
+	        } catch (SQLException e) {
+	            System.out.println("Error: " + e);
+	        }
+	        return datos;
+			//String sql="{call com_listar_productos_menores()}";
+			//return this.jdbcTemplate.queryForList(sql); 
+}
 }

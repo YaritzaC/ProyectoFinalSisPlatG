@@ -70,7 +70,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3>Informacion Empleado</h3>
+					<h3>Ingresar Productos</h3>
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<!-- Modal body -->
@@ -79,8 +79,7 @@
 					<div class="card-body">
 						<form class="form" role="form" autocomplete="off">
 							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">First
-									name</label>
+								<label class="col-lg-3 col-form-label form-control-label">Nombre</label>
 								<div class="col-lg-9">
 									<input class="form-control" type="text"
 										placeholder="Jose Armando">

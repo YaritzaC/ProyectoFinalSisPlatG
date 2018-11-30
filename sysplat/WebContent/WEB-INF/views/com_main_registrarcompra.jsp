@@ -27,8 +27,8 @@
 	<div>
 		<div style="width: 300px; position: relative; left: 70%;">
 			<li class="app-search"><input style="width: 300px;"
-				class="app-search__input" type="search" placeholder="Search">
-				<button class="app-search__button">
+				class="app-search__input" type="search" placeholder="Search" id="search">
+				<button class="app-search__button"> 
 					<i class="fa fa-search"></i>
 				</button></li>
 		</div>
@@ -83,6 +83,35 @@
 	<script src="${urlrecursos}/js/main.js"></script>
 	<!-- The javascript plugin to display page loading on top-->
 	<script src="${urlrecursos}/js/plugins/pace.min.js"></script>
+	<script type="text/javascript">
+	
+	$("#search").keyup(
+			function() {
+				var tableReg = document
+						.getElementById('registrar');
+				var searchText = document.getElementById('search').value
+						.toLowerCase();
+				for (var i = 1; i < tableReg.rows.length; i++) {
+					var cellsOfRow = tableReg.rows[i]
+							.getElementsByTagName('td');
+					var encontrado = false;
+					for (var j = 0; j < cellsOfRow.length
+							&& !encontrado; j++) {
+						var compareWith = cellsOfRow[j].innerHTML
+								.toLowerCase();
+						if (searchText.length === 0
+								|| (compareWith.indexOf(searchText) > -1)) {
+							encontrado = true;
+						}
+					}
+					if (encontrado) {
+						tableReg.rows[i].style.display = '';
+					} else {
+						tableReg.rows[i].style.display = 'none';
+					}
+				}
+			});
+	</script>
 	<!-- Page specific javascripts-->
 	<!-- Google analytics script-->
 	<script type="text/javascript">
